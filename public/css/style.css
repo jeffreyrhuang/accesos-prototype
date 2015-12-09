@@ -7,6 +7,15 @@ a {
   color: #00B7FF;
 }
 
+#frontlogo {
+	text-align: center;
+	padding-top: 2em;
+}
+
+#loginform {
+	padding-top: 5em;
+}
+
 .menubutton {
 	padding-top: 1em;
 	padding-bottom: 1em;

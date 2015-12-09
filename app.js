@@ -4,11 +4,28 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require ('express-session');
+
+//database setup
+var mongoose = require('mongoose');
+var configDB = require('./config/database')
+
+//auth setup
+var passport = require('passport');
+var flash = require('connect-flash');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
+
+//connect to database
+mongoose.connect(configDB.url);
+// require('./config/passport')(passport); // pass passport for configuration
+
+
 
 // view engine setup
 var exphbs = require ('express-handlebars');
@@ -18,11 +35,17 @@ app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-//app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// required for passport
+app.use(session({ secret: 'ilovescotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 app.use('/', routes);
 app.use('/users', users);
