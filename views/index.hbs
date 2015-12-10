@@ -1,22 +1,17 @@
-<h3>Menu Principal</h3>
+<img id="frontlogo" src="img/accesoslogo.png" alt="">
 
+{{#if alertMessage}}
+<div id="alertpanel" class="alert alert-danger">{{{alertMessage}}}</div>
+{{/if}}
 
-<div class="menubutton">
-	<a href="motor" class="btn btn-primary btn-lg btn-block">Buscar Motor</a>
-</div>
-
-<div class="menubutton">
-	<a href="acceso" class="btn btn-primary btn-lg btn-block">Especificar Acceso</a>
-</div>
-
-<div class="menubutton">
-	<a href="peso" class="btn btn-primary btn-lg btn-block">Calcular Peso</a>
-</div>
-
-<div class="menubutton">
-	<a href="encuestas" class="btn btn-primary btn-lg btn-block">Encuestas</a>
-</div>
-
-<div class="menubutton">
-	<a href="cliente" class="btn btn-primary btn-lg btn-block">Registrar Cliente</a>
-</div>
+<form id="loginform" class="form-horizontal" action="/login" method="post">
+    <div class="form-group">
+        <input class="form-control" type="text" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="password" name="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+    	<button type="submit" class="btn btn-primary">Log In</button>
+    </div>
+</form>

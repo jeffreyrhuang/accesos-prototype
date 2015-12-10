@@ -1,21 +1,27 @@
 var express = require('express');
 var router = express.Router();
-//var app = express();
 var passport = require('passport');
+
+//route middleware to make sure user is Authenticated
+var verified = function(req, res, next) {
+	if(req.isAuthenticated())
+		return next();
+	res.redirect('/');
+};
 
 module.exports = function(passport) {
 
-	router.get('/', function(req, res, next) {
-	  res.render('index');
+	router.get('/home', verified, function(req, res, next) {
+	  res.render('home');
 	});
 
-	router.get('/login', function(req, res, next) {
-	  res.render('login');
+	router.get('/', function(req, res, next) {
+	  res.render('index', {alertMessage: req.flash('loginMessage')});
 	});
 
 	router.post('/login', passport.authenticate('local', {
-		successRedirect: '/',
-		failureRedirect: 'login',
+		successRedirect: '/home',
+		failureRedirect: '/',
 		failureFlash: true
 	}));
 

@@ -16,21 +16,20 @@ module.exports = function(passport) {
 	});
 
 	passport.use('local', new LocalStrategy({
-		usernameField: 'username',
-		passwordField: 'password',
 		passReqToCallback: true
 	},
 	function(req, username, password, done) {
 		//find a user whose email is the same as the forms email
 		//we are checking to see if the user trying to login already exists
-		User.findOne({'local.username': username}, function(err, user){
+		User.findOne({'username': username}, function(err, user){
 			if(err)
 				return done(err);
 
-			if(!user)
-				return done(null, false, req.flash('loginMessage', 'No user found'));
+			if(!user) {
+				return done(null, false, req.flash('loginMessage', 'User not found'));
+			}
 			if (!user.validPassword(password))
-				return done(null, false, req.flash('loginMessage', 'Ops! Wrong password'));
+				return done(null, false, req.flash('loginMessage', 'Oops! Wrong password'));
 			return done(null, user);
 		});
 	}));

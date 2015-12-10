@@ -15,7 +15,6 @@ var configDB = require('./config/database');
 var passport = require('passport');
 var flash = require('connect-flash');
 
-
 //connect to database
 mongoose.connect(configDB.url);
 require('./config/passport')(passport); // pass passport for configuration
@@ -41,8 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-//must come after passport init!!
-var routes = require('./routes/index')(passport);
+var routes = require('./routes/routes')(passport);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
