@@ -1,38 +1,45 @@
 var express = require('express');
 var router = express.Router();
+//var app = express();
+var passport = require('passport');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
+module.exports = function(passport) {
 
-// router.post('/login', passport.authenticate('local', {
-// 	successRedirect: '/',
-// 	failureRedirect: 'login'
-// }));
+	router.get('/', function(req, res, next) {
+	  res.render('index');
+	});
 
-router.get('/login', function(req, res, next) {
-  res.render('login');
-});
+	router.get('/login', function(req, res, next) {
+	  res.render('login');
+	});
 
-router.get('/motor', function(req, res, next) {
-  res.render('motor');
-});
+	router.post('/login', passport.authenticate('local', {
+		successRedirect: '/',
+		failureRedirect: 'login',
+		failureFlash: true
+	}));
 
-router.get('/acceso', function(req, res, next) {
-  res.render('acceso');
-});
+	router.get('/motor', function(req, res, next) {
+	  res.render('motor');
+	});
 
-router.get('/peso', function(req, res, next) {
-  res.render('peso');
-});
+	router.get('/acceso', function(req, res, next) {
+	  res.render('acceso');
+	});
 
-router.get('/encuestas', function(req, res, next) {
-  res.render('encuestas');
-});
+	router.get('/peso', function(req, res, next) {
+	  res.render('peso');
+	});
 
-router.get('/cliente', function(req, res, next) {
-  res.render('cliente');
-});
+	router.get('/encuestas', function(req, res, next) {
+	  res.render('encuestas');
+	});
 
-module.exports = router;
+	router.get('/cliente', function(req, res, next) {
+	  res.render('cliente');
+	});
+
+	return router;
+
+};
+
