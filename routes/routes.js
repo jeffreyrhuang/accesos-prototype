@@ -25,7 +25,7 @@ module.exports = function(passport) {
 		failureFlash: true
 	}));
 
-	router.get('/motor', function(req, res, next) {
+	router.get('/motor', verified, function(req, res, next) {
 	  res.render('motor');
 	});
 

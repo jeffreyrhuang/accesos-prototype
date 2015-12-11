@@ -6,11 +6,13 @@ var User = require('../models/users');
 module.exports = function(passport) {
 
 	passport.serializeUser(function(user, done){
+		console.log('serializing');
 		done(null, user.id);
 	});
 
 	passport.deserializeUser(function(id, done){
 		User.findById(id, function(err, user){
+			console.log('deserializing');
 			done(err, user);
 		});
 	});
@@ -24,12 +26,10 @@ module.exports = function(passport) {
 		User.findOne({'username': username}, function(err, user){
 			if(err)
 				return done(err);
-
-			if(!user) {
+			if(!user)
 				return done(null, false, req.flash('loginMessage', 'User not found'));
-			}
-			if (!user.validPassword(password))
-				return done(null, false, req.flash('loginMessage', 'Oops! Wrong password'));
+			if (user.password != password)
+				return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.  Try again.'));
 			return done(null, user);
 		});
 	}));
