@@ -1,1 +1,49 @@
 <h3>Calcular Peso</h3>
+
+<form action ="/peso-result" class="form-horizontal" method="POST" role="form">
+  <div class="form-group">
+    <label for="#" class="col-sm-2 control-label">Nombre Proyecto</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="#" name="proyecto">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="#" class="col-sm-2 control-label">Dise&ntilde;o Tipo</label>
+    <div class="col-sm-10">
+      <select class="form-control" name="portonModel">
+        <option>para rellenar</option>
+        <option>lamina de cortina</option>
+        <option>lamina rectangular techo</option>
+        <option>lamina southgate</option>
+        <option>Thermatite hibrido</option>
+       </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="#" class="col-sm-2 control-label">Alto Libre (to 1 decimal place)</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="#" placeholder="Alto" name="alto">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="#" class="col-sm-2 control-label">Ancho Libre</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="#" placeholder="Ancho" name="ancho">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Calculate</button>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="alert alert-success">
+    <p>Peso Calculation = {{{pesocalc}}}</p>
+  </div>  
+</div>
