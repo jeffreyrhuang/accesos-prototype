@@ -42,18 +42,22 @@ module.exports = function(passport) {
 	});
 
 	router.post('/peso-result', verified, function(req, res, next) {
+		function showTotal(pesoTotal) {
+			res.render('peso-result', {nombre: req.body.proyecto, model: req.body.portonModel, alto: req.body.alto, ancho: req.body.ancho, pesocalc: pesoTotal});
+		}
+		//perhaps send to new peso-result page with option to undo changes. then have option to proceed to motors.
+		//set up database for each project.  save pesoTotal to project. have it load on motor page.
 		Porton.findOne({model: req.body.portonModel}, function(err, porton){
 			if (err) {
 				console.log(err);
+			} else {
+				var pesoTotal = porton.peso * req.body.alto * req.body.ancho;
+				console.log(pesoTotal);
+				showTotal(pesoTotal);
 			}
-			var weight = porton.peso;
-			console.log(weight + ' kg');
-			console.log(req.body.alto + ' cm');
-			console.log(req.body.ancho + ' cm');
-			var pesoTotal = weight * req.body.alto * req.body.ancho;
-			console.log(pesoTotal);
+			
 		});
-		//res.redirect(303, '/peso');
+		//res.redirect(303, '/peso', {pesocalc: pesoTotal};   !! redirect doesn't work !!
 	});
 
 	router.get('/encuestas', verified, function(req, res, next) {
