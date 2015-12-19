@@ -52,10 +52,12 @@ module.exports = function(passport) {
 				console.log(err);
 			} else {
 				var pesoTotal = porton.peso * req.body.alto * req.body.ancho;
-				console.log(pesoTotal);
+				console.log('pesoTotal: ' + pesoTotal);
 				showTotal(pesoTotal);
 			}
-			
+			//Next steps:
+			//add search bar to model input?
+			//check calculation with oscar
 		});
 		//res.redirect(303, '/peso', {pesocalc: pesoTotal};   !! redirect doesn't work !!
 	});
