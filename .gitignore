@@ -30,3 +30,4 @@ npm-debug.log
 .DS_Store
 credentials.js
 config/database.js
+accesos-support

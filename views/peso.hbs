@@ -1,3 +1,5 @@
+<a href="home"><img src="img/home-icon.png" alt=""></a>
+
 <h3>Calcular Peso</h3>
 
 <form action ="/peso-result" class="form-horizontal" method="POST" role="form">
@@ -17,15 +19,21 @@
 
   <div class="form-group">
     <label for="#" class="col-sm-2 control-label">Alto Libre (to 1 decimal place)</label>
-    <div class="col-sm-2">
-      <input type="text" class="form-control" id="#" placeholder="Alto" name="alto">
+    <div class="col-sm-3">
+      <div class="input-group">
+        <input type="text" class="form-control" id="#" placeholder="Alto" name="alto">
+        <div class="input-group-addon">cm</div>
+      </div>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="#" class="col-sm-2 control-label">Ancho Libre</label>
-    <div class="col-sm-2">
-      <input type="text" class="form-control" id="#" placeholder="Ancho" name="ancho">
+    <label for="#" class="col-sm-2 control-label">Ancho Libre (to 1 decimal place)</label>
+    <div class="col-sm-3">
+      <div class="input-group">
+        <input type="text" class="form-control" id="#" placeholder="Ancho" name="ancho">
+        <div class="input-group-addon">cm</div>
+      </div>
     </div>
   </div>
   
@@ -36,10 +44,73 @@
   </div>
 </form>
 
-{{!-- <div class="row">
-  <div class="alert alert-success">
-    {{#if pesoTotal}}
-    <p>Peso Calculation = {{{pesocalc}}}</p>
-    {{/if}}
-  </div>  
-</div> --}}
+
+{{#section 'typeahead'}}
+
+<script src="js/vendor/typeahead.jquery.js"></script>
+<script>
+  var substringMatcher = function(strs) {
+    return function findMatches(q, cb) {
+      var matches, substringRegex;
+
+      // an array that will be populated with substring matches
+      matches = [];
+
+      // regex used to determine if a string contains the substring `q`
+      substrRegex = new RegExp(q, 'i');
+
+      // iterate through the pool of strings and for any string that
+      // contains the substring `q`, add it to the `matches` array
+      $.each(strs, function(i, str) {
+        if (substrRegex.test(str)) {
+          matches.push(str);
+        }
+      });
+
+      cb(matches);
+    };
+  };
+
+  var portonTipos = ['Para rellenar',
+    'Lamina de cortina',
+    'Lamina rectangular techo',
+    'Lamina Southgate',
+    'Thermatite hibrido',
+    'Thermatite jaspeado hibrido',
+    'Thermatite aluminio',
+    'Thermatite jaspeado aluminio',
+    'Punta diamante',
+    'Laminado no.16 a 1 cara',
+    'Laminado no.16 a 2 cara',
+    'Laminado no.16 a 1 cara y arco',
+    'Reja europea',
+    'Malla ciclon',
+    'Expandida pesada',
+    'Expandida liviana', 
+    'Expandida decorative', 
+    'Barrote 1x1',
+    'Barrote 1x1 - 1 figuras',
+    'Barrote 1x1 - 2 figuras',
+    'Herreria simple', 
+    'Herreria simple y arco', 
+    'Herreria y laminado',
+    'Herreria complejo', 
+    'Herreria cuadriculado', 
+    'Herreria muy complejo',
+    'Barrotes 1x2',
+    'Barrotes 2x2',
+    'Barrote seguido',
+  ];
+
+  $('#porton-search .typeahead').typeahead({
+    hint: true,
+    highlight: true,
+    minLength: 1
+  },
+  {
+    name: 'portonTipos',
+    source: substringMatcher(portonTipos)
+  });
+</script>
+
+{{/section}}

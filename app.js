@@ -22,7 +22,17 @@ require('./config/passport')(passport); // pass passport for configuration
 
 // view engine setup
 var exphbs = require ('express-handlebars');
-var handlebars = exphbs.create({defaultLayout: 'main', extname: 'hbs'});
+var handlebars = exphbs.create({
+  defaultLayout: 'main',
+  extname: 'hbs',
+  helpers: {
+    section: function(name, options){
+      if(!this._sections) this._sections={};
+      this._sections[name] = options.fn(this);
+      return null;
+    }
+  }
+});
 app.engine('hbs', handlebars.engine);
 app.set('view engine', 'hbs');
 

@@ -8,10 +8,17 @@ a {
 }
 
 
+/*Index Page*/
 
 #frontlogo {
 	text-align: center;
 	padding-top: 2em;
+    padding-bottom: 2em;;
+    width: 18em;
+}
+
+.form-control {
+    max-width: 22em;
 }
 
 
@@ -22,6 +29,8 @@ a {
 #loginform {
 	padding-top: 1em;
 }
+
+/*Menu Principal*/
 
 .menubutton {
 	padding-top: 1em;
@@ -36,10 +45,6 @@ h3 {
 
 footer {
 	font-size: 10px;
-}
-
-.navbar {
-	background-color: orange;
 }
 
 .btn {

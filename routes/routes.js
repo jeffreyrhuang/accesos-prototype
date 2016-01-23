@@ -46,7 +46,7 @@ module.exports = function(passport) {
 			res.render('peso-result', {nombre: req.body.proyecto, model: req.body.portonModel, alto: req.body.alto, ancho: req.body.ancho, pesocalc: pesoTotal});
 		}
 		//perhaps send to new peso-result page with option to undo changes. then have option to proceed to motors.
-		//set up database for each project.  save pesoTotal to project. have it load on motor page.
+		//set up database for each project.  save pesoTotal to project in database. have it load on motor page.
 		Porton.findOne({model: req.body.portonModel}, function(err, porton){
 			if (err) {
 				console.log(err);
@@ -56,8 +56,9 @@ module.exports = function(passport) {
 				showTotal(pesoTotal);
 			}
 			//Next steps:
-			//add search bar to model input?
 			//check calculation with oscar
+			//update porton database
+			//store type of porton in DB on initial post
 		});
 		//res.redirect(303, '/peso', {pesocalc: pesoTotal};   !! redirect doesn't work !!
 	});
