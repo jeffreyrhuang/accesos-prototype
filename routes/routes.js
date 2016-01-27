@@ -23,10 +23,20 @@ module.exports = function(passport) {
 	  res.render('index', {alertMessage: req.flash('loginMessage')});
 	});
 
-	router.post('/login', passport.authenticate('local', {
+	router.post('/login', passport.authenticate('local-login', {
 		successRedirect: '/home',
 		failureRedirect: '/',
 		failureFlash: true
+	}));
+
+	router.get('/signup', function(req, res, next) {
+		res.render('signup', {alertMessage: req.flash('signupMessage')});
+	});
+
+	router.post('/signup', passport.authenticate('local-signup', {
+		successRedirect: '/home',
+		failureRedirect: '/signup',
+		failureFlash: true 
 	}));
 
 	router.get('/motor', verified, function(req, res, next) {
@@ -56,8 +66,6 @@ module.exports = function(passport) {
 				showTotal(pesoTotal);
 			}
 			//Next steps:
-			//check calculation with oscar
-			//update porton database
 			//store type of porton in DB on initial post
 		});
 		//res.redirect(303, '/peso', {pesocalc: pesoTotal};   !! redirect doesn't work !!

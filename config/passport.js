@@ -17,12 +17,47 @@ module.exports = function(passport) {
 		});
 	});
 
-	passport.use('local', new LocalStrategy({
+	// SIGNUP
+
+	passport.use('local-signup', new LocalStrategy({
 		passReqToCallback: true
 	},
 	function(req, username, password, done) {
-		//find a user whose email is the same as the forms email
-		//we are checking to see if the user trying to login already exists
+		//asynchronous - User.findOne wont fire unless data is sent back
+		process.nextTick(function() {
+			//checking to see if the user trying to signup alreadu exists
+			User.findOne({'username': username}, function(err, user){
+				if(err)
+					return done(err);
+				if(user) {
+					return done(null, false, req.flash('signupMessage', 'That username is already taken'));
+				} else {
+					//if there is no user with that name, create the user
+					var newUser = new User();
+
+					//set new user name/password
+					newUser.username = username;
+					newUser.password = password;
+
+					newUser.save(function(err){
+						if(err)
+							throw err;
+						return done(null, newUser);
+					});
+				}
+			});
+		});
+
+	}));
+
+
+
+	// LOGIN
+	passport.use('local-login', new LocalStrategy({
+		passReqToCallback: true
+	},
+	function(req, username, password, done) {
+		//checking to see if the user trying to login already exists
 		User.findOne({'username': username}, function(err, user){
 			if(err)
 				return done(err);
