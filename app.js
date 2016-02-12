@@ -9,9 +9,9 @@ var session = require('express-session');
 var csurf = require('csurf');
 
 
-if (process.env.NODE_ENV = 'development') {
-  var credentials = require('./credentials');
-}
+// if (process.env.NODE_ENV = 'development') {
+//   var credentials = require('./credentials');
+// }
 
 //database setup
 var mongoose = require('mongoose');
