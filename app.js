@@ -8,7 +8,10 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var csurf = require('csurf');
 
-var credentials = require('./credentials');
+
+if (process.env.NODE_ENV = 'development') {
+  var credentials = require('./credentials');
+}
 
 //database setup
 var mongoose = require('mongoose');
@@ -23,7 +26,7 @@ switch(app.get('env')){
     console.log('connected to mongodb');
     break;
   case 'production':
-    mongoose.connect(credentials.mongo.production.connectionString, options);
+    mongoose.connect(process.env.MONGOLAB_URI, options);
     break;
   default:
     throw new Error('Unknown execution environment: ' + app.get('env'));
