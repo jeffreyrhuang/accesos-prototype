@@ -5,18 +5,37 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require ('express-session');
+var session = require('express-session');
+var csurf = require('csurf');
+
+var credentials = require('./credentials');
 
 //database setup
 var mongoose = require('mongoose');
-var configDB = require('./config/database');
+var options = {
+  server: {
+    socketOptions: {keepAlive: 1}
+  }
+};
+switch(app.get('env')){
+  case 'development':
+    mongoose.connect(credentials.mongo.development.connectionString, options);
+    console.log('connected to mongodb');
+    break;
+  case 'production':
+    mongoose.connect(credentials.mongo.production.connectionString, options);
+    break;
+  default:
+    throw new Error('Unknown execution environment: ' + app.get('env'));
+}
+
 
 //auth setup
 var passport = require('passport');
 var flash = require('connect-flash');
 
 //connect to database
-mongoose.connect(configDB.url);
+// mongoose.connect(configDB.url);
 require('./config/passport')(passport); // pass passport for configuration
 
 
@@ -49,6 +68,12 @@ app.use(session({ secret: 'ilovescotch', saveUninitialized: true, resave: true }
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
+
+app.use(csurf());
+app.use(function(req, res, next){
+  res.locals._csrfToken = req.csrfToken();
+  next();
+});
 
 var routes = require('./routes/routes')(passport);
 app.use('/', routes);

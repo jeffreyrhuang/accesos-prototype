@@ -3,6 +3,7 @@
 <h3>Calcular Peso</h3>
 
 <form action ="/peso-result" class="form-horizontal" method="POST" role="form">
+  <input type="hidden" name="_csrf" value="{{_csrfToken}}">
   <div class="form-group">
     <label for="#" class="col-sm-2 control-label">Nombre Proyecto</label>
     <div class="col-sm-6">

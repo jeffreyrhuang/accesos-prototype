@@ -10,6 +10,7 @@
 		{{/if}}
 
 		<form id="signupform" class="form-horizontal" action="/signup" method="post">
+			<input type="hidden" name="_csrf" value="{{_csrfToken}}">
 		    <div class="form-group">
 		        <input class="form-control" type="text" name="username" placeholder="Username">
 		    </div>
