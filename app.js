@@ -1,17 +1,17 @@
+require('dotenv').config();
+
 var express = require('express');
 var app = express();
 var path = require('path');
+var passport = require('passport');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var csurf = require('csurf');
+var flash = require('connect-flash');
 
-
-// if (process.env.NODE_ENV = 'development') {
-//   var credentials = require('./credentials');
-// }
 
 //database setup
 var mongoose = require('mongoose');
@@ -22,8 +22,8 @@ var options = {
 };
 switch(app.get('env')){
   case 'development':
-    mongoose.connect(credentials.mongo.development.connectionString, options);
-    console.log('connected to mongodb');
+    mongoose.connect(process.env.LOCAL_DB, options);
+    console.log('connected to local mongodb');
     break;
   case 'production':
     mongoose.connect(process.env.MONGOLAB_URI, options);
@@ -32,13 +32,6 @@ switch(app.get('env')){
     throw new Error('Unknown execution environment: ' + app.get('env'));
 }
 
-
-//auth setup
-var passport = require('passport');
-var flash = require('connect-flash');
-
-//connect to database
-// mongoose.connect(configDB.url);
 require('./config/passport')(passport); // pass passport for configuration
 
 
@@ -60,7 +53,7 @@ app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-//app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
