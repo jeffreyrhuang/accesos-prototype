@@ -58,12 +58,22 @@ module.exports = function(passport) {
 
 	router.post('/ajax', verified, function(req, res) {
 		if(req.xhr || req.accepts('json,html')==='json'){
-			// console.log(req.body);
-			res.send({success: true});
+			
+			var portonQuery = Porton.findOne({model: req.body.portonModel}).exec();
+
+			portonQuery.then(function(porton){
+					var peso = porton.peso
+					return peso;
+				})
+				.then(function(peso){
+					res.json({success: true, alto: req.body.alto, ancho: req.body.ancho, peso: peso});
+				});
+
 		} else {
 			res.redirect(303, '/ajax');
 		}
 	});
+
 
 	router.get('/peso', verified, function(req, res, next) {
 	  res.render('peso');
