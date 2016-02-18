@@ -39,12 +39,30 @@ module.exports = function(passport) {
 		failureFlash: true 
 	}));
 
+	router.get('/logout', function(req, res){
+		req.logout();
+		res.redirect('/');
+	});
+
 	router.get('/motor', verified, function(req, res, next) {
 	  res.render('motor');
 	});
 
 	router.get('/acceso', verified, function(req, res, next) {
 	  res.render('acceso');
+	});
+
+	router.get('/ajax', verified, function(req, res){
+		res.render('ajax');
+	});
+
+	router.post('/ajax', verified, function(req, res) {
+		if(req.xhr || req.accepts('json,html')==='json'){
+			// console.log(req.body);
+			res.send({success: true});
+		} else {
+			res.redirect(303, '/ajax');
+		}
 	});
 
 	router.get('/peso', verified, function(req, res, next) {

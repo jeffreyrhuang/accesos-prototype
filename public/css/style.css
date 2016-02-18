@@ -7,6 +7,13 @@ a {
   color: #00B7FF;
 }
 
+#homebutton {
+    float: left;
+}
+
+#logout {
+    float: right;
+}
 
 /*Login-Signup Pages*/
 
@@ -50,6 +57,10 @@ footer {
 .btn {
 	border-radius: 0px;
 }
+
+/*Peso Page*/
+
+
 
 /*TYPEAHEAD STYLING*/
 

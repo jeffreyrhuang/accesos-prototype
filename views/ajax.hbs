@@ -1,11 +1,10 @@
-<div id="logout"><a href="logout" class="btn btn-link">Logout</a></div>
 <a href="home" id="homebutton"><img src="img/home-icon.png" alt="Home"></a>
 
 <div class="row">
-  <h3>Calcular Peso</h3>
+  <h3>Ajax Test Page</h3>
   <div class="col-sm-3"></div>
   <div class="col-sm-9">
-    <form action ="/peso-result" class="form-horizontal" method="POST" role="form">
+    <form action ="/ajax" class="form-horizontal pesoForm" method="POST" role="form">
       <input type="hidden" name="_csrf" value="{{_csrfToken}}">
       <div class="form-group">
         <label for="#" class="col-sm-2 control-label">Nombre Proyecto</label>
@@ -48,7 +47,39 @@
       </div>
     </form>
   </div>
+
+  <div class="resultContainer col-sm-12"></div>
 </div><!--end row-->
+
+{{#section 'jquery'}}
+<script>
+    $('document').ready(function(){
+      $('form').on('submit', function(e){
+          e.preventDefault();
+          var action = $(this).attr('action');
+
+          $.ajax({
+            url: action,
+            method: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function(data) {
+              console.log(data);
+
+              if(data.success){
+                $('.resultContainer').html('<p>It worked</p>');
+              }  else {
+                $('.resultContainer').html('<p>Oops, there was a problem</p>');
+              }
+            },
+            error: function(){
+              $('.resultContainer').html('Oops we have a problem');
+            }
+          });
+      });
+    });
+</script>
+{{/section}}
 
 {{#section 'typeahead'}}
 
