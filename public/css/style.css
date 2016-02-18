@@ -7,12 +7,17 @@ a {
   color: #00B7FF;
 }
 
+.hidden {
+    display: none !important;
+}
+
 #homebutton {
     float: left;
 }
 
 #logout {
     float: right;
+    padding-right: 5em;
 }
 
 /*Login-Signup Pages*/
@@ -60,7 +65,15 @@ footer {
 
 /*Peso Page*/
 
+.resultContainer {
+    font-weight: bold;
+    font-size: 1.75em;
+    color: #e60000;
+}
 
+#clearbutton {
+    margin-left: 2em;
+}
 
 /*TYPEAHEAD STYLING*/
 

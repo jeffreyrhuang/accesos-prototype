@@ -52,11 +52,11 @@ module.exports = function(passport) {
 	  res.render('acceso');
 	});
 
-	router.get('/ajax', verified, function(req, res){
-		res.render('ajax');
+	router.get('/peso', verified, function(req, res){
+		res.render('peso');
 	});
 
-	router.post('/ajax', verified, function(req, res) {
+	router.post('/peso', verified, function(req, res) {
 		if(req.xhr || req.accepts('json,html')==='json'){
 			
 			var portonQuery = Porton.findOne({model: req.body.portonModel}).exec();
@@ -67,37 +67,16 @@ module.exports = function(passport) {
 				})
 				.then(function(peso){
 					res.json({success: true, alto: req.body.alto, ancho: req.body.ancho, peso: peso});
+				})
+				.catch(function(e){
+					console.log(e);
 				});
 
 		} else {
-			res.redirect(303, '/ajax');
+			res.redirect(303, '/peso');
 		}
 	});
 
-
-	router.get('/peso', verified, function(req, res, next) {
-	  res.render('peso');
-	});
-
-	router.post('/peso-result', verified, function(req, res, next) {
-		function showTotal(pesoTotal) {
-			res.render('peso-result', {nombre: req.body.proyecto, model: req.body.portonModel, alto: req.body.alto, ancho: req.body.ancho, pesocalc: pesoTotal});
-		}
-		//perhaps send to new peso-result page with option to undo changes. then have option to proceed to motors.
-		//set up database for each project.  save pesoTotal to project in database. have it load on motor page.
-		Porton.findOne({model: req.body.portonModel}, function(err, porton){
-			if (err) {
-				console.log(err);
-			} else {
-				var pesoTotal = porton.peso * req.body.alto * req.body.ancho;
-				console.log('pesoTotal: ' + pesoTotal);
-				showTotal(pesoTotal);
-			}
-			//Next steps:
-			//store type of porton in DB on initial post
-		});
-		//res.redirect(303, '/peso', {pesocalc: pesoTotal};   !! redirect doesn't work !!
-	});
 
 	router.get('/encuestas', verified, function(req, res, next) {
 	  res.render('encuestas');

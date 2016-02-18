@@ -15,6 +15,7 @@ var flash = require('connect-flash');
 
 //database setup
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 var options = {
   server: {
     socketOptions: {keepAlive: 1}

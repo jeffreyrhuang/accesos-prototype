@@ -5,7 +5,7 @@
   <h3>Calcular Peso</h3>
   <div class="col-sm-3"></div>
   <div class="col-sm-9">
-    <form action ="/peso-result" class="form-horizontal" method="POST" role="form">
+    <form action ="/peso" id="pesoForm" class="form-horizontal" method="POST" role="form">
       <input type="hidden" name="_csrf" value="{{_csrfToken}}">
       <div class="form-group">
         <label for="#" class="col-sm-2 control-label">Nombre Proyecto</label>
@@ -44,11 +44,65 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-warning">Calculate</button>
+          <button type="reset" class="btn btn-default" id="clearbutton">Reset</button>
         </div>
       </div>
     </form>
   </div>
 </div><!--end row-->
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="resultContainer col-sm-8"></div>
+</div>
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-8">
+      <button id="savePeso" type="submit" class="btn btn-success hidden">Save to Project</button>
+  </div>
+</div>
+
+{{#section 'jquery'}}
+<script>
+    $('document').ready(function(){
+      //Calculate Button
+      $('form').on('submit', function(e){
+          e.preventDefault();
+          var action = $(this).attr('action');
+
+          $.ajax({
+            url: action,
+            method: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function(data) {
+              console.log(data);
+              if(data.success){
+                $('.resultContainer').html('Peso: ' + data.ancho * data.alto * data.peso + ' kg');
+              }  else {
+                $('.resultContainer').html('<p>Oops, there was a problem</p>');
+              }
+            },
+            error: function(){
+              $('.resultContainer').html('Oops we have a problem');
+            }
+          });
+          $('#savePeso').removeClass('hidden');
+      });
+
+      //Clear button
+      $('clearbutton').on('click', function(e){
+        e.preventDefault();
+        document.getElementById("pesoForm").reset();
+        // $('.resultContainer').html('');
+        // $('#savePeso').addClass('hidden');  //not working
+      })
+    });
+</script>
+{{/section}}
 
 {{#section 'typeahead'}}
 
