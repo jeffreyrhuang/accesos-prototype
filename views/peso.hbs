@@ -44,7 +44,7 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-warning">Calculate</button>
-          <button type="reset" class="btn btn-default" id="clearbutton">Reset</button>
+          <button type="reset" class="btn btn-default" id="reset">Reset</button>
         </div>
       </div>
     </form>
@@ -94,10 +94,10 @@
           // $('#savePeso').removeClass('hidden');
       });
 
-      //Clear button
-      $('clearbutton').on('click', function(){
-        document.getElementById("pesoForm").reset();
-        // $('.resultContainer').empty();
+      //Reset button
+      $('#reset').on('click', function(){
+        $("#pesoForm").trigger('reset');
+        $('.resultContainer').empty();
         // $('#savePeso').addClass('hidden');  //not working
       });
     });
