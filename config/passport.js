@@ -24,9 +24,9 @@ module.exports = function (passport) {
 		function (req, username, password, done) {
 			//asynchronous - User.findOne wont fire unless data is sent back
 			process.nextTick(function () {
-				//checking to see if the user trying to signup alreadu exists
+				//checking to see if the user trying to signup already exists
 				User.findOne({
-					'username': username
+					'username': username.toLowerCase()
 				}, function (err, user) {
 					if (err)
 						return done(err);
@@ -37,7 +37,7 @@ module.exports = function (passport) {
 						var newUser = new User();
 
 						//set new user name/password
-						newUser.username = username;
+						newUser.username = username.toLowerCase();
 						newUser.password = newUser.generateHash(password);
 
 						newUser.save(function (err) {
@@ -60,7 +60,7 @@ module.exports = function (passport) {
 		function (req, username, password, done) {
 			//checking to see if the user trying to login already exists
 			User.findOne({
-				'username': username
+				'username': username.toLowerCase()
 			}, function (err, user) {
 				if (err)
 					return done(err);
