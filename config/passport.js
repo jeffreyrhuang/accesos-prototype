@@ -28,10 +28,11 @@ module.exports = function (passport) {
 				User.findOne({
 					'username': username.toLowerCase()
 				}, function (err, user) {
-					if (err)
-						return done(err);
+					if (err) {return done(err)};
 					if (user) {
 						return done(null, false, req.flash('signupMessage', 'That username is already taken'));
+					} else if (password!= req.body.passwordDos){
+						return done(null, false, req.flash('signupMessage', 'Passwords do not match'));
 					} else {
 						//if there is no user with that name, create the user
 						var newUser = new User();
