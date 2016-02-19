@@ -3,8 +3,15 @@ var bcrypt = require('bcrypt');
 
 var userSchema = mongoose.Schema({
 
-	username: String,
-	password: String,
+	username: {
+		type: String,
+		required: true,
+		trim: true
+	},
+	password: {
+		type: String,
+		required: true
+	},
 	createdAt: {
 		type: Date,
 		default: Date.now
