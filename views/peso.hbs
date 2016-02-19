@@ -81,7 +81,7 @@
             success: function(data) {
               console.log(data);
               if(data.success){
-                $('.resultContainer').html('Peso: ' + data.ancho * data.alto * data.peso + ' kg');
+                $('.resultContainer').html('Peso: ' + ((data.ancho/100) * (data.alto/100) * data.peso).toFixed(2) + ' kg');
               }  else {
                 $('.resultContainer').html('<p>Oops, there was a problem</p>');
               }
@@ -90,16 +90,16 @@
               $('.resultContainer').html('Oops we have a problem');
             }
           });
-          $('#savePeso').removeClass('hidden');
+
+          // $('#savePeso').removeClass('hidden');
       });
 
       //Clear button
-      $('clearbutton').on('click', function(e){
-        e.preventDefault();
+      $('clearbutton').on('click', function(){
         document.getElementById("pesoForm").reset();
-        // $('.resultContainer').html('');
+        // $('.resultContainer').empty();
         // $('#savePeso').addClass('hidden');  //not working
-      })
+      });
     });
 </script>
 {{/section}}
