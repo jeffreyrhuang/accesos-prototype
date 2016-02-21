@@ -39,10 +39,12 @@ module.exports = function (passport) {
 						//if there is no user with that name, create the user
 						var newUser = new User();
 
-						//set new user name/password
+						//set new username, email and password
 						newUser.username = username.toLowerCase();
+						newUser.email = req.body.email;
 						newUser.password = newUser.generateHash(password);
 
+						//save to database
 						newUser.save(function (err) {
 							if (err)
 								throw err;
