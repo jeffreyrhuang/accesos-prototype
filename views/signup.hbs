@@ -12,7 +12,7 @@
 		<form id="signupform" class="form-horizontal" action="/signup" method="post">
 			<input type="hidden" name="_csrf" value="{{_csrfToken}}">
 		    <div class="form-group">
-		        <input class="form-control" type="text" name="username" placeholder="Usuario">
+		        <input class="form-control" type="text" name="username" placeholder="Usuario" required>
 		    </div>
 		    <div class="form-group">
 		        <input class="form-control" type="password" name="password" placeholder="Contraseña" required>
@@ -21,7 +21,7 @@
 		        <input class="form-control" type="password" name="passwordDos" placeholder="Confirme Contraseña" required>
 		    </div>
 		    <div class="form-group">
-		        <input class="form-control" type="password" name="employeeKey" placeholder="Clave Especial">
+		        <input class="form-control" type="password" name="employeeKey" placeholder="Clave Especial" required>
 		    </div>
 		    <div class="form-group">
 		    	<button type="submit" class="btn btn-warning">Regístrese aqui</button>
