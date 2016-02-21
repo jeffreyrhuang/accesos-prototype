@@ -30,11 +30,11 @@ module.exports = function (passport) {
 				}, function (err, user) {
 					if (err) {return done(err)};
 					if (user) {
-						return done (null, false, req.flash('signupMessage', 'That username is already taken'));
+						return done (null, false, req.flash('signupMessage', 'Ese nombre de usuario no esta disponible'));
 					} else if (password!= req.body.passwordDos){
-						return done (null, false, req.flash('signupMessage', 'Passwords do not match'));
+						return done (null, false, req.flash('signupMessage', 'Las contraseñas no son iguales'));
 					} else if (req.body.employeeKey != process.env.EMP_KEY){
-						return done (null, false, req.flash('signupMessage', 'Incorrect employee key'));
+						return done (null, false, req.flash('signupMessage', 'Clave incorrecta'));
 					} else {
 						//if there is no user with that name, create the user
 						var newUser = new User();
@@ -67,9 +67,9 @@ module.exports = function (passport) {
 			}, function (err, user) {
 				if (err){return done(err);}
 				if (!user)
-					return done (null, false, req.flash('loginMessage', 'User not found'));
+					return done (null, false, req.flash('loginMessage', 'No existe usuario'));
 				if (!user.validPassword(password))
-					return done (null, false, req.flash('loginMessage', 'Oops! Wrong password.  Try again.'));
+					return done (null, false, req.flash('loginMessage', 'Ops! Contraseña equivocada.  Intente de nuevo'));
 				return done(null, user);
 			});
 		}));
