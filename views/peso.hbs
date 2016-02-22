@@ -53,8 +53,11 @@
 <br>
 <br>
 <div class="row">
-  <div class="col-sm-4"></div>
-  <div class="resultContainer col-sm-8"></div>
+  <div id="spinner" style="display: none"><img src="img/ajax-loader.gif"></div>
+</div>
+<br>
+<div class="row">
+  <div class="resultContainer"></div>
 </div>
 <br>
 <br>
@@ -65,14 +68,17 @@
   </div>
 </div>
 
+
 {{#section 'jquery'}}
 <script>
     $('document').ready(function(){
+      
       //Calculate Button
       $('form').on('submit', function(e){
           e.preventDefault();
+          $('#spinner').show();
           var action = $(this).attr('action');
-
+          //AJAX call
           $.ajax({
             url: action,
             method: 'POST',
@@ -89,6 +95,8 @@
             error: function(){
               $('.resultContainer').html('Oops we have a problem');
             }
+          }).done(function(){
+            $('#spinner').hide();
           });
 
           // $('#savePeso').removeClass('hidden');
@@ -104,9 +112,10 @@
 </script>
 {{/section}}
 
+
 {{#section 'typeahead'}}
 
-<script src="js/vendor/typeahead.jquery.js"></script>
+<script src="js/vendor/typeahead.jquery.js" type="text/javascript"></script>
 <script>
   var substringMatcher = function(strs) {
     return function findMatches(q, cb) {
@@ -173,3 +182,4 @@
 </script>
 
 {{/section}}
+

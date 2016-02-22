@@ -70,6 +70,12 @@ footer {
     font-weight: bold;
     font-size: 1.75em;
     color: #e60000;
+    text-align: center;
+}
+
+#spinner {
+    display: none;
+    text-align: center;
 }
 
 #reset {
