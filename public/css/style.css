@@ -17,7 +17,11 @@ a {
 
 #logout {
     float: right;
-    padding-right: 2em;
+    padding-right: 1em;
+}
+
+#logout a {
+    font-size: 13px;
 }
 
 /*Login-Signup Pages*/
