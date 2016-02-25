@@ -58,7 +58,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
+app.use('/api', express.static(__dirname + '/public'));
+
 
 // required for passport
 app.use(session({ secret: 'ilovescotch', saveUninitialized: true, resave: true })); // session secret
@@ -66,14 +68,24 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-app.use(csurf());
+//csurf (TURNED OFF FOR DEVELOPMENT!!!)
+// app.use(csurf());
+// app.use(function(req, res, next){
+//   res.locals._csrfToken = req.csrfToken();
+//   next();
+// });
+
+// Used for showing userButton on everypage
 app.use(function(req, res, next){
-  res.locals._csrfToken = req.csrfToken();
+  res.locals.login = req.isAuthenticated();
   next();
 });
 
+
 var routes = require('./routes/routes')(passport);
+var proyectoRoutes = require('./routes/proyectos')(passport);  //(passport off)
 app.use('/', routes);
+app.use('/api', proyectoRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

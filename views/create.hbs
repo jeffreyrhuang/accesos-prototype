@@ -1,0 +1,29 @@
+    
+<div class="row">
+    <h3>Create New Project</h3>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-9">
+      <form action ="/api/proyectos" id="" class="form-horizontal" method="POST" role="form">
+        <input type="hidden" name="_csrf" value="{{_csrfToken}}">
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Nombre Proyecto</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="#" name="name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location" class="col-sm-2 control-label">Location</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="#" name="location">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>

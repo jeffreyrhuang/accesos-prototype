@@ -15,6 +15,14 @@ var verified = function(req, res, next) {
 
 module.exports = function(passport) {
 
+	router.get('/start', verified, function(req, res){
+		res.render('start');
+	});
+
+	router.get('/create', function(req, res){
+		res.render('create');
+	});
+
 	router.get('/home', verified, function(req, res) {
 	  res.render('home');
 	});
@@ -24,7 +32,7 @@ module.exports = function(passport) {
 	});
 
 	router.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/home',
+		successRedirect: '/start',
 		failureRedirect: '/',
 		failureFlash: true
 	}));
@@ -34,7 +42,7 @@ module.exports = function(passport) {
 	});
 
 	router.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/home',
+		successRedirect: '/start',
 		failureRedirect: '/signup',
 		failureFlash: true 
 	}));

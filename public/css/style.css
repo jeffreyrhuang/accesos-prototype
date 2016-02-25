@@ -7,6 +7,11 @@ a {
   color: #00B7FF;
 }
 
+nav {
+    display: block;
+    float: right;
+}
+
 .hidden {
     display: none !important;
 }
@@ -15,7 +20,12 @@ a {
     float: left;
 }
 
-#logout {
+#userButton {
+    float: right;
+    border-radius: 15px !important;
+}
+
+/*#logout {
     float: right;
     padding-right: 1em;
 }
@@ -23,6 +33,7 @@ a {
 #logout a {
     font-size: 13px;
 }
+*/
 
 /*Login-Signup Pages*/
 
@@ -64,9 +75,6 @@ footer {
 	font-size: 10px;
 }
 
-.btn {
-	border-radius: 0px;
-}
 
 /*Peso Page*/
 
