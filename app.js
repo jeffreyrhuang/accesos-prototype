@@ -83,7 +83,7 @@ app.use(function(req, res, next){
 
 
 var routes = require('./routes/routes')(passport);
-var proyectoRoutes = require('./routes/proyectos')(passport);  //(passport off)
+var proyectoRoutes = require('./routes/routes_proyectos')(passport);  //(passport off)
 app.use('/', routes);
 app.use('/api', proyectoRoutes);
 

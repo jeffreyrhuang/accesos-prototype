@@ -3,7 +3,8 @@ var proyectoSchema = mongoose.Schema({
 
 	// id:
 	name: String,
-	// acesor: String,
+	// date created
+	// asesor: String,
 	// client: String,
 
 },{

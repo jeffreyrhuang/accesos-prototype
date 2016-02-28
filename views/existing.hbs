@@ -1,0 +1,21 @@
+<div class="row">
+	
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+		<h3>Existing Proyectos:</h3>
+
+		{{#each proyectos}}
+		<div class="thumbnail">
+			<a class ="thumbnailLink" href="proyectos/{{_id}}"><span class="tag"></span></a>
+      <div class="caption">
+        <h5>Name: {{name}}</h5>
+        <p>Asesor: </p>
+        <p><a href="#" class="btn btn-primary" role="button">Edit</a></p>
+      </div>
+    </div>
+		{{/each}}
+		
+	</div>
+	<div class="col-sm-3"></div>
+
+</div><!--end of row-->

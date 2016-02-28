@@ -13,8 +13,12 @@ module.exports = function(passport){
 		Proyecto.find(function(err, proyectos){
 			if(err)
 				res.send(err);
-			res.json(proyectos);
-
+			// res.json(proyectos.map(function(proyecto){
+			// 	return {
+			// 		name: proyecto.name
+			// 	}
+			// }));
+			res.render('existing', {proyectos: proyectos});
 		});
 	});
 
@@ -31,11 +35,36 @@ module.exports = function(passport){
 		});
 	});
 
+
 	router.get('/proyectos/:id', function (req, res){
 		Proyecto.findById(req.params.id, function(err, proyecto){
 			if (err)
 				res.send(err);
 			res.json(proyecto);
+		});
+	});
+
+	router.put('/proyectos/:id', function(req, res){
+		Proyecto.findById(req.params.id, function(err, proyecto){
+			if (err)
+				res.send(err);
+			proyecto.name = req.body.name;
+
+			//save proyecto
+			proyecto.save(function(err){
+				if (err)
+					res.send (err);
+				res.json({message: 'Bear updated!'});
+			});
+
+		});
+	});
+
+	router.delete('/proyectos/:id', function(req, res){
+		Proyecto.remove({_id: req.params.bear_id}, function(err, proyecto){
+			if(err)
+				res.send(err);
+			res.json({message: 'Successfully deleted'});
 		});
 	});
 
