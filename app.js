@@ -58,8 +58,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', express.static(__dirname + '/public'));
+app.use('/api/proyectos', express.static(__dirname + '/public'));
 
 
 // required for passport
@@ -83,7 +84,7 @@ app.use(function(req, res, next){
 
 
 var routes = require('./routes/routes')(passport);
-var proyectoRoutes = require('./routes/routes_proyectos')(passport);  //(passport off)
+var proyectoRoutes = require('./routes/routes_proyectos')(passport);
 app.use('/', routes);
 app.use('/api', proyectoRoutes);
 

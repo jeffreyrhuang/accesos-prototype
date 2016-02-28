@@ -4,7 +4,8 @@ var proyectoSchema = mongoose.Schema({
 	// id:
 	name: String,
 	// date created
-	// asesor: String,
+	location: String,
+	asesor: String
 	// client: String,
 
 },{

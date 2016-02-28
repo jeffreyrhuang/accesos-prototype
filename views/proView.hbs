@@ -1,0 +1,23 @@
+<div class="row">
+	
+	<h3>Project View:</h3>
+	<div class="col-sm-2"></div>
+	<div class="col-sm-5">
+
+	{{!-- iterate over OBJECT --}}
+	{{#proyecto}}
+		<p><b>Name: </b>{{name}}</p>
+		<p><b>Location: </b>{{location}}</p>
+		<p><b>Asesor: </b>{{asesor}}</p>
+		<p><b>Tipo de porton: </b>{{porton}}</p>
+		<p><b>Peso de porton: </b>{{peso}}</p>
+
+	{{/proyecto}}
+	</div>
+
+	<p>Photos</p>
+	<input class="input-group" type="file" accept="image/*" capture="camera">
+
+	<div class="col-sm-5"></div>
+
+</div>

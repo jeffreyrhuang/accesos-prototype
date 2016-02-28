@@ -13,11 +13,6 @@ module.exports = function(passport){
 		Proyecto.find(function(err, proyectos){
 			if(err)
 				res.send(err);
-			// res.json(proyectos.map(function(proyecto){
-			// 	return {
-			// 		name: proyecto.name
-			// 	}
-			// }));
 			res.render('existing', {proyectos: proyectos});
 		});
 	});
@@ -26,6 +21,8 @@ module.exports = function(passport){
 
 		var newProyecto = new Proyecto();
 		newProyecto.name = req.body.name;
+		newProyecto.location=  req.body.location;
+		newProyecto.asesor = req.body.asesor;
 
 		newProyecto.save(function(err){
 			if (err)
@@ -40,7 +37,8 @@ module.exports = function(passport){
 		Proyecto.findById(req.params.id, function(err, proyecto){
 			if (err)
 				res.send(err);
-			res.json(proyecto);
+			console.log(proyecto);
+			res.render('proView', {proyecto: proyecto});
 		});
 	});
 

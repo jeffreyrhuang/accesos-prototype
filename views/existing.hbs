@@ -4,11 +4,13 @@
 	<div class="col-sm-6">
 		<h3>Existing Proyectos:</h3>
 
+		{{!-- iterate over ARRAY --}}
 		{{#each proyectos}}
 		<div class="thumbnail">
-			<a class ="thumbnailLink" href="proyectos/{{_id}}"><span class="tag"></span></a>
+			<a class ="thumbnailLink" href="{{_id}}"><span class="tag"></span></a>
       <div class="caption">
         <h5>Name: {{name}}</h5>
+        <p>Location: </p>
         <p>Asesor: </p>
         <p><a href="#" class="btn btn-primary" role="button">Edit</a></p>
       </div>
