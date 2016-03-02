@@ -103,20 +103,55 @@ module.exports = function(passport) {
 		Proyecto.findById(req.body.id, function(err, proyecto){
 			if (err)
 				res.send(err);
-			console.log(proyecto);
+			return proyecto;
+			console.log(location);
+		})
+		.then(function(proyecto){
+			
+			//pdfKit
+			doc = new PDFDocument({
+				size: 'letter'
+			});
+			
+			doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
+			
+			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
+			doc.font('Helvetica');
+			doc.fontSize(14);
+				
+			doc.text('Date: ', 60, 180)
+				.moveDown();
+
+			doc.text('Proyecto nombre: ' + proyecto.name)
+				.moveDown();
+
+			doc.text('Location: ' + proyecto.location)
+				.moveDown();
+
+			doc.text('Client: ')
+				.moveDown();
+			doc.text('E-mail: ');
+			doc.text('Peso total aproximado: ', 200, 400)
+				.moveDown();
+			doc.text('Diseño seleccionado: ')
+				.moveDown();
+			doc.text('Ancho: ')
+				.moveDown();
+			doc.text('Alto: ');
+			doc.lineWidth(.5)
+				.roundedRect(35, 120, 540, 640, 5)
+				.stroke();
+
+
+			doc.end();
+
+			console.log('PDF created!');
+		})
+		.catch(function(e){
+			console.log(e);
 		});
 		
-		//pdfKit
-		doc = new PDFDocument;
-		
-		doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
 
-		doc.text('Hello world!');
-		console.log('pdf being created');
-
-		doc.end();
-
-		console.log('PDF created!');
 
 
 	});
