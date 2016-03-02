@@ -96,7 +96,7 @@ module.exports = function(passport) {
 	  res.render('cliente');
 	});
 
-		//pdf generator
+		//peso report - pdf generator
 	router.post('/pdf', function(req, res){
 		
 		//retrieve report data		
@@ -104,7 +104,6 @@ module.exports = function(passport) {
 			if (err)
 				res.send(err);
 			return proyecto;
-			console.log(location);
 		})
 		.then(function(proyecto){
 			
@@ -119,7 +118,7 @@ module.exports = function(passport) {
 			doc.font('Helvetica');
 			doc.fontSize(14);
 				
-			doc.text('Date: ', 60, 180)
+			doc.text('Date: ', 65, 180)
 				.moveDown();
 
 			doc.text('Proyecto nombre: ' + proyecto.name)
@@ -131,15 +130,21 @@ module.exports = function(passport) {
 			doc.text('Client: ')
 				.moveDown();
 			doc.text('E-mail: ');
-			doc.text('Peso total aproximado: ', 200, 400)
-				.moveDown();
-			doc.text('Diseño seleccionado: ')
-				.moveDown();
-			doc.text('Ancho: ')
+			doc.text('Peso total aproximado: ', 160, 400)
+				.moveDown()
+				.text('Diseño seleccionado: ');
+			doc.text('Ancho: ', 200, 600)
 				.moveDown();
 			doc.text('Alto: ');
+
+			doc.moveTo(35, 350)
+				.lineTo(577, 350);
+
+			doc.moveTo(35, 490)
+				.lineTo(577, 490);
+
 			doc.lineWidth(.5)
-				.roundedRect(35, 120, 540, 640, 5)
+				.roundedRect(35, 120, 542, 640, 5)
 				.stroke();
 
 
