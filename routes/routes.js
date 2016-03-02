@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var fs = require('fs');
+var PDFDocument = require('pdfkit');
 
-//import porton model
+//import models
 var Porton = require('../models/porton');
+var Proyecto = require('../models/proyecto');
 
 
 //route middleware to make sure user is Authenticated
@@ -85,7 +88,6 @@ module.exports = function(passport) {
 		}
 	});
 
-
 	router.get('/encuestas', verified, function(req, res) {
 	  res.render('encuestas');
 	});
@@ -93,6 +95,32 @@ module.exports = function(passport) {
 	router.get('/cliente', verified, function(req, res) {
 	  res.render('cliente');
 	});
+
+		//pdf generator
+	router.post('/pdf', function(req, res){
+		
+		//retrieve report data		
+		Proyecto.findById(req.body.id, function(err, proyecto){
+			if (err)
+				res.send(err);
+			console.log(proyecto);
+		});
+		
+		//pdfKit
+		doc = new PDFDocument;
+		
+		doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
+
+		doc.text('Hello world!');
+		console.log('pdf being created');
+
+		doc.end();
+
+		console.log('PDF created!');
+
+
+	});
+
 
 	return router;
 

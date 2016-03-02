@@ -65,6 +65,7 @@ module.exports = function(passport){
 			res.json({message: 'Successfully deleted'});
 		});
 	});
+	
 
 	return router;
 };
