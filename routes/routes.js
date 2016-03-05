@@ -130,6 +130,7 @@ module.exports = function(passport) {
 				size: 'letter'
 			});
 			
+			// doc.pipe(res);
 			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
 			doc.font('Helvetica');
 			doc.fontSize(14);
@@ -164,24 +165,50 @@ module.exports = function(passport) {
 				.stroke();
 
 			doc.end();
+			console.log('PDF created!');
+			
+			var email = new sendgrid.Email();
 
-			var params = {
-				Key: proyecto.name + '.pdf',
-				Body: doc,
-				Bucket: 'accesos-app',
-				ContentType: 'application/pdf'
-			}
-
-			s3.upload(params, function(err, data){
-				if (err)
-					console.log(err);
-				else
-					console.log('succesfully uploaded to data to S3')
+			email.addTo 	('catalinarac@gmail.com');
+			email.setFrom('do-not-reply@accesos.xyz');
+			email.setSubject('Hola');
+			email.setText('Check out this awesome pdf');
+			email.addFile({
+				filename: 'test.pdf',
+				contentType: 'application/pdf',
+				content: doc
 			});
 
-			console.log('PDF created!');
-
+			sendgrid.send(email, function(err, json){
+				if(err) {return console.error(err);}
+				console.log(json);
+			})
+		})	
+		.catch(function(e){
+			console.log(e);
 		});
+
+
+
+			// stream upload pdf to s3 (WORKS)
+		// 	var params = {
+		// 		Key: proyecto.name + '.pdf',
+		// 		Body: doc,
+		// 		Bucket: 'accesos-app',
+		// 		ContentType: 'application/pdf'
+		// 	}
+
+		// 	s3.upload(params, function(err, proyecto){
+		// 		if (err)
+		// 			console.log(err);
+		// 		else
+		// 			console.log('succesfully uploaded to data to S3')
+		// 			return;
+		// 	});
+		// })
+		// .catch(function(e){
+		// 	console.log(e);
+		// });
 			
 
 
