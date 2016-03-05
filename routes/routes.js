@@ -4,6 +4,24 @@ var passport = require('passport');
 var fs = require('fs');
 var PDFDocument = require('pdfkit');
 
+var sendgrid = require('sendgrid')(process.env.SENDGRID_API);
+
+var nodemailer = require('nodemailer');
+var sgTransport = require('nodemailer-sendgrid-transport');
+var options = {
+	auth: {
+		api_key: process.env.SENDGRID_API
+	}
+}
+var mailer = nodemailer.createTransport(sgTransport(options));
+
+
+var AWS = require('aws-sdk');
+AWS.config.update({accessKeyId: process.env.AWS_ACCESS_KEY_ID, secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY});
+AWS.config.update({region: 'us-west-2'});
+var s3 = new AWS.S3();
+
+
 //import models
 var Porton = require('../models/porton');
 var Proyecto = require('../models/proyecto');
@@ -108,11 +126,9 @@ module.exports = function(passport) {
 		.then(function(proyecto){
 			
 			//pdfKit
-			doc = new PDFDocument({
+			var doc = new PDFDocument({
 				size: 'letter'
 			});
-			
-			doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
 			
 			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
 			doc.font('Helvetica');
@@ -147,15 +163,103 @@ module.exports = function(passport) {
 				.roundedRect(35, 120, 542, 640, 5)
 				.stroke();
 
-
 			doc.end();
 
+			var params = {
+				Key: proyecto.name + '.pdf',
+				Body: doc,
+				Bucket: 'accesos-app',
+				ContentType: 'application/pdf'
+			}
+
+			s3.upload(params, function(err, data){
+				if (err)
+					console.log(err);
+				else
+					console.log('succesfully uploaded to data to S3')
+			});
+
 			console.log('PDF created!');
-		})
-		.catch(function(e){
-			console.log(e);
+
 		});
-		
+			
+
+
+
+// nodemailer attempt
+		// .then(function(){
+			
+		// 	toArray(stream, function(err, arr){
+		// 		var buffer = new Buffer.concat(arr);
+		// 		var email = {
+		// 			to: 'jeffreyrhuang@gmail.com',
+		// 			from: 'nodemailer@accesos.xyz',
+		// 			subject: 'Please work',
+		// 			text: 'Check out this pdf',
+		// 			attachments: [{
+		// 				filename: 'test.pdf',
+		// 				content: buffer,
+		// 				contentType: 'application/pdf'
+		// 			}]
+		// 		}
+		// 	})
+		// 	.then(function(email){
+		// 		mailer.sendMail(email, function(err, res){
+		// 			if (err){
+		// 				console.log(err);
+		// 			}
+		// 			console.log(res);
+		// 		});
+		// 	});
+		// });
+
+
+
+//didn't work - produces unreadable pdf		
+		// .then(function(){
+		// 	fs.readFile('./public/img/test.pdf', function(err, data){
+		// 		var email = new sendgrid.Email();
+
+		// 		email.addTo 	('jeffreyrhuang@gmail.com');
+		// 		email.setFrom('do-not-reply@accesos.xyz');
+		// 		email.setSubject('Peso Report');
+		// 		email.setText('Come on Pelican!');
+		// 		email.addFile({
+		// 			filename: 'test.pdf',
+		// 			content: data
+		// 		});
+
+		// 		sendgrid.send(email, function(err, json){
+		// 			if(err) {return console.error(err);}
+		// 			console.log(json);
+		// 		})
+		// 	});
+		// });
+
+
+		//best attempt so far - can work, but rarely
+		//Send Email via Sendgrid
+		// .then(function(proyecto){
+
+		// 	var email = new sendgrid.Email();
+
+		// 	email.addTo 	('jeffreyrhuang@gmail.com');
+		// 	email.setFrom('do-not-reply@accesos.xyz');
+		// 	email.setSubject('Peso Report');
+		// 	email.setText('Come on Pelican!');
+		// 	email.addFile({
+		// 		filename: 'test.pdf',
+		// 		path: './public/img/test.pdf'
+		// 	});
+
+		// 	sendgrid.send(email, function(err, json){
+		// 		if(err) {return console.error(err);}
+		// 		console.log(json);
+		// 	})
+		// })	
+		// .catch(function(e){
+		// 	console.log(e);
+		// });
 
 
 
