@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
 var portonSchema = mongoose.Schema({
 
+	modelNo: Number,
 	model: String,
-	peso: Number
+	peso: Number,
+	viento: Number
 
 }, {
 	collection: 'accesosPorton'

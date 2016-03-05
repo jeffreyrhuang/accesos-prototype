@@ -16,7 +16,39 @@
       <div class="form-group">
         <label for="#" class="col-sm-2 control-label">Dise&ntilde;o Tipo</label>
         <div id="porton-search" class="col-sm-6">
-          <input class="typeahead form-control" type="text" autocomplete="off" placeholder="Buscar port&oacute;n" name="portonModel" required>
+
+          <select class="form-control" name="portonModel">
+            <option>Para rellenar</option>
+            <option>Lámina de cortina</option>
+            <option>Lámina rectangular techo</option>
+            <option>Lámina Southgate</option>
+            <option>Thermatite hibrido</option>
+            <option>Thermatite jaspeado hibrido</option>
+            <option>Thermatite aluminio</option>
+            <option>Thermatite jaspeado aluminio</option>
+            <option>Punta diamante</option>
+            <option>Láminado no.16 a 1 cara</option>
+            <option>Láminado no.16 a 2 cara</option>
+            <option>Láminado no.16 a 1 cara y arco</option>
+            <option>Reja europea</option>
+            <option>Malla ciclón</option>
+            <option>Expandida pesada</option>
+            <option>Expandida liviana</option>
+            <option>Expandida decorativa</option>
+            <option>Barrote 1x1</option>
+            <option>Barrote 1x1 - 1 figuras</option>
+            <option>Barrote 1x1 - 2 figuras</option>
+            <option>Herrería simple</option>
+            <option>Herrería simple y arco</option>
+            <option>Herrería y laminado</option>
+            <option>Herrería complejo</option>
+            <option>Herrería cuadriculado</option>
+            <option>Herrería muy complejo</option>
+            <option>Barrotes 1x2</option>
+            <option>Barrotes 2x2</option>
+            <option>Barrote seguido</option>
+          </select>
+          
         </div>
       </div>
 
@@ -110,75 +142,3 @@
     });
 </script>
 {{/section}}
-
-
-{{#section 'typeahead'}}
-
-<script src="js/vendor/typeahead.jquery.js" type="text/javascript"></script>
-<script>
-  var substringMatcher = function(strs) {
-    return function findMatches(q, cb) {
-      var matches, substringRegex;
-
-      // an array that will be populated with substring matches
-      matches = [];
-
-      // regex used to determine if a string contains the substring `q`
-      substrRegex = new RegExp(q, 'i');
-
-      // iterate through the pool of strings and for any string that
-      // contains the substring `q`, add it to the `matches` array
-      $.each(strs, function(i, str) {
-        if (substrRegex.test(str)) {
-          matches.push(str);
-        }
-      });
-
-      cb(matches);
-    };
-  };
-
-  var portonTipos = ['Para rellenar',
-    'Lamina de cortina',
-    'Lamina rectangular techo',
-    'Lamina Southgate',
-    'Thermatite hibrido',
-    'Thermatite jaspeado hibrido',
-    'Thermatite aluminio',
-    'Thermatite jaspeado aluminio',
-    'Punta diamante',
-    'Laminado no.16 a 1 cara',
-    'Laminado no.16 a 2 cara',
-    'Laminado no.16 a 1 cara y arco',
-    'Reja europea',
-    'Malla ciclon',
-    'Expandida pesada',
-    'Expandida liviana', 
-    'Expandida decorative', 
-    'Barrote 1x1',
-    'Barrote 1x1 - 1 figuras',
-    'Barrote 1x1 - 2 figuras',
-    'Herreria simple', 
-    'Herreria simple y arco', 
-    'Herreria y laminado',
-    'Herreria complejo', 
-    'Herreria cuadriculado', 
-    'Herreria muy complejo',
-    'Barrotes 1x2',
-    'Barrotes 2x2',
-    'Barrote seguido',
-  ];
-
-  $('#porton-search .typeahead').typeahead({
-    hint: true,
-    highlight: true,
-    minLength: 1
-  },
-  {
-    name: 'portonTipos',
-    source: substringMatcher(portonTipos)
-  });
-</script>
-
-{{/section}}
-
