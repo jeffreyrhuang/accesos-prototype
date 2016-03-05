@@ -28,6 +28,7 @@ module.exports = function(passport) {
 	});
 
 	router.get('/create', verified, function(req, res){
+		console.log(req.session);  //testing session variable
 		res.render('create');
 	});
 
@@ -157,7 +158,7 @@ module.exports = function(passport) {
 			//attach pdf to email and send
 			var email = new sendgrid.Email();
 
-			email.addTo 			('jeffreyrhuang@gmail.com');
+			email.addTo 			(req.body.toEmail);
 			email.setFrom 		('do-not-reply@accesos.xyz');
 			email.setSubject 	('Peso Report');
 			email.setText 		('Check out this awesome pdf');

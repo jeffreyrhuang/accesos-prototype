@@ -43,6 +43,9 @@ module.exports = function (passport) {
 						newUser.username = username.toLowerCase();
 						newUser.email = req.body.email;
 						newUser.password = newUser.generateHash(password);
+						
+						//save user email to session
+						req.session.email = req.body.email;
 
 						//save to database
 						newUser.save(function (err) {
@@ -72,6 +75,7 @@ module.exports = function (passport) {
 					return done (null, false, req.flash('loginMessage', 'No existe usuario'));
 				if (!user.validPassword(password))
 					return done (null, false, req.flash('loginMessage', 'Ops! Contraseña equivocada.  Intente de nuevo'));
+				req.session.email = user.email;
 				return done(null, user);
 			});
 		}));

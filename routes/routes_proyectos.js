@@ -38,7 +38,7 @@ module.exports = function(passport){
 			if (err)
 				res.send(err);
 			console.log(proyecto);
-			res.render('proView', {proyecto: proyecto});
+			res.render('proView', {proyecto: proyecto, user_email: req.session.email});
 		});
 	});
 
