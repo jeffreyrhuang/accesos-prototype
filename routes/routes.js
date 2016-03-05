@@ -3,24 +3,11 @@ var router = express.Router();
 var passport = require('passport');
 var fs = require('fs');
 var PDFDocument = require('pdfkit');
-
 var sendgrid = require('sendgrid')(process.env.SENDGRID_API);
-
-var nodemailer = require('nodemailer');
-var sgTransport = require('nodemailer-sendgrid-transport');
-var options = {
-	auth: {
-		api_key: process.env.SENDGRID_API
-	}
-}
-var mailer = nodemailer.createTransport(sgTransport(options));
-
-
 var AWS = require('aws-sdk');
 AWS.config.update({accessKeyId: process.env.AWS_ACCESS_KEY_ID, secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY});
 AWS.config.update({region: 'us-west-2'});
 var s3 = new AWS.S3();
-
 
 //import models
 var Porton = require('../models/porton');
@@ -40,7 +27,7 @@ module.exports = function(passport) {
 		res.render('start');
 	});
 
-	router.get('/create', function(req, res){
+	router.get('/create', verified, function(req, res){
 		res.render('create');
 	});
 
@@ -167,27 +154,28 @@ module.exports = function(passport) {
 			doc.end();
 			console.log('PDF created!');
 			
+			//attach pdf to email and send
 			var email = new sendgrid.Email();
 
-			email.addTo 	('catalinarac@gmail.com');
-			email.setFrom('do-not-reply@accesos.xyz');
-			email.setSubject('Hola');
-			email.setText('Check out this awesome pdf');
-			email.addFile({
-				filename: 'test.pdf',
-				contentType: 'application/pdf',
-				content: doc
+			email.addTo 			('jeffreyrhuang@gmail.com');
+			email.setFrom 		('do-not-reply@accesos.xyz');
+			email.setSubject 	('Peso Report');
+			email.setText 		('Check out this awesome pdf');
+			email.addFile 		({
+				filename: proyecto.name + '-pesoreport.pdf',
+				content: doc,
+				contentType: 'application/pdf'
 			});
 
 			sendgrid.send(email, function(err, json){
 				if(err) {return console.error(err);}
 				console.log(json);
+				return;  //need to stop or redirect the process
 			})
 		})	
 		.catch(function(e){
 			console.log(e);
 		});
-
 
 
 			// stream upload pdf to s3 (WORKS)
@@ -211,89 +199,8 @@ module.exports = function(passport) {
 		// });
 			
 
-
-
-// nodemailer attempt
-		// .then(function(){
-			
-		// 	toArray(stream, function(err, arr){
-		// 		var buffer = new Buffer.concat(arr);
-		// 		var email = {
-		// 			to: 'jeffreyrhuang@gmail.com',
-		// 			from: 'nodemailer@accesos.xyz',
-		// 			subject: 'Please work',
-		// 			text: 'Check out this pdf',
-		// 			attachments: [{
-		// 				filename: 'test.pdf',
-		// 				content: buffer,
-		// 				contentType: 'application/pdf'
-		// 			}]
-		// 		}
-		// 	})
-		// 	.then(function(email){
-		// 		mailer.sendMail(email, function(err, res){
-		// 			if (err){
-		// 				console.log(err);
-		// 			}
-		// 			console.log(res);
-		// 		});
-		// 	});
-		// });
-
-
-
-//didn't work - produces unreadable pdf		
-		// .then(function(){
-		// 	fs.readFile('./public/img/test.pdf', function(err, data){
-		// 		var email = new sendgrid.Email();
-
-		// 		email.addTo 	('jeffreyrhuang@gmail.com');
-		// 		email.setFrom('do-not-reply@accesos.xyz');
-		// 		email.setSubject('Peso Report');
-		// 		email.setText('Come on Pelican!');
-		// 		email.addFile({
-		// 			filename: 'test.pdf',
-		// 			content: data
-		// 		});
-
-		// 		sendgrid.send(email, function(err, json){
-		// 			if(err) {return console.error(err);}
-		// 			console.log(json);
-		// 		})
-		// 	});
-		// });
-
-
-		//best attempt so far - can work, but rarely
-		//Send Email via Sendgrid
-		// .then(function(proyecto){
-
-		// 	var email = new sendgrid.Email();
-
-		// 	email.addTo 	('jeffreyrhuang@gmail.com');
-		// 	email.setFrom('do-not-reply@accesos.xyz');
-		// 	email.setSubject('Peso Report');
-		// 	email.setText('Come on Pelican!');
-		// 	email.addFile({
-		// 		filename: 'test.pdf',
-		// 		path: './public/img/test.pdf'
-		// 	});
-
-		// 	sendgrid.send(email, function(err, json){
-		// 		if(err) {return console.error(err);}
-		// 		console.log(json);
-		// 	})
-		// })	
-		// .catch(function(e){
-		// 	console.log(e);
-		// });
-
-
-
 	});
 
-
 	return router;
-
 };
 
