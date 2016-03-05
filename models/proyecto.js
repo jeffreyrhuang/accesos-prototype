@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var proyectoSchema = mongoose.Schema({
 
-	documentId: Number,
+	documentNo: Number,
 	name: String,
 	location: String,
 	asesor: String,
 	client: String,
 	porton: String,
+	portonNo: Number,
 	peso: Number
 
 },{

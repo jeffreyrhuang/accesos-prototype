@@ -25,6 +25,7 @@ nav {
     border-radius: 15px !important;
 }
 
+
 /*#logout {
     float: right;
     padding-right: 1em;
@@ -58,6 +59,19 @@ nav {
 	padding-top: 1em;
 }
 
+/*Start Page*/
+
+/*#createbutton {
+    display: block;
+    width: 100px;
+    height: 100px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    background-color: green;
+    margin-top: 10em;
+}
+*/
 /*Existing Projects*/
 
 .thumbnail{
@@ -95,6 +109,7 @@ h3 {
 
 footer {
 	font-size: 10px;
+    clear: both;
 }
 
 
