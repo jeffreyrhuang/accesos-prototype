@@ -15,14 +15,11 @@ var userSchema = mongoose.Schema({
 	password: {
 		type: String,
 		required: true
-	},
-	createdAt: {
-		type: Date,
-		default: Date.now
 	}
 
 }, {
-	collection: 'accesosUsers'
+	collection: 'accesosUsers',
+	timestamps: true
 });
 
 //methods for bcrypt
