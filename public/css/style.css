@@ -12,6 +12,11 @@ nav {
     float: right;
 }
 
+.no-gutter > [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
 .hidden {
     display: none !important;
 }

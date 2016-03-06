@@ -1,4 +1,4 @@
-<a href="home" id="homebutton"><img src="img/home-icon.png" alt="Home"></a>
+<a href="api/proyectos/{{_id}}" id="homebutton"><img src="img/home-icon.png" alt="Home"></a>
 
 <div class="row">
   <h3>Calcular Peso</h3>
@@ -7,9 +7,9 @@
     <form action ="/peso" id="pesoForm" class="form-horizontal" method="POST" role="form">
       <input type="hidden" name="_csrf" value="{{_csrfToken}}">
       <div class="form-group">
-        <label for="#" class="col-sm-2 control-label">Nombre Proyecto</label>
-        <div class="col-sm-6">
-          <input type="text" class="form-control" id="#" name="proyecto">
+        <label for="docNo" class="col-sm-2 control-label">Document Number</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" name="docNo">
         </div>
       </div>
 

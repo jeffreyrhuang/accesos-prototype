@@ -32,7 +32,7 @@ module.exports = function(passport) {
 		res.render('create');
 	});
 
-	router.get('/home', verified, function(req, res) {
+	router.get('/home', function(req, res) {
 	  res.render('home');
 	});
 
