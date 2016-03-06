@@ -171,7 +171,8 @@ module.exports = function(passport) {
 			sendgrid.send(email, function(err, json){
 				if(err) {return console.error(err);}
 				console.log(json);
-				return;  //need to stop or redirect the process
+				res.render('proView', {proyecto: proyecto});
+				// return;  //need to stop or redirect the process
 			})
 		})	
 		.catch(function(e){
