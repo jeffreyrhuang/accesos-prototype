@@ -103,6 +103,7 @@ module.exports = function(passport) {
 	});
 
 		//peso report - pdf generator
+		//EMAIL PDF REPORT
 	router.post('/pdf', function(req, res){
 		
 		//retrieve report data		
@@ -117,7 +118,7 @@ module.exports = function(passport) {
 			var doc = new PDFDocument({
 				size: 'letter'
 			});
-			
+			// doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
 			// doc.pipe(res);
 			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
 			doc.font('Helvetica');
@@ -132,15 +133,15 @@ module.exports = function(passport) {
 			doc.text('Location: ' + proyecto.location)
 				.moveDown();
 
-			doc.text('Client: ')
+			doc.text('Client: ' + proyecto.client)
 				.moveDown();
 			doc.text('E-mail: ');
-			doc.text('Peso total aproximado: ', 160, 400)
+			doc.text('Peso total aproximado: ' + proyecto.peso, 160, 400)
 				.moveDown()
-				.text('Diseño seleccionado: ');
-			doc.text('Ancho: ', 200, 600)
+				.text('Diseño seleccionado: ' + proyecto.porton);
+			doc.text('Ancho: ' + proyecto.ancho, 200, 600)
 				.moveDown();
-			doc.text('Alto: ');
+			doc.text('Alto: ' + proyecto.alto);
 
 			doc.moveTo(35, 350)
 				.lineTo(577, 350);
@@ -153,7 +154,7 @@ module.exports = function(passport) {
 				.stroke();
 
 			doc.end();
-			console.log('PDF created!');
+			console.log('PDF ready for email!');
 			
 			//attach pdf to email and send
 			var email = new sendgrid.Email();
@@ -172,13 +173,66 @@ module.exports = function(passport) {
 				if(err) {return console.error(err);}
 				console.log(json);
 				res.render('proView', {proyecto: proyecto});
-				// return;  //need to stop or redirect the process
 			})
 		})	
 		.catch(function(e){
 			console.log(e);
 		});
+	});
 
+	//OPEN Peso Report
+	router.post('/openPdf', function(req, res){
+		
+		//retrieve report data		
+		Proyecto.findById(req.body.id, function(err, proyecto){
+			if (err)
+				res.send(err);
+			return proyecto;
+		})
+		.then(function(proyecto){
+			
+			//pdfKit
+			var doc = new PDFDocument({
+				size: 'letter'
+			});
+			// doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
+			doc.pipe(res);
+			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
+			doc.font('Helvetica');
+			doc.fontSize(14);
+				
+			doc.text('Date: ', 65, 180)
+				.moveDown();
+
+			doc.text('Proyecto nombre: ' + proyecto.name)
+				.moveDown();
+
+			doc.text('Location: ' + proyecto.location)
+				.moveDown();
+
+			doc.text('Client: ' + proyecto.client)
+				.moveDown();
+			doc.text('E-mail: ');
+			doc.text('Peso total aproximado: ' + proyecto.peso, 160, 400)
+				.moveDown()
+				.text('Diseño seleccionado: ' + proyecto.porton);
+			doc.text('Ancho: ' + proyecto.ancho, 200, 600)
+				.moveDown();
+			doc.text('Alto: ' + proyecto.alto);
+
+			doc.moveTo(35, 350)
+				.lineTo(577, 350);
+
+			doc.moveTo(35, 490)
+				.lineTo(577, 490);
+
+			doc.lineWidth(.5)
+				.roundedRect(35, 120, 542, 640, 5)
+				.stroke();
+
+			doc.end();
+			console.log('PDF created!');
+		});
 
 			// stream upload pdf to s3 (WORKS)
 		// 	var params = {
