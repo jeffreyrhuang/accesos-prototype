@@ -120,11 +120,12 @@ module.exports = function(passport) {
 			});
 			// doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
 			// doc.pipe(res);
+
 			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
 			doc.font('Helvetica');
 			doc.fontSize(14);
 				
-			doc.text('Date: ', 65, 180)
+			doc.text('Date: ' + proyecto.createdAt, 65, 180)
 				.moveDown();
 
 			doc.text('Proyecto nombre: ' + proyecto.name)
@@ -139,9 +140,10 @@ module.exports = function(passport) {
 			doc.text('Peso total aproximado: ' + proyecto.peso, 160, 400)
 				.moveDown()
 				.text('Diseño seleccionado: ' + proyecto.porton);
-			doc.text('Ancho: ' + proyecto.ancho, 200, 600)
-				.moveDown();
-			doc.text('Alto: ' + proyecto.alto);
+
+			doc.text('Ancho: ' + proyecto.ancho, 220, 525);
+
+			doc.text('Alto: ' + proyecto.alto, 430, 640);
 
 			doc.moveTo(35, 350)
 				.lineTo(577, 350);
@@ -153,6 +155,10 @@ module.exports = function(passport) {
 				.roundedRect(35, 120, 542, 640, 5)
 				.stroke();
 
+			doc.lineWidth(.5)
+				.rect(150, 560, 260, 160)
+				.fillAndStroke("white", "gray");
+
 			doc.end();
 			console.log('PDF ready for email!');
 			
@@ -162,7 +168,7 @@ module.exports = function(passport) {
 			email.addTo 			(req.body.toEmail);
 			email.setFrom 		('do-not-reply@accesos.xyz');
 			email.setSubject 	('Peso Report');
-			email.setText 		('Check out this awesome pdf');
+			email.setText 		('PDF report attached');
 			email.addFile 		({
 				filename: proyecto.name + '-pesoreport.pdf',
 				content: doc,
@@ -201,7 +207,7 @@ module.exports = function(passport) {
 			doc.font('Helvetica');
 			doc.fontSize(14);
 				
-			doc.text('Date: ', 65, 180)
+			doc.text('Date: ' + proyecto.createdAt, 65, 180)
 				.moveDown();
 
 			doc.text('Proyecto nombre: ' + proyecto.name)
@@ -216,9 +222,10 @@ module.exports = function(passport) {
 			doc.text('Peso total aproximado: ' + proyecto.peso, 160, 400)
 				.moveDown()
 				.text('Diseño seleccionado: ' + proyecto.porton);
-			doc.text('Ancho: ' + proyecto.ancho, 200, 600)
-				.moveDown();
-			doc.text('Alto: ' + proyecto.alto);
+
+			doc.text('Ancho: ' + proyecto.ancho, 220, 525);
+
+			doc.text('Alto: ' + proyecto.alto, 430, 640);
 
 			doc.moveTo(35, 350)
 				.lineTo(577, 350);
@@ -229,6 +236,10 @@ module.exports = function(passport) {
 			doc.lineWidth(.5)
 				.roundedRect(35, 120, 542, 640, 5)
 				.stroke();
+
+			doc.lineWidth(.5)
+				.rect(150, 560, 260, 160)
+				.fillAndStroke("white", "gray");
 
 			doc.end();
 			console.log('PDF created!');
