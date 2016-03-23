@@ -27,8 +27,11 @@ module.exports = function(passport){
 		newProyecto.save(function(err){
 			if (err)
 				res.send(err);
-
-			res.json({message: 'proyecto created!'});
+			req.session.flash = {
+				type: 'success',
+				message: 'Project created successfully!'
+			};
+			res.redirect(303, '/api/proyectos/' + newProyecto._id);
 		});
 	});
 
