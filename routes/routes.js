@@ -69,6 +69,8 @@ module.exports = function(passport) {
 	  res.render('acceso');
 	});
 
+	
+	//move peso routes to api!
 	router.get('/peso', verified, function(req, res){
 		res.render('peso');
 	});
@@ -93,6 +95,13 @@ module.exports = function(passport) {
 			res.redirect(303, '/peso');
 		}
 	});
+
+	//save peso calc to project
+	router.post('/savePeso', function(req, res){
+		
+	});
+
+
 
 	router.get('/encuestas', verified, function(req, res) {
 	  res.render('encuestas');
@@ -265,8 +274,8 @@ module.exports = function(passport) {
 		// 	console.log(e);
 		// });
 			
-
 	});
+
 
 	return router;
 };

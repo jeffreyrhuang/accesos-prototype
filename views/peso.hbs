@@ -78,26 +78,23 @@
           <button type="reset" class="btn btn-default" id="reset">Borrar</button>
         </div>
       </div>
-    </form>
+
+      <br>
+      <br>
+        <div id="spinner"><img src="img/ajax-loader.gif"></div>
+      <br>
+        <div class="resultContainer"></div>
+      <br>
+      <br>
+        <div id="savePeso">
+            <button type="submit" formaction="/savePeso" class="btn btn-success">Save to Project</button>
+        </div>
+      </div>
+
+    </form><!--end of form-->
+
   </div>
 </div><!--end row-->
-<br>
-<br>
-<div class="row">
-  <div id="spinner"><img src="img/ajax-loader.gif"></div>
-</div>
-<br>
-<div class="row">
-  <div class="resultContainer"></div>
-</div>
-<br>
-<br>
-<div class="row">
-  <div class="col-sm-4"></div>
-  <div class="col-sm-8">
-      <button id="savePeso" type="submit" class="btn btn-success hidden">Save to Project</button>
-  </div>
-</div>
 
 
 {{#section 'jquery'}}
@@ -119,6 +116,8 @@
               console.log(data);
               if(data.success){
                 $('.resultContainer').html('Peso: ' + ((data.ancho/100) * (data.alto/100) * data.peso).toFixed(2) + ' kg');
+                $('#savePeso').toggle();
+
               }  else {
                 $('.resultContainer').html('<p>Oops, there was a problem</p>');
               }
@@ -137,7 +136,7 @@
       $('#reset').on('click', function(){
         $("#pesoForm").trigger('reset');
         $('.resultContainer').empty();
-        // $('#savePeso').addClass('hidden');  //not working
+        $('#savePeso').toggle();
       });
     });
 </script>
