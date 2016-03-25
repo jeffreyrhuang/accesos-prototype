@@ -9,7 +9,6 @@ module.exports = function(passport){
 
 
 	router.get('/proyectos', function(req, res){
-		
 		Proyecto.find(function(err, proyectos){
 			if(err)
 				res.send(err);
@@ -45,6 +44,8 @@ module.exports = function(passport){
 		});
 	});
 
+
+
 	router.put('/proyectos/:id', function(req, res){
 		Proyecto.findById(req.params.id, function(err, proyecto){
 			if (err)
@@ -62,13 +63,39 @@ module.exports = function(passport){
 	});
 
 	router.delete('/proyectos/:id', function(req, res){
-		Proyecto.remove({_id: req.params.bear_id}, function(err, proyecto){
+		Proyecto.remove({_id: req.params.id}, function(err, proyecto){
 			if(err)
 				res.send(err);
 			res.json({message: 'Successfully deleted'});
 		});
 	});
 	
+	router.get('/proyectos/:id/peso', function(req, res){
+		Proyecto.findById(req.params.id, function(err, proyecto){
+			if (err)
+				res.send(err)
+			console.log('project found for peso calc, ' + proyecto);
+			res.render('peso', {proyecto: proyecto});
+		});
+	});
+
+	// router.post('/proyectos/:id/peso', function(req, res){
+	// 	Proyecto.findById(req.params.id, function(err, proyecto){
+	// 		if (err)
+	// 			res.send(err);
+	// 		console.log('peso saved to project! ' + proyecto);
+	// 		proyecto.porton = req.body.model;
+	// 		proyecto.portonNo = req.body.modelNo;
+
+	// 		proyecto.save(function(err){
+	// 			if (err)
+	// 				res.send(err)
+	// 			console.log('porton data saved!');
+	// 			res.render('proView', {proyecto: proyecto});
+	// 		});
+	// 	});
+	// });
+
 
 	return router;
 };

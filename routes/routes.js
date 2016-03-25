@@ -69,23 +69,22 @@ module.exports = function(passport) {
 	  res.render('acceso');
 	});
 
-	
-	//move peso routes to api!
-	router.get('/peso', verified, function(req, res){
-		res.render('peso');
-	});
-
+//AJAX for peso calc
 	router.post('/peso', verified, function(req, res) {
 		if(req.xhr || req.accepts('json,html')==='json'){
 			
 			var portonQuery = Porton.findOne({model: req.body.portonModel}).exec();
 
 			portonQuery.then(function(porton){
-					var peso = porton.peso
-					return peso;
+
+					var info = {
+						peso: porton.peso,
+						portonNo: porton.modelNo
+					}
+					return info
 				})
-				.then(function(peso){
-					res.json({success: true, alto: req.body.alto, ancho: req.body.ancho, peso: peso});
+				.then(function(info){
+					res.json({success: true, alto: req.body.alto, ancho: req.body.ancho, peso: info.peso, portonModel: req.body.portonModel, portonNo: info.portonNo});
 				})
 				.catch(function(e){
 					console.log(e);
@@ -96,11 +95,28 @@ module.exports = function(passport) {
 		}
 	});
 
-	//save peso calc to project
+//save peso data to project
 	router.post('/savePeso', function(req, res){
-		
-	});
+		Proyecto.findById(req.body.pesoProjectId, function(err, proyecto){
+			if (err)
+				res.send(err);
+			console.log('peso saved to project!');
+			proyecto.porton = req.body.portonSaved;
+			proyecto.portonNo = req.body.portonNoSaved;
+			proyecto.peso = req.body.pesoSaved;
 
+			proyecto.save(function(err, proyecto){
+				if (err)
+					res.send(err)
+				req.session.flash = {
+					type: 'success',
+					message: 'New porton data added!'
+				};
+			}).then(function(proyecto){
+				res.redirect(303, '/api/proyectos/' + proyecto._id);
+			});
+		});
+	});
 
 
 	router.get('/encuestas', verified, function(req, res) {

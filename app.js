@@ -61,6 +61,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', express.static(__dirname + '/public'));
 app.use('/api/proyectos', express.static(__dirname + '/public'));
+app.use('/api/proyectos/:id', express.static(__dirname + '/public'));
+
 
 
 // required for passport

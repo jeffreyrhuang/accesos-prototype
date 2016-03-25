@@ -1,11 +1,14 @@
-<a href="api/proyectos/{{_id}}" id="homebutton"><img src="img/home-icon.png" alt="Home"></a>
+{{#proyecto}}
+
+<a href="/api/proyectos/{{_id}}" id="homebutton"><img src="img/home-icon.png" alt="Home"></a>
 
 <div class="row">
   <h3>Calcular Peso</h3>
   <div class="col-sm-3"></div>
   <div class="col-sm-9">
-    <form action ="/peso" id="pesoForm" class="form-horizontal" method="POST" role="form">
+    <form action ="/peso" id="pesoForm" class="form-horizontal" method="POST">
       <input type="hidden" name="_csrf" value="{{_csrfToken}}">
+
       <div class="form-group">
         <label for="docNo" class="col-sm-2 control-label">Document Number</label>
         <div class="col-sm-3">
@@ -16,7 +19,6 @@
       <div class="form-group">
         <label for="#" class="col-sm-2 control-label">Dise&ntilde;o Tipo</label>
         <div id="porton-search" class="col-sm-6">
-
           <select class="form-control" name="portonModel">
             <option>Para rellenar</option>
             <option>Lámina de cortina</option>
@@ -48,7 +50,6 @@
             <option>Barrotes 2x2</option>
             <option>Barrote seguido</option>
           </select>
-          
         </div>
       </div>
 
@@ -71,13 +72,16 @@
           </div>
         </div>
       </div>
+
       <br>
+
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-warning">Calcular</button>
-          <button type="reset" class="btn btn-default" id="reset">Borrar</button>
+          <button name="calculate" type="submit" class="btn btn-warning">Calcular</button>
+          <button name="reset" type="reset" class="btn btn-default" id="reset">Borrar</button>
         </div>
       </div>
+    </form>  
 
       <br>
       <br>
@@ -86,14 +90,21 @@
         <div class="resultContainer"></div>
       <br>
       <br>
-        <div id="savePeso">
-            <button type="submit" formaction="/savePeso" class="btn btn-success">Save to Project</button>
+
+    <form action="/savePeso" method="POST">
+        <input type="hidden" name="pesoProjectId" value="{{_id}}"></input>
+        <input type="hidden" id="pesoSaved" name="pesoSaved"></input>
+        <input type="hidden" id="portonSaved" name="portonSaved"></input>
+        <input type="hidden" id="portonNoSaved" name="portonNoSaved"></input>
+        <div id="savePesoButton">
+            <button name="savePeso" type="submit" class="btn btn-success">Save to Project</button>
         </div>
-      </div>
+    </form>
 
-    </form><!--end of form-->
+{{/proyecto}}
 
-  </div>
+  </div><!--end column-->
+
 </div><!--end row-->
 
 
@@ -102,7 +113,7 @@
     $('document').ready(function(){
 
       //Calculate Button
-      $('form').on('submit', function(e){
+      $('#pesoForm').on('submit', function(e){
           e.preventDefault();
           $('#spinner').show();
           var action = $(this).attr('action');
@@ -115,10 +126,14 @@
             success: function(data) {
               console.log(data);
               if(data.success){
-                $('.resultContainer').html('Peso: ' + ((data.ancho/100) * (data.alto/100) * data.peso).toFixed(2) + ' kg');
-                $('#savePeso').toggle();
+                var totalPeso = ((data.ancho/100) * (data.alto/100) * data.peso).toFixed(2);
+                $('.resultContainer').html('Peso: ' + totalPeso + ' kg');
+                $('#savePesoButton').toggle();
+                $('#pesoSaved').val(totalPeso);
+                $('#portonSaved').val(data.portonModel);
+                $('#portonNoSaved').val(data.portonNo);
 
-              }  else {
+              } else {
                 $('.resultContainer').html('<p>Oops, there was a problem</p>');
               }
             },
@@ -127,17 +142,17 @@
             }
           }).done(function(){
             $('#spinner').hide();
+            console.log('AJAX was a success')
           });
-
-          // $('#savePeso').removeClass('hidden');
       });
 
       //Reset button
       $('#reset').on('click', function(){
         $("#pesoForm").trigger('reset');
         $('.resultContainer').empty();
-        $('#savePeso').toggle();
+        $('#savePesoButton').hide();
       });
+
     });
 </script>
 {{/section}}
