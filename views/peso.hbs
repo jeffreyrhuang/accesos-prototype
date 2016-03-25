@@ -94,6 +94,8 @@
     <form action="/savePeso" method="POST">
         <input type="hidden" name="pesoProjectId" value="{{_id}}"></input>
         <input type="hidden" id="pesoSaved" name="pesoSaved"></input>
+        <input type="hidden" id="altoSaved" name="altoSaved"></input>
+        <input type="hidden" id="anchoSaved" name="anchoSaved"></input>
         <input type="hidden" id="portonSaved" name="portonSaved"></input>
         <input type="hidden" id="portonNoSaved" name="portonNoSaved"></input>
         <div id="savePesoButton">
@@ -132,6 +134,8 @@
                 $('#pesoSaved').val(totalPeso);
                 $('#portonSaved').val(data.portonModel);
                 $('#portonNoSaved').val(data.portonNo);
+                $('#altoSaved').val(data.alto);
+                $('#anchoSaved').val(data.ancho);
 
               } else {
                 $('.resultContainer').html('<p>Oops, there was a problem</p>');

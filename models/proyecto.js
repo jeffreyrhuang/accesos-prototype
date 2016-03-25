@@ -8,6 +8,8 @@ var proyectoSchema = mongoose.Schema({
 	client: String,
 	porton: String,
 	portonNo: Number,
+	alto: Number,
+	ancho: Number,
 	peso: Number
 
 },{

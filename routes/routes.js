@@ -100,10 +100,11 @@ module.exports = function(passport) {
 		Proyecto.findById(req.body.pesoProjectId, function(err, proyecto){
 			if (err)
 				res.send(err);
-			console.log('peso saved to project!');
 			proyecto.porton = req.body.portonSaved;
 			proyecto.portonNo = req.body.portonNoSaved;
 			proyecto.peso = req.body.pesoSaved;
+			proyecto.alto = req.body.altoSaved;
+			proyecto.ancho = req.body.anchoSaved;
 
 			proyecto.save(function(err, proyecto){
 				if (err)
@@ -112,8 +113,12 @@ module.exports = function(passport) {
 					type: 'success',
 					message: 'New porton data added!'
 				};
-			}).then(function(proyecto){
+			})
+			.then(function(proyecto){
 				res.redirect(303, '/api/proyectos/' + proyecto._id);
+			})
+			.catch(function(e){
+				console.log(e);
 			});
 		});
 	});
@@ -162,9 +167,9 @@ module.exports = function(passport) {
 			doc.text('Client: ' + proyecto.client)
 				.moveDown();
 			doc.text('E-mail: ');
-			doc.text('Peso total aproximado: ' + proyecto.peso, 160, 400)
+			doc.text('Peso total aproximado: ' + proyecto.peso + ' kg', 160, 400)
 				.moveDown()
-				.text('Diseño seleccionado: ' + proyecto.porton);
+				.text('Diseño seleccionado: ' + proyecto.portonNo + ' ' + proyecto.porton);
 
 			doc.text('Ancho: ' + proyecto.ancho, 220, 525);
 
@@ -244,13 +249,13 @@ module.exports = function(passport) {
 			doc.text('Client: ' + proyecto.client)
 				.moveDown();
 			doc.text('E-mail: ');
-			doc.text('Peso total aproximado: ' + proyecto.peso, 160, 400)
+			doc.text('Peso total aproximado:  ' + proyecto.peso + ' kg', 160, 400)
 				.moveDown()
-				.text('Diseño seleccionado: ' + proyecto.porton);
+				.text('Diseño seleccionado:  ' + proyecto.portonNo + ' ' + proyecto.porton);
 
-			doc.text('Ancho: ' + proyecto.ancho, 220, 525);
+			doc.text('Ancho: ' + proyecto.ancho + ' cm', 220, 525);
 
-			doc.text('Alto: ' + proyecto.alto, 430, 640);
+			doc.text('Alto: ' + proyecto.alto + ' cm', 430, 640);
 
 			doc.moveTo(35, 350)
 				.lineTo(577, 350);
