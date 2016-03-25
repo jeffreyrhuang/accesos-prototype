@@ -9,11 +9,15 @@ module.exports = function(passport){
 
 
 	router.get('/proyectos', function(req, res){
-		Proyecto.find(function(err, proyectos){
+		Proyecto.
+			find({}).
+			sort('-createdAt').
+			exec(function(err, proyectos){
 			if(err)
 				res.send(err);
 			res.render('existing', {proyectos: proyectos});
 		});
+
 	});
 
 	router.post('/proyectos', function(req, res){
