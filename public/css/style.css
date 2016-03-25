@@ -64,20 +64,7 @@ nav {
 	padding-top: 1em;
 }
 
-/*Start Page*/
-
-/*#createbutton {
-    display: block;
-    width: 100px;
-    height: 100px;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 5px;
-    background-color: green;
-    margin-top: 10em;
-}
-*/
-/*Existing Projects*/
+/*Projects*/
 
 .thumbnail{
     position: relative;
@@ -97,6 +84,10 @@ nav {
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+#createbutton {
+    padding-bottom: 1.5em;
 }
 
 /*Menu Principal*/

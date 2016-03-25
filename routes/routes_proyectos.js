@@ -9,8 +9,7 @@ module.exports = function(passport){
 
 
 	router.get('/proyectos', function(req, res){
-		Proyecto.
-			find({}).
+		Proyecto.find({}).
 			sort('-createdAt').
 			exec(function(err, proyectos){
 			if(err)
@@ -30,7 +29,7 @@ module.exports = function(passport){
 		newProyecto.save(function(err){
 			if (err)
 				res.send(err);
-			req.session.flash = {
+			req.session.sessionFlash = {
 				type: 'success',
 				message: 'Project created successfully!'
 			};

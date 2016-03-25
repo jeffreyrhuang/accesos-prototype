@@ -69,13 +69,14 @@ app.use('/api/proyectos/:id', express.static(__dirname + '/public'));
 app.use(session({ secret: 'ilovescotch', saveUninitialized: true, resave: true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 //custom flash middleware
 app.use(function(req, res, next){
   //if there's a flash message, transfer it to the context, then clear it
-  res.locals.flash = req.session.flash;
-  delete req.session.flash;
+  res.locals.sessionFlash = req.session.sessionFlash;
+  delete req.session.sessionFlash;
   next();
 });
 

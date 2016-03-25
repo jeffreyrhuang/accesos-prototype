@@ -41,7 +41,7 @@ module.exports = function(passport) {
 	});
 
 	router.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/start',
+		successRedirect: '/api/proyectos',
 		failureRedirect: '/',
 		failureFlash: true
 	}));
@@ -51,7 +51,7 @@ module.exports = function(passport) {
 	});
 
 	router.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/start',
+		successRedirect: '/api/proyectos',
 		failureRedirect: '/signup',
 		failureFlash: true 
 	}));
@@ -109,7 +109,7 @@ module.exports = function(passport) {
 			proyecto.save(function(err, proyecto){
 				if (err)
 					res.send(err)
-				req.session.flash = {
+				req.session.sessionFlash = {
 					type: 'success',
 					message: 'New porton data added!'
 				};
@@ -148,8 +148,6 @@ module.exports = function(passport) {
 			var doc = new PDFDocument({
 				size: 'letter'
 			});
-			// doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
-			// doc.pipe(res);
 
 			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
 			doc.font('Helvetica');
@@ -167,13 +165,13 @@ module.exports = function(passport) {
 			doc.text('Client: ' + proyecto.client)
 				.moveDown();
 			doc.text('E-mail: ');
-			doc.text('Peso total aproximado: ' + proyecto.peso + ' kg', 160, 400)
+			doc.text('Peso total aproximado:  ' + proyecto.peso + ' kg', 160, 400)
 				.moveDown()
-				.text('Diseño seleccionado: ' + proyecto.portonNo + ' ' + proyecto.porton);
+				.text('Diseño seleccionado:  ' + proyecto.portonNo + ' ' + proyecto.porton);
 
-			doc.text('Ancho: ' + proyecto.ancho, 220, 525);
+			doc.text('Ancho: ' + proyecto.ancho + ' cm', 220, 525);
 
-			doc.text('Alto: ' + proyecto.alto, 430, 640);
+			doc.text('Alto: ' + proyecto.alto + ' cm', 430, 640);
 
 			doc.moveTo(35, 350)
 				.lineTo(577, 350);
@@ -231,8 +229,9 @@ module.exports = function(passport) {
 			var doc = new PDFDocument({
 				size: 'letter'
 			});
-			// doc.pipe(fs.createWriteStream('./tmp/test.pdf'));
+
 			doc.pipe(res);
+
 			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
 			doc.font('Helvetica');
 			doc.fontSize(14);

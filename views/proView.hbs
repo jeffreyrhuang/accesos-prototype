@@ -4,10 +4,10 @@
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8 col-xs-12">
 
-	{{#if flash}}
-		<div id="#" class="alert alert-dismissible alert-{{flash.type}}" role="alert">
+	{{#if sessionFlash}}
+		<div id="#" class="alert alert-dismissible alert-{{sessionFlash.type}}" role="alert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			{{{flash.message}}}
+			{{{sessionFlash.message}}}
 		</div>
 	{{/if}}
 
