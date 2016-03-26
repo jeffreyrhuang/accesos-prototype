@@ -162,7 +162,7 @@ module.exports = function(passport) {
 			doc.text('Location: ' + proyecto.location)
 				.moveDown();
 
-			doc.text('Client: ' + proyecto.client)
+			doc.text('Client: ' + proyecto.cliente)
 				.moveDown();
 			doc.text('E-mail: ');
 			doc.text('Peso total aproximado:  ' + proyecto.peso + ' kg', 160, 400)
@@ -194,7 +194,7 @@ module.exports = function(passport) {
 			var email = new sendgrid.Email();
 
 			email.addTo 			(req.body.toEmail);
-			email.setFrom 		('do-not-reply@accesos.xyz');
+			email.setFrom 		('accesos-app@accesos.xyz');
 			email.setSubject 	('Peso Report');
 			email.setText 		('PDF report attached');
 			email.addFile 		({
@@ -245,7 +245,7 @@ module.exports = function(passport) {
 			doc.text('Location: ' + proyecto.location)
 				.moveDown();
 
-			doc.text('Client: ' + proyecto.client)
+			doc.text('Client: ' + proyecto.cliente)
 				.moveDown();
 			doc.text('E-mail: ');
 			doc.text('Peso total aproximado:  ' + proyecto.peso + ' kg', 160, 400)

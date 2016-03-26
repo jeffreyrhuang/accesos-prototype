@@ -5,7 +5,7 @@ var proyectoSchema = mongoose.Schema({
 	name: String,
 	location: String,
 	asesor: String,
-	client: String,
+	cliente: String,
 	porton: String,
 	portonNo: Number,
 	alto: Number,

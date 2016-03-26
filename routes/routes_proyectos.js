@@ -19,10 +19,12 @@ module.exports = function(passport){
 
 	});
 
+	//for create project button:
 	router.post('/proyectos', function(req, res){
 
 		var newProyecto = new Proyecto();
 		newProyecto.name = req.body.name;
+		newProyecto.cliente = req.body.cliente;
 		newProyecto.location=  req.body.location;
 		newProyecto.asesor = req.body.asesor;
 
