@@ -9,14 +9,14 @@
       <input type="hidden" name="_csrf" value="{{_csrfToken}}">
 
       <div class="form-group">
-        <label for="docNo" class="col-sm-2 control-label">Numero de Documento</label>
+        <label for="docNo" class="col-sm-3 control-label">Numero de Documento</label>
         <div class="col-sm-3">
           <input type="text" class="form-control" name="docNo">
         </div>
       </div>
 
       <div class="form-group">
-        <label for="#" class="col-sm-2 control-label">Dise&ntilde;o de Portón</label>
+        <label for="#" class="col-sm-3 control-label">Dise&ntilde;o de Portón</label>
         <div id="porton-search" class="col-sm-6">
           <select class="form-control" name="portonModel">
             <option>Para rellenar</option>
@@ -53,7 +53,7 @@
       </div>
 
       <div class="form-group">
-        <label for="#" class="col-sm-2 control-label">Alto Libre</label>
+        <label for="#" class="col-sm-3 control-label">Alto Libre</label>
         <div class="col-sm-4">
           <div class="input-group">
             <input type="text" class="form-control" id="#" placeholder="Alto" name="alto" required>
@@ -63,7 +63,7 @@
       </div>
 
       <div class="form-group">
-        <label for="#" class="col-sm-2 control-label">Ancho Libre</label>
+        <label for="#" class="col-sm-3 control-label">Ancho Libre</label>
         <div class="col-sm-4">
           <div class="input-group">
             <input type="text" class="form-control" id="#" placeholder="Ancho" name="ancho" required>
@@ -98,7 +98,7 @@
         <input type="hidden" id="portonSaved" name="portonSaved"></input>
         <input type="hidden" id="portonNoSaved" name="portonNoSaved"></input>
         <div id="savePesoButton">
-            <button name="savePeso" type="submit" class="btn btn-success">Guardar Proyecto</button>
+            <button name="savePeso" type="submit" class="btn btn-success">Guardar</button>
         </div>
     </form>
 
@@ -129,7 +129,7 @@
               if(data.success){
                 var totalPeso = ((data.ancho/100) * (data.alto/100) * data.peso).toFixed(2);
                 $('.resultContainer').html('Peso: ' + totalPeso + ' kg');
-                $('#savePesoButton').toggle();
+                $('#savePesoButton').show();
                 $('#pesoSaved').val(totalPeso);
                 $('#portonSaved').val(data.portonModel);
                 $('#portonNoSaved').val(data.portonNo);

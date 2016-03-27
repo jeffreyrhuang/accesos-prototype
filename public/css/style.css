@@ -1,6 +1,7 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1.3em "Lucida Grande", Helvetica, Arial, sans-serif;
+/*  uncertain to use em or px for font size*/
 }
 
 a {
@@ -11,6 +12,12 @@ nav {
     display: block;
     float: right;
 }
+
+/*h4 {
+    text-align: center;
+    font-weight: bold;
+    padding: 1.5em;
+}*/
 
 .no-gutter > [class*='col-'] {
     padding-right: 0;
@@ -25,23 +32,16 @@ nav {
     float: left;
     text-decoration: none;
     color: #333;
+    padding-top: .7em;
+    margin-left: -3em;
 }
 
 #userButton {
     float: right;
     border-radius: 15px !important;
+    margin-right: -4em;
 }
 
-
-/*#logout {
-    float: right;
-    padding-right: 1em;
-}
-
-#logout a {
-    font-size: 13px;
-}
-*/
 
 /*Login-Signup Pages*/
 
@@ -92,6 +92,13 @@ nav {
     padding-bottom: 1.5em;
 }
 
+/*ProView*/
+
+#projectsbutton {
+    margin-left: -3em;
+}
+
+
 /*Menu Principal*/
 
 .menubutton {
@@ -105,6 +112,7 @@ h3 {
 	padding: 1.5em;
 }
 
+
 footer {
 	font-size: 10px;
     clear: both;
@@ -115,7 +123,7 @@ footer {
 
 .resultContainer {
     font-weight: bold;
-    font-size: 1.75em;
+    font-size: 1.5em;
     color: #e60000;
 }
 
