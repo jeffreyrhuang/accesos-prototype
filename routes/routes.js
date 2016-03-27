@@ -206,7 +206,13 @@ module.exports = function(passport) {
 			sendgrid.send(email, function(err, json){
 				if(err) {return console.error(err);}
 				console.log(json);
-				res.render('proView', {proyecto: proyecto});
+
+				req.session.sessionFlash = {
+					type: 'success',
+					message: 'E-mail enviado!'
+				};
+
+				res.redirect(303, '/api/proyectos/' + proyecto._id);
 			})
 		})	
 		.catch(function(e){
