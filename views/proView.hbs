@@ -19,7 +19,7 @@
 
 	{{!-- iterate over OBJECT --}}
 	{{#proyecto}}
-		<table class="table table-hover">
+		<table class="table table-hover" id="project-table">
 			<tr><td><b>Nombre: </b></td><td>{{name}}</td></tr>
 			<tr><td><b>Cliente: </b></td><td>{{cliente}}</td></tr>
 			<tr><td><b>Dirección: </b></td><td>{{location}}</td></tr>
@@ -31,34 +31,35 @@
 {{!-- 	<p>Photos</p>
 	<input class="input-group" type="file" accept="image/*" capture="camera"> --}}
 
-	<div class="col-sm-2"></div>
 </div>
 <hr>
+
 <div class="row">
-	<div class="col-sm-3"></div>
-	<div class="col-sm-6">
+	<div class="col-sm-offset-2">
 		<h4>Herramientas:</h4>
-			<a href="/api/proyectos/{{_id}}/peso" class="btn btn-info">Calcular Peso</a>
+		<br>
+		<a href="/api/proyectos/{{_id}}/peso" class="btn btn-info">Calcular Peso</a>
 	</div>
 </div>
 
 <hr>
 
 <div class="row">
-	<div class="col-sm-3"></div>
-	<div class="col-sm-6">
+	<div class="col-sm-offset-2">
 		<h4>Reportes:</h4>
 		<br>
 		<form action="/pdf" method="POST">
 			<input type="hidden" name="id" value="{{_id}}">
 			{{/proyecto}}
 			<div class="form-group">
+			<button name="openPDF" type="submit" formaction="/openPdf" class="btn btn-default">Abrir Reporte de Peso</button>
+			<br>
+			<br>
+			<br>	
 				<label for="">Enviar a:</label>
 				<input type="email" class="form-control" name="toEmail" value="{{user_email}}">
 			</div>
-			<button name="pdfGenerator" type="submit" class="btn btn-default">Enviar Reporte</button>
-			<br>
-			<button name="openPDF" type="submit" formaction="/openPdf" class="btn btn-default">Abrir Reporte</button>
+			<button name="pdfGenerator" type="submit" class="btn btn-default">Enviar Reporte de Peso</button>
 		</form>
 		
 	</div>
