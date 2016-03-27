@@ -111,7 +111,7 @@ module.exports = function(passport) {
 					res.send(err)
 				req.session.sessionFlash = {
 					type: 'success',
-					message: 'New porton data added!'
+					message: 'Nueva información añadida!'
 				};
 			})
 			.then(function(proyecto){
@@ -153,16 +153,16 @@ module.exports = function(passport) {
 			doc.font('Helvetica');
 			doc.fontSize(14);
 				
-			doc.text('Date: ' + proyecto.createdAt, 65, 180)
+			doc.text('Fecha: ' + proyecto.createdAt, 65, 180)
 				.moveDown();
 
 			doc.text('Proyecto nombre: ' + proyecto.name)
 				.moveDown();
 
-			doc.text('Location: ' + proyecto.location)
+			doc.text('Dirección: ' + proyecto.location)
 				.moveDown();
 
-			doc.text('Client: ' + proyecto.cliente)
+			doc.text('Cliente: ' + proyecto.cliente)
 				.moveDown();
 			doc.text('E-mail: ');
 			doc.text('Peso total aproximado:  ' + proyecto.peso + ' kg', 160, 400)
@@ -195,10 +195,10 @@ module.exports = function(passport) {
 
 			email.addTo 			(req.body.toEmail);
 			email.setFrom 		('accesos-app@accesos.xyz');
-			email.setSubject 	('Peso Report');
-			email.setText 		('PDF report attached');
+			email.setSubject 	('Reporte de Peso');
+			email.setText 		('PDF reporte adjunto');
 			email.addFile 		({
-				filename: proyecto.name + '-pesoreport.pdf',
+				filename: proyecto.name + '-reporte-peso.pdf',
 				content: doc,
 				contentType: 'application/pdf'
 			});
@@ -236,16 +236,16 @@ module.exports = function(passport) {
 			doc.font('Helvetica');
 			doc.fontSize(14);
 				
-			doc.text('Date: ' + proyecto.createdAt, 65, 180)
+			doc.text('Fecha: ' + proyecto.createdAt, 65, 180)
 				.moveDown();
 
 			doc.text('Proyecto nombre: ' + proyecto.name)
 				.moveDown();
 
-			doc.text('Location: ' + proyecto.location)
+			doc.text('Dirección: ' + proyecto.location)
 				.moveDown();
 
-			doc.text('Client: ' + proyecto.cliente)
+			doc.text('Cliente: ' + proyecto.cliente)
 				.moveDown();
 			doc.text('E-mail: ');
 			doc.text('Peso total aproximado:  ' + proyecto.peso + ' kg', 160, 400)

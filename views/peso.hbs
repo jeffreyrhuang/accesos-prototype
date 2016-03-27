@@ -1,8 +1,7 @@
 {{#proyecto}}
 
-<a href="/api/proyectos/{{_id}}" id="homebutton"><img src="img/home-icon.png" alt="Home"></a>
-
 <div class="row">
+  <a href="/api/proyectos/{{_id}}" id="backbutton"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar</a>
   <h3>Calcular Peso</h3>
   <div class="col-sm-3"></div>
   <div class="col-sm-9">
@@ -10,14 +9,14 @@
       <input type="hidden" name="_csrf" value="{{_csrfToken}}">
 
       <div class="form-group">
-        <label for="docNo" class="col-sm-2 control-label">Document Number</label>
+        <label for="docNo" class="col-sm-2 control-label">Numero de Documento</label>
         <div class="col-sm-3">
           <input type="text" class="form-control" name="docNo">
         </div>
       </div>
 
       <div class="form-group">
-        <label for="#" class="col-sm-2 control-label">Dise&ntilde;o Tipo</label>
+        <label for="#" class="col-sm-2 control-label">Dise&ntilde;o de Portón</label>
         <div id="porton-search" class="col-sm-6">
           <select class="form-control" name="portonModel">
             <option>Para rellenar</option>
@@ -99,7 +98,7 @@
         <input type="hidden" id="portonSaved" name="portonSaved"></input>
         <input type="hidden" id="portonNoSaved" name="portonNoSaved"></input>
         <div id="savePesoButton">
-            <button name="savePeso" type="submit" class="btn btn-success">Save to Project</button>
+            <button name="savePeso" type="submit" class="btn btn-success">Guardar Proyecto</button>
         </div>
     </form>
 

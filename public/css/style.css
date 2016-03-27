@@ -21,8 +21,10 @@ nav {
     display: none !important;
 }
 
-#homebutton {
+#backbutton {
     float: left;
+    text-decoration: none;
+    color: #333;
 }
 
 #userButton {

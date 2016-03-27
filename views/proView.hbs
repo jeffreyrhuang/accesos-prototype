@@ -1,6 +1,12 @@
 <div class="row no-gutter">
 	
-	<h3>Project View:</h3>
+	<div id="projectsbutton">
+		<a href="/api/proyectos" role="button" class="btn btn-default">
+		  <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Todos los Proyectos
+		</a>
+	</div>
+
+	<h3>Información de Proyecto:</h3>
 	<div class="col-sm-2"></div>
 	<div class="col-sm-8 col-xs-12">
 
@@ -14,12 +20,12 @@
 	{{!-- iterate over OBJECT --}}
 	{{#proyecto}}
 		<table class="table table-hover">
-			<tr><td><b>Name: </b></td><td>{{name}}</td></tr>
+			<tr><td><b>Nombre: </b></td><td>{{name}}</td></tr>
 			<tr><td><b>Cliente: </b></td><td>{{client}}</td></tr>
-			<tr><td><b>Location: </b></td><td>{{location}}</td></tr>
+			<tr><td><b>Dirección: </b></td><td>{{location}}</td></tr>
 			<tr><td><b>Asesor: </b></td><td>{{asesor}}</td></tr>
-			<tr><td><b>Tipo de porton: </b></td><td>{{portonNo}}  {{porton}}</td></tr>
-			<tr><td><b>Peso de porton: </b></td><td>{{peso}} {{#if peso}}kg{{/if}}</td></tr>
+			<tr><td><b>Tipo de portón: </b></td><td>{{portonNo}}  {{porton}}</td></tr>
+			<tr><td><b>Peso de portón: </b></td><td>{{peso}} {{#if peso}}kg{{/if}}</td></tr>
 		</table>
 	</div>	
 {{!-- 	<p>Photos</p>
@@ -31,7 +37,7 @@
 <div class="row">
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6">
-		<h4>Tools:</h4>
+		<h4>Herramientas:</h4>
 			<a href="/api/proyectos/{{_id}}/peso" class="btn btn-info">Peso Calcular</a>
 	</div>
 </div>
@@ -41,7 +47,7 @@
 <div class="row">
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6">
-		<h4>Reports:</h4>
+		<h4>Reportes:</h4>
 		<br>
 		<form action="/pdf" method="POST">
 			<input type="hidden" name="id" value="{{_id}}">
@@ -50,8 +56,8 @@
 				<label for="">Send to:</label>
 				<input type="email" class="form-control" name="toEmail" value="{{user_email}}">
 			</div>
-			<button name="pdfGenerator" type="submit" class="btn btn-default">Email Peso Report</button>
-			<button name="openPDF" type="submit" formaction="/openPdf" class="btn btn-default">Open Peso Report</button>
+			<button name="pdfGenerator" type="submit" class="btn btn-default">Enviar Reporte</button>
+			<button name="openPDF" type="submit" formaction="/openPdf" class="btn btn-default">Abrir Reporte</button>
 		</form>
 		
 	</div>

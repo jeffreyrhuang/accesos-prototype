@@ -33,7 +33,7 @@ module.exports = function(passport){
 				res.send(err);
 			req.session.sessionFlash = {
 				type: 'success',
-				message: 'Project created successfully!'
+				message: 'Nuevo proyecto creado!'
 			};
 			res.redirect(303, '/api/proyectos/' + newProyecto._id);
 		});
