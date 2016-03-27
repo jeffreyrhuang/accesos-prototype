@@ -2,7 +2,7 @@
 
 <div class="row">
   <a href="/api/proyectos/{{_id}}" id="backbutton"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar</a>
-  <h3>Calcular Peso</h3>
+  <h4>Calcular Peso</h4>
   <div class="col-sm-9 col-sm-offset-3">
     <form action ="/peso" id="pesoForm" class="form-horizontal" method="POST">
       <input type="hidden" name="_csrf" value="{{_csrfToken}}">
@@ -10,7 +10,7 @@
       <div class="form-group">
         <label for="docNo" class="col-sm-3 control-label">Numero de Documento</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" name="docNo">
+          <input type="text" class="form-control" name="docNo" placeholder="Numero">
         </div>
       </div>
 

@@ -13,11 +13,26 @@ nav {
     float: right;
 }
 
-/*h4 {
+.btn {
+    font-size: 1em;
+}
+
+/*h3 {
+    font-family: Georgia;
     text-align: center;
     font-weight: bold;
     padding: 1.5em;
+    margin-top: 2em;
 }*/
+
+h4 {
+    font-family: Georgia;
+    text-align: center;
+    font-weight: bold;
+    padding: 1.5em;
+    margin-top: 2em;
+
+}
 
 .no-gutter > [class*='col-'] {
     padding-right: 0;
@@ -108,12 +123,6 @@ nav {
 .menubutton {
 	padding-top: 1em;
 	padding-bottom: 1em;
-}
-
-h3 {
-	text-align: center;
-	font-weight: bold;
-	padding: 1.5em;
 }
 
 
