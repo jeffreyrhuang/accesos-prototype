@@ -1,5 +1,5 @@
 {{#proyecto}}
-<div class="row">
+<div class="row no-gutter">
 	<a href="/api/proyectos/{{_id}}" id="backbutton"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar</a>
   <h4>Especificar Cortina</h4>
 
@@ -30,8 +30,8 @@
      </div>
 </div>
 
-<div class="row">
-	<img src="img/cortina-diagram.png" class="img-responsive" alt="cortina-diagram" style="margin: auto">
+<div class="row no-gutter">
+	<img src="img/cortina-main.png" class="img-responsive" alt="cortina-main" style="margin: auto">
 </div>
 
 <div class="row">
@@ -43,13 +43,16 @@
 
   </form>
   </div>
-
-
-
-
-
-
-
-
 </div>
+
+<div class="row">
+		<form action="/cortina-open" method="POST">
+			<input type="hidden" name="id" value="{{_id}}">
+			<div class="form-group">
+			<button name="cortina-open" type="submit" class="btn btn-default">Abrir Cortina Specifications</button>
+		</form>
+</div>
+
+
+
 {{/proyecto}}

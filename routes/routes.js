@@ -133,7 +133,7 @@ module.exports = function(passport) {
 	});
 
 		//peso report - pdf generator
-		//EMAIL PDF REPORT
+		//EMAIL PESO REPORT
 	router.post('/pdf', function(req, res){
 		
 		//retrieve report data		
@@ -301,6 +301,48 @@ module.exports = function(passport) {
 		// 	console.log(e);
 		// });
 			
+	});
+
+	//CORTINA PDF - OPEN
+	router.post('/cortina-open', function(req, res){
+		Proyecto.findById(req.body.id, function(err, proyecto){
+			if (err)
+				res.send(err);
+			return proyecto;
+		})
+		.then(function(proyecto){
+
+			var doc = new PDFDocument({
+				size: 'letter',
+				layout: 'landscape'
+			});
+			
+			doc.pipe(res);
+
+			doc.image('./public/img/accesoslogo.png', 670, 22, {width: 100});
+			doc.image('./public/img/cortina-main.png', 337, 69, {width: 437});
+
+			doc.font('Helvetica');
+			doc.fontSize(12);
+			
+			//test number
+			doc.text('88', 355, 370);
+
+			//text circle
+			doc.circle(340, 350, 10)
+				.stroke();
+
+			doc.lineWidth(.5)
+				.rect(18, 18, 756, 576)
+				.stroke();
+
+			doc.moveTo(18, 558)
+				.lineTo(774, 558)
+				.stroke();
+
+
+			doc.end();
+		});
 	});
 
 
