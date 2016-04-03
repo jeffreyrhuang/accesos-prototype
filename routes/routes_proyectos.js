@@ -84,6 +84,14 @@ module.exports = function(passport){
 		});
 	});
 
+	router.get('/proyectos/:id/cortina', function(req, res){
+		Proyecto.findById(req.params.id, function(err, proyecto){
+			if (err)
+				res.send(err)
+			res.render('cortina', {proyecto: proyecto});
+		});
+	});
+
 	// router.post('/proyectos/:id/peso', function(req, res){
 	// 	Proyecto.findById(req.params.id, function(err, proyecto){
 	// 		if (err)

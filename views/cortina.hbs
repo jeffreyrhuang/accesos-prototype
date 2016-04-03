@@ -1,0 +1,55 @@
+{{#proyecto}}
+<div class="row">
+	<a href="/api/proyectos/{{_id}}" id="backbutton"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar</a>
+  <h4>Especificar Cortina</h4>
+
+	<div class="col-sm-9 col-sm-offset-3">
+  <form action="/cortina" class="form-horizontal">
+  	<h5>1. Dimensiones en cm</h5>
+		
+		 <div class="form-group">
+      <label for="cor_a" class="col-sm-1 control-label">A</label>
+      <div class="col-sm-2">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_a">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_a" class="control-label">ancho buque</label>
+     </div>
+
+     <div class="form-group">
+      <label for="cor_h" class="col-sm-1 control-label">H</label>
+      <div class="col-sm-2">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_h">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_h" class="control-label">alto buque</label>
+     </div>
+</div>
+
+<div class="row">
+	<img src="img/cortina-diagram.png" class="img-responsive" alt="cortina-diagram" style="margin: auto">
+</div>
+
+<div class="row">
+	<div class="col-sm-9 col-sm-offset-3">
+		<h5>2. Herraje Principal</h5>
+
+		<h5>3. Tipo de lámina</h5>
+
+
+  </form>
+  </div>
+
+
+
+
+
+
+
+
+</div>
+{{/proyecto}}

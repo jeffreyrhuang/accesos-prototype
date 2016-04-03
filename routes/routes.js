@@ -241,7 +241,7 @@ module.exports = function(passport) {
 			doc.image('./public/img/accesoslogo.png', 380, 30, {width: 200});
 			doc.font('Helvetica');
 			doc.fontSize(14);
-				
+
 			doc.text('Fecha: ' + proyecto.createdAt, 65, 180)
 				.moveDown();
 
@@ -254,6 +254,7 @@ module.exports = function(passport) {
 			doc.text('Cliente: ' + proyecto.cliente)
 				.moveDown();
 			doc.text('E-mail: ');
+
 			doc.text('Peso total aproximado:  ' + proyecto.peso + ' kg', 160, 400)
 				.moveDown()
 				.text('Diseño seleccionado:  ' + proyecto.portonNo + ' ' + proyecto.porton);
