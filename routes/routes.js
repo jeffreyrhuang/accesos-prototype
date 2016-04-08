@@ -281,7 +281,7 @@ module.exports = function(passport) {
 			console.log('PDF created!');
 		});
 
-			// stream upload pdf to s3 (WORKS)
+	// stream upload pdf to s3 (WORKS)
 		// 	var params = {
 		// 		Key: proyecto.name + '.pdf',
 		// 		Body: doc,
@@ -355,6 +355,66 @@ module.exports = function(passport) {
 			doc.font('Helvetica')
 				.fontSize(11)
 				.text('**Cree una hoja separada para cada puerta si existe CUALQUIER diferencia**', 24, 64)
+				.text('Cantidad: ____', 427, 64)
+				//box 1a
+				.text('A', 31, 105, {lineGap: 1.5})
+				.text('H', {lineGap: 1.5})
+				.text('CI', {lineGap: 1.5})
+				.text('CE', {lineGap: 1.5})
+				.text('Li', {lineGap: 1.5})
+				.text('Ld', {lineGap: 1.5})
+				.text('P', {lineGap: 1.5})
+				.text('ancho buque', 95, 105, {lineGap: 1.5})
+				.text('alto buque', {lineGap: 1.5})
+				.text('cargador superior interno', {lineGap: 1.5})
+				.text('cargador superior externo', {lineGap: 1.5})
+				.text('espacio lateral izquierdo', {lineGap: 1.5})
+				.text('espacio laterla derecho', {lineGap: 1.5})
+				.text('profundidad cielo', {lineGap: 1.5})
+				//box 1b
+				.text('SS', 291, 91, {lineGap: 1.5})
+				.text('SC', {lineGap: 1.5})
+				.text('SI', {lineGap: 1.5})
+				.text('B', {lineGap: 1.5})
+				.text('Ti', {lineGap: 1.5})
+				.text('Td', {lineGap: 1.5})
+				.text('Di', {lineGap: 1.5})
+				.text('Dd', {lineGap: 1.5})
+				.text('lámina principal superior', 355, 90, {lineGap: 1.5})
+				.text('lámina secundaria', {lineGap: 1.5})
+				.text('lámina principal inferior', {lineGap: 1.5})
+				.text('ancho final libre', {lineGap: 1.5})
+				.text('tubo a agregar izquierda', {lineGap: 1.5})
+				.text('tubo a agregar derecha', {lineGap: 1.5})
+				.text('desnivel izquierdo', {lineGap: 1.5})
+				.text('desnivel derecho', {lineGap: 1.5})
+				//box 2
+				.text('Ciclos por hora:', 31, 237, {lineGap: 1.5})
+				.text('Horas de uso:' , {lineGap: 1.5, indent: 20})
+				.text('Tipo de Guía:', {lineGap: 1.5})
+				.text('Color de Herraje:', {lineGap: 1.5})
+				.text('Columna izquierda:', {lineGap: 1.5})
+				.text('Columna derecha:', {lineGap: 1.5})
+				.text('Cargado superior:', {lineGap: 1.5})
+				.text('Guía desmontable:', {lineGap: 1.5})
+				.text('Ojos fijación:', 190, 268, {lineGap: 1.5})
+				//box 3
+				.text('Principal:', 31, 379, {lineGap: 1.5})
+				.text('Secund:', {lineGap: 1.5})
+				.text('Color exterior:', {lineGap: 1.5})
+				.text('Color interior:', {lineGap: 1.5})
+				//box 4
+				.text('no lleva', 58, 468)
+				//box 5
+				.text('Catalina', 237, 383, {lineGap: 1.5})
+				.text('Gancho p bajar', {lineGap: 1.5})
+				.text('Ojos de candado', {lineGap: 1.5})
+				.text('Cerradura central', {lineGap: 1.5})
+				.text('Mirilla', {lineGap: 1.5})
+				.text('Hule inferior (std.)', {lineGap: 1.5})
+				.text('Sello lateral (opc.)', {lineGap: 1.5})
+
+
 
 			
 			//test number
@@ -407,6 +467,9 @@ module.exports = function(passport) {
 
 				.moveTo(505, 545)
 				.lineTo(505, 594)
+
+				.moveTo(272, 82)
+				.lineTo(272, 213)
 				.stroke();
 			
 			// doc.addPage();
