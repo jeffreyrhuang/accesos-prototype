@@ -169,6 +169,7 @@ footer {
 
 .diagram-input {
     width: 40px;
+    border: 1px solid red;
 }
 
 #testinputdiv {

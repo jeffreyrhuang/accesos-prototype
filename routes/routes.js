@@ -314,16 +314,48 @@ module.exports = function(passport) {
 
 			var doc = new PDFDocument({
 				size: 'letter',
-				layout: 'landscape'
+				layout: 'landscape',
+				margin: 0
 			});
 			
 			doc.pipe(res);
 
-			doc.image('./public/img/accesoslogo.png', 670, 22, {width: 100});
-			doc.image('./public/img/cortina-main.png', 337, 69, {width: 437});
+			doc.image('./public/img/accesoslogo.png', 664, 27, {width: 100});
+			doc.image('./public/img/cortina-main.png', 332, 63, {width: 443});
+			doc.image('./public/img/cortina-box4.png', 56, 491, {width: 108});
 
-			doc.font('Helvetica');
-			doc.fontSize(12);
+			//text headings
+			doc.font('Helvetica-Bold')
+				.fontSize(12)
+				.text('Cliente:', 26, 43)
+				.text('Ubicación (ID):', 252, 43)
+				.text('Fecha:', 513, 23)
+				.text('No. orden:', 513, 42)
+				.text('1. Dimensiones en cm', 24, 87)
+				.text('2. Herraje Principal', 24, 219)
+				.text('3. Tipo de Lámina', 24, 361)
+				.text('4. Cobertor', 24, 449)
+				.text('5. Accesorios', 224, 361);
+
+			//Signature headings
+			 doc.font('Helvetica-Bold')
+				.fontSize(10)
+				.text('Nombre VENDEDOR', 24, 549)
+				.text('Firma VENDEDOR', 224, 549)
+				.text('Nombre SUPERVISOR', 340, 549)
+				.text('V\xB0B\xB0 SUPERVISOR', 513, 549);
+
+			//Report title
+			//make this font oblique?
+			doc.font('Helvetica-Bold')
+				.fontSize(13)
+				.text('SUBMITTAL CORTINA (ES) 1 de 2', 176, 21, {underline: true});
+
+			//Regular text
+			doc.font('Helvetica')
+				.fontSize(11)
+				.text('**Cree una hoja separada para cada puerta si existe CUALQUIER diferencia**', 24, 64)
+
 			
 			//test number
 			doc.text('88', 355, 370);
@@ -331,14 +363,53 @@ module.exports = function(passport) {
 			//text circle
 			doc.circle(340, 350, 8)
 				.stroke();
-
+			
+			//grid lines
 			doc.lineWidth(.5)
 				.rect(18, 18, 756, 576)
 				.stroke();
 
 			doc.moveTo(18, 545)
 				.lineTo(774, 545)
+				
+				.moveTo(18, 82)
+				.lineTo(528, 82)
+				
+				.moveTo(528, 82)
+				.lineTo(528, 213)
+				
+				.moveTo(528, 213)
+				.lineTo(18, 213)
+		
+				.moveTo(332, 213)
+				.lineTo(332, 594)
+			
+				.moveTo(18, 356)
+				.lineTo(332, 356)
+			
+				.moveTo(18, 445)
+				.lineTo(216, 445)
+				
+				.moveTo(216, 356)
+				.lineTo(216, 594)
+				
+				.moveTo(508, 38)
+				.lineTo(650, 38)
+				
+				.moveTo(508, 18)
+				.lineTo(508, 58)
+				
+				.moveTo(650, 18)
+				.lineTo(650, 58)
+
+				.moveTo(508, 58)
+				.lineTo(650, 58)
+
+				.moveTo(505, 545)
+				.lineTo(505, 594)
 				.stroke();
+			
+			// doc.addPage();
 
 
 			doc.end();
