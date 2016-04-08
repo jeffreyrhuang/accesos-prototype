@@ -1,17 +1,17 @@
 {{#proyecto}}
+<form action="/cortina" class="form-horizontal">
+
 <div class="row no-gutter">
 	<a href="/api/proyectos/{{_id}}" id="backbutton"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar</a>
   <h4>Especificar Cortina</h4>
 
-	{{!-- <div class="col-sm-5 col-sm-offset-1"> --}}
-  <form action="/cortina" class="form-horizontal">
-  	<h5>1. Dimensiones</h5>
-	<div class="col-sm-5 col-sm-offset-1">
+  <h5 class="box-heading">1. Dimensiones</h5>
+	<div class="col-sm-5 col-sm-offset-2">
 		 <div class="form-group">
       <label for="cor_a" class="col-sm-1 control-label">A</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_a">
+          <input type="number" class="form-control" name="cor_a">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -22,7 +22,7 @@
       <label for="cor_h" class="col-sm-1 control-label">H</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_h">
+          <input type="number" class="form-control" name="cor_h">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -33,7 +33,7 @@
       <label for="cor_ci" class="col-sm-1 control-label">CI</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_ci">
+          <input type="number" class="form-control" name="cor_ci">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -44,7 +44,7 @@
       <label for="cor_ce" class="col-sm-1 control-label">CE</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_ce">
+          <input type="number" class="form-control" name="cor_ce">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -55,7 +55,7 @@
       <label for="cor_li" class="col-sm-1 control-label">Li</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_li">
+          <input type="number" class="form-control" name="cor_li">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -67,7 +67,7 @@
       <label for="cor_ld" class="col-sm-1 control-label">Ld</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_ld">
+          <input type="number" class="form-control" name="cor_ld">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -78,7 +78,7 @@
       <label for="cor_p" class="col-sm-1 control-label">P</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_p">
+          <input type="number" class="form-control" name="cor_p">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -93,7 +93,7 @@
   		<label for="cor_ss" class="col-sm-1 control-label">SS</label>
   		<div class="col-sm-3">
   			<div class="input-group">
-  				<input type="text" class="form-control" name="cor_ss">
+  				<input type="number" class="form-control" name="cor_ss">
   				<div class="input-group-addon">cm</div>
   			</div>
   		</div>
@@ -104,7 +104,7 @@
   		<label for="cor_sc" class="col-sm-1 control-label">SC</label>
   		<div class="col-sm-3">
   			<div class="input-group">
-  				<input type="text" class="form-control" name="cor_sc">
+  				<input type="number" class="form-control" name="cor_sc">
   				<div class="input-group-addon">cm</div>
   			</div>
   		</div>
@@ -115,7 +115,7 @@
   		<label for="cor_si" class="col-sm-1 control-label">SI</label>
   		<div class="col-sm-3">
   			<div class="input-group">
-  				<input type="text" class="form-control" name="cor_si">
+  				<input type="number" class="form-control" name="cor_si">
   				<div class="input-group-addon">cm</div>
   			</div>
   		</div>
@@ -126,7 +126,7 @@
   		<label for="cor_b" class="col-sm-1 control-label">B</label>
   		<div class="col-sm-3">
   			<div class="input-group">
-  				<input type="text" class="form-control" name="cor_b">
+  				<input type="number" class="form-control" name="cor_b">
   				<div class="input-group-addon">cm</div>
   			</div>
   		</div>
@@ -137,7 +137,7 @@
       <label for="cor_ti" class="col-sm-1 control-label">Ti</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_ti">
+          <input type="number" class="form-control" name="cor_ti">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -148,7 +148,7 @@
       <label for="cor_td" class="col-sm-1 control-label">Td</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_td">
+          <input type="number" class="form-control" name="cor_td">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -159,7 +159,7 @@
       <label for="cor_di" class="col-sm-1 control-label">Di</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_di">
+          <input type="number" class="form-control" name="cor_di">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -170,7 +170,7 @@
       <label for="cor_dd" class="col-sm-1 control-label">Dd</label>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_dd">
+          <input type="number" class="form-control" name="cor_dd">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -179,7 +179,7 @@
 
 
   </div><!--end of column-->
-</div>
+</div><!--end of row-->
 
 <div class="row no-gutter">
 	<div style="text-align: center">
@@ -192,16 +192,315 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-sm-9 col-sm-offset-3">
-		<h5>2. Herraje Principal</h5>
+{{!-- box 2 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">2. Herraje Principal</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+			
+		<div class="form-group">
+			<label for="cor_ciclos" class="col-sm-2 control-label">Ciclos por hora:</label>
+				<div class="col-sm-3">
+					<select name="cor_ciclos" id="cor_ciclos" class="form-control">
+						<option>0-2 veces/hora</option>
+						<option>3-5 veces/hora</option>
+						<option>6-14 veces/hora</option>
+						<option>15-29 veces/hora</option>
+						<option>30-50 veces/hora</option>
+					</select>
+				</div>
+		</div>
 
-		<h5>3. Tipo de lámina</h5>
+		<div class="form-group">
+			<label for="cor_horas" class="col-sm-2 control-label">Horas de uso:</label>
+				<div class="col-sm-3">
+					<select name="cor_horas" id="cor_horas" class="form-control">
+						<option>8 horas/día</option>
+						<option>12 horas/día</option>
+						<option>24 horas/día</option>
+					</select>
+				</div>
+		</div>
 
+		<div class="form-group">
+			<label for="cor_tipo_guia" class="col-sm-2 control-label">Tipo de Guía:</label>
+				<div class="col-sm-3">
+					<select name="cor_tipo_guia" id="cor_tipo_guia" class="form-control">
+						<option>-defina guía-</option>
+						<option>Guía 2 pulg</option>
+						<option>Guía 3 pulg</option>
+						<option>Guía 4 pulg</option>
+					</select>
+				</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="cor_ojos" class="col-sm-2 control-label">Ojos fijación:</label>
+				<div class="col-sm-1">
+					<select name="cor_ojos" id="cor_ojos" class="form-control">
+						<option>Si</option>
+						<option>No</option>
+					</select>
+				</div>
+		</div>
 
-  </form><!--close form-->
-  </div>
+		<div class="form-group">
+			<label for="cor_color_herr" class="col-sm-2 control-label">Color de Herraje:</label>
+				<div class="col-sm-2">
+					<select name="cor_color_herr" id="cor_color_herr" class="form-control">
+						<option>Gris Ferguson</option>
+						<option>Negro</option>
+						<option>Blanco</option>
+					</select>
+				</div>
+		</div>
+
+		<div class="form-group">
+			<label for="cor_col_izq" class="col-sm-2 control-label">Columna izquierda:</label>
+				<div class="col-sm-5">
+					<select name="cor_co_izq" id="cor_co_izq" class="form-control">
+						<option>Concreto buenas condiciones</option>
+						<option>Metal, existe buenas condiciones</option>
+						<option>Gypsum, agregar columna ____x____</option>
+						<option>Concreto, agregar columna ____x____</option>
+					</select>
+				</div>
+		</div>
+
+		<div class="form-group">
+			<label for="cor_col_der" class="col-sm-2 control-label">Columna derecha:</label>
+				<div class="col-sm-5">
+					<select name="cor_col_der" id="cor_col_der" class="form-control">
+						<option>Concreto buenas condiciones</option>
+						<option>Metal, existe buenas condiciones</option>
+						<option>Gypsum, agregar columna ____x____</option>
+						<option>Concreto, agregar columna ____x____</option>
+					</select>
+				</div>
+		</div>
+
+		<div class="form-group">
+			<label for="cor_carg_sup" class="col-sm-2 control-label">Cargador superior:</label>
+				<div class="col-sm-5">
+					<select name="cor_carg_sup" id="cor_carg_sup" class="form-control">
+						<option>Concreto buenas condiciones</option>
+						<option>Metal, existe buenas condiciones</option>
+						<option>Gypsum, agregar columna ____x____</option>
+						<option>Concreto, agregar columna ____x____</option>
+					</select>
+				</div>
+		</div>
+
+		<div class="form-group">
+			<label for="cor_guia_des" class="col-sm-2 control-label">Guía desmontable:</label>
+				<div class="col-sm-3">
+					<select name="cor_guia_des" id="cor_guia_des" class="form-control">
+						<option>No aplica</option>
+						<option>Si, indicar ubicación relativa</option>
+					</select>
+				</div>
+		</div>
+
+	</div><!--end of column-->
 </div>
+
+{{!-- Box 3 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">3. Tipo de lámina</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+
+		<div class="form-group">
+			<label for="cor_perfil_pri" class="col-sm-2 control-label">Perfil principal:</label>
+				<div class="col-sm-4">
+					<select name="cor_perfil_pri" id="cor_perfil_pri" class="form-control">
+						<option>-defina perfil principal-</option>
+						<option>50 Elemax galv</option>
+						<option>51 Elemax galv micro</option>
+						<option>60 Elemax esmaltada</option>
+						<option>61 Elemax esmaltada micro</option>
+						<option>20 Flat slat</option>
+						<option>21 Flat slat micro</option>
+						<option>22 Flat slat insulada</option>
+						<option>30 C275 Overhead</option>
+						<option>40 Grille</option>
+						<option>10 China lisa</option>
+						<option>11 China microp.</option>
+						<option>00 Perfil alto</option>
+						<option>01 Perfil alto micro</option>
+						<option>02 Perfil alto 20g</option>
+					</select>
+				</div>
+		</div>
+
+		<div class="form-group">
+			<label for="cor_perfil_sec" class="col-sm-2 control-label">Perfil secundario:</label>
+				<div class="col-sm-4">
+					<select name="cor_perfil_sec" id="cor_perfil_sec" class="form-control">
+						<option>-defina perfil principal-</option>
+						<option>50 Elemax galv</option>
+						<option>51 Elemax galv micro</option>
+						<option>60 Elemax esmaltada</option>
+						<option>61 Elemax esmaltada micro</option>
+						<option>20 Flat slat</option>
+						<option>21 Flat slat micro</option>
+						<option>22 Flat slat insulada</option>
+						<option>30 C275 Overhead</option>
+						<option>40 Grille</option>
+						<option>10 China lisa</option>
+						<option>11 China microp.</option>
+						<option>00 Perfil alto</option>
+						<option>01 Perfil alto micro</option>
+						<option>02 Perfil alto 20g</option>
+					</select>
+				</div>
+		</div>
+
+		<div class="form-group">
+			<label for="cor_color_ext" class="col-sm-2 control-label">Color exterior:</label>
+				<div class="col-sm-3">
+					<select name="cor_color_ext" id="cor_color_ext" class="form-control">
+						<option>-defina color-</option>
+						<option>Gris-arena</option>
+						<option>Galvanizado</option>
+						<option>Café claro (china)</option>
+						<option>Blanco (china)</option>
+						<option>Gris (china)</option>
+						<option>Verde (china)</option>
+						<option>Gris overhead</option>
+						<option>Reverso lógico</option>
+					</select>
+				</div>
+		</div>
+
+		<div class="form-group">
+			<label for="cor_color_int" class="col-sm-2 control-label">Color interior:</label>
+				<div class="col-sm-3">
+					<select name="cor_color_int" id="cor_color_int" class="form-control">
+						<option>-defina color-</option>
+						<option>Gris-arena</option>
+						<option>Galvanizado</option>
+						<option>Café claro (china)</option>
+						<option>Blanco (china)</option>
+						<option>Gris (china)</option>
+						<option>Verde (china)</option>
+						<option>Gris overhead</option>
+						<option>Reverso lógico</option>
+					</select>
+				</div>
+		</div>
+
+	</div>	
+</div>
+
+{{!-- Box 4 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">4. Cobertor</h5>
+	<div class="col-sm-10 col-sm-offset-3">
+		
+		<div class="form-group">
+			<label for="cor_cob_color" class="col-sm-2 control-label">Color:</label>
+				<div class="col-sm-3">
+					<select name="cor_cob_color" id="cor_cob_color" class="form-control">
+						<option>Gris (china)</option>
+						<option>Galvanizado</option>
+						<option>Café claro (china)</option>
+						<option>Blanco (china)</option>
+					</select>
+				</div>
+		</div>
+			
+		<div class="form-group">
+			<div class="col-sm-offset-3">
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadio" id="noCob" value="option1" aria-label="..." checked>
+				    No lleva
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadio" id="roundCob" value="option2" aria-label="...">
+				    <img class="img-cobertor" src="/img/cobertor-round.png">
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadio" id="squareCob" value="option3" aria-label="...">
+				    <img class="img-cobertor" src="/img/cobertor-sq.png">
+				  </label>
+				</div>
+			</div>
+		</div>
+
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 5 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">5. Accesorios</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+
+		<div class="form-group">
+			<div class="col-sm-offset-3">
+
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" value="">
+				    Catalina
+				  </label>
+				</div>
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" value="">
+				    Gancho p bajar
+				  </label>
+				</div>
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" value="">
+				    Ojos de candado
+				  </label>
+				</div>
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" value="">
+				    Cerradura central
+				  </label>
+				</div>
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" value="">
+				    Mirilla
+				  </label>
+				</div>
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" value="">
+				    Hule inferior (std.)
+				  </label>
+				</div>
+				<div class="checkbox">
+				  <label>
+				    <input type="checkbox" value="">
+				    Sello lateral (opc.)
+				  </label>
+				</div>
+				<div>
+					<label for="" class="control-label">Otros</label>
+					<input type="text" name="cor_accesorio1" class="form-control accesorio-otro">
+					<input type="text" name="cor_accesorio2" class="form-control accesorio-otro">
+					<input type="text" name="cor_accesorio3" class="form-control accesorio-otro">
+					<input type="text" name="cor_accesorio4" class="form-control accesorio-otro">
+				</div>
+				
+
+			</div>
+		</div>
+
+	</div><!--end of column-->
+</div><!--end of row-->
+
+</form><!--close huge ass form-->
+
 
 <div class="row">
 		<form action="/cortina-open" method="POST">
