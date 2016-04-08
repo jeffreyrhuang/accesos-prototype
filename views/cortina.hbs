@@ -3,13 +3,13 @@
 	<a href="/api/proyectos/{{_id}}" id="backbutton"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar</a>
   <h4>Especificar Cortina</h4>
 
-	<div class="col-sm-9 col-sm-offset-3">
+	{{!-- <div class="col-sm-5 col-sm-offset-1"> --}}
   <form action="/cortina" class="form-horizontal">
-  	<h5>1. Dimensiones en cm</h5>
-		
+  	<h5>1. Dimensiones</h5>
+	<div class="col-sm-5 col-sm-offset-1">
 		 <div class="form-group">
       <label for="cor_a" class="col-sm-1 control-label">A</label>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <div class="input-group">
           <input type="text" class="form-control" name="cor_a">
        		<div class="input-group-addon">cm</div>
@@ -20,7 +20,7 @@
 
      <div class="form-group">
       <label for="cor_h" class="col-sm-1 control-label">H</label>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <div class="input-group">
           <input type="text" class="form-control" name="cor_h">
        		<div class="input-group-addon">cm</div>
@@ -28,10 +28,168 @@
       </div>
 			<label for="cor_h" class="control-label">alto buque</label>
      </div>
+
+     <div class="form-group">
+      <label for="cor_ci" class="col-sm-1 control-label">CI</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_ci">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_ci" class="control-label">cargador superior interno</label>
+     </div>
+
+     <div class="form-group">
+      <label for="cor_ce" class="col-sm-1 control-label">CE</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_ce">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_ce" class="control-label">cargador superior externo</label>
+     </div>
+
+		 <div class="form-group">
+      <label for="cor_li" class="col-sm-1 control-label">Li</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_li">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_li" class="control-label">espacio lateral izquierdo</label>
+     </div>
+   
+
+     <div class="form-group">
+      <label for="cor_ld" class="col-sm-1 control-label">Ld</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_ld">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_ld" class="control-label">espacio lateral derecho</label>
+     </div>
+
+     <div class="form-group">
+      <label for="cor_p" class="col-sm-1 control-label">P</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_p">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_p" class="control-label">profundidad cielo</label>
+     </div>
+  </div><!--end of column-->
+
+
+  <div class="col-sm-5">
+
+  	<div class="form-group">
+  		<label for="cor_ss" class="col-sm-1 control-label">SS</label>
+  		<div class="col-sm-3">
+  			<div class="input-group">
+  				<input type="text" class="form-control" name="cor_ss">
+  				<div class="input-group-addon">cm</div>
+  			</div>
+  		</div>
+  		<label for="cor_ss" class="control-label">lámina principal superior</label>
+  	</div>
+  	
+  	<div class="form-group">
+  		<label for="cor_sc" class="col-sm-1 control-label">SC</label>
+  		<div class="col-sm-3">
+  			<div class="input-group">
+  				<input type="text" class="form-control" name="cor_sc">
+  				<div class="input-group-addon">cm</div>
+  			</div>
+  		</div>
+  		<label for="cor_sc" class="control-label">lámina secundaria</label>
+  	</div>
+
+  	<div class="form-group">
+  		<label for="cor_si" class="col-sm-1 control-label">SI</label>
+  		<div class="col-sm-3">
+  			<div class="input-group">
+  				<input type="text" class="form-control" name="cor_si">
+  				<div class="input-group-addon">cm</div>
+  			</div>
+  		</div>
+  		<label for="cor_si" class="control-label">lámina principal inferior</label>
+  	</div>
+		
+		<div class="form-group">
+  		<label for="cor_b" class="col-sm-1 control-label">B</label>
+  		<div class="col-sm-3">
+  			<div class="input-group">
+  				<input type="text" class="form-control" name="cor_b">
+  				<div class="input-group-addon">cm</div>
+  			</div>
+  		</div>
+  		<label for="cor_b" class="control-label">ancho final libre</label>
+  	</div>
+		
+		<div class="form-group">
+      <label for="cor_ti" class="col-sm-1 control-label">Ti</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_ti">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_ti" class="control-label">tubo a agregar izquierda</label>
+    </div>
+
+   	<div class="form-group">
+      <label for="cor_td" class="col-sm-1 control-label">Td</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_td">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_td" class="control-label">tubo a agregar derecha</label>
+    </div>
+
+    <div class="form-group">
+      <label for="cor_di" class="col-sm-1 control-label">Di</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_di">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_di" class="control-label">desnivel izquierdo</label>
+    </div>
+
+    <div class="form-group">
+      <label for="cor_dd" class="col-sm-1 control-label">Dd</label>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="cor_dd">
+       		<div class="input-group-addon">cm</div>
+      	</div>
+      </div>
+			<label for="cor_dd" class="control-label">desnivel derecho</label>
+    </div>
+
+
+  </div><!--end of column-->
 </div>
 
 <div class="row no-gutter">
-	<img src="img/cortina-main.png" class="img-responsive" alt="cortina-main" style="margin: auto">
+	<div style="text-align: center">
+		<div class="diagram-container" style="border: 1px solid red;">
+			<img src="img/cortina-main.png" alt="cortina-main" style="border: 1px solid green" />
+			<div id="testinputdiv">	
+				<input type="text" name="testinput" class="diagram-input" style="border: 1px solid red"/>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="row">
@@ -41,7 +199,7 @@
 		<h5>3. Tipo de lámina</h5>
 
 
-  </form>
+  </form><!--close form-->
   </div>
 </div>
 

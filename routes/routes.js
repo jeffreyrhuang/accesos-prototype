@@ -329,15 +329,15 @@ module.exports = function(passport) {
 			doc.text('88', 355, 370);
 
 			//text circle
-			doc.circle(340, 350, 10)
+			doc.circle(340, 350, 8)
 				.stroke();
 
 			doc.lineWidth(.5)
 				.rect(18, 18, 756, 576)
 				.stroke();
 
-			doc.moveTo(18, 558)
-				.lineTo(774, 558)
+			doc.moveTo(18, 545)
+				.lineTo(774, 545)
 				.stroke();
 
 
