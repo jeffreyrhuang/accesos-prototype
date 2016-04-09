@@ -188,6 +188,31 @@
 			<div id="testinputdiv">	
 				<input type="text" name="testinput" class="diagram-input"/>
 			</div>
+			<div id="testradio" class="radio">
+				<label>
+			    <input type="radio" name="cor_molding1" id="cor_molding1" value="option1" aria-label="...">
+			  </label>
+			</div>
+			<div id="testradio2" class="radio">
+				<label>
+			    <input type="radio" name="cor_molding2" id="cor_molding2" value="option2" aria-label="...">
+			  </label>
+			</div>
+			<div id="testradio3" class="radio">
+				<label>
+			    <input type="radio" name="cor_molding3" id="cor_molding3" value="option3" aria-label="...">
+			  </label>
+			</div>
+			<div id="testradio4" class="radio">
+				<label>
+			    <input type="radio" name="cor_molding4" id="cor_molding4" value="option4" aria-label="...">
+			  </label>
+			</div>
+			<div id="testradio5" class="radio">
+				<label>
+			    <input type="radio" name="cor_molding5" id="cor_molding5" value="option5" aria-label="...">
+			  </label>
+			</div>
 		</div>
 	</div>
 </div>
@@ -195,7 +220,7 @@
 {{!-- box 2 --}}
 <div class="row no-gutter">
 	<h5 class="box-heading">2. Herraje Principal</h5>
-	<div class="col-sm-10 col-sm-offset-2">
+	<div class="col-sm-10 col-sm-offset-3">
 			
 		<div class="form-group">
 			<label for="cor_ciclos" class="col-sm-2 control-label">Ciclos por hora:</label>
@@ -306,7 +331,7 @@
 {{!-- Box 3 --}}
 <div class="row no-gutter">
 	<h5 class="box-heading">3. Tipo de lámina</h5>
-	<div class="col-sm-10 col-sm-offset-2">
+	<div class="col-sm-10 col-sm-offset-3">
 
 		<div class="form-group">
 			<label for="cor_perfil_pri" class="col-sm-2 control-label">Perfil principal:</label>
@@ -437,7 +462,7 @@
 {{!-- Box 5 --}}
 <div class="row no-gutter">
 	<h5 class="box-heading">5. Accesorios</h5>
-	<div class="col-sm-10 col-sm-offset-2">
+	<div class="col-sm-10 col-sm-offset-3">
 
 		<div class="form-group">
 			<div class="col-sm-offset-3">
@@ -496,6 +521,260 @@
 			</div>
 		</div>
 
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 6 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">6. Automatización</h5>
+	<div class="col-sm-10 col-sm-offset-4">
+		
+	<div class="form-group">
+		<label for="cor_motor" class="col-sm-2 control-label">Modelo de motor:</label>
+		<div class="col-sm-3">
+			<select name="cor_motor" id="cor_motor" class="form-control">
+					<option>No lleva</option>
+					<option>Centro eje</option>
+					<option>3950 Liftmaster</option>
+					<option>MH5011 Liftmaster</option>
+					<option>H5011 Liftmaster</option>
+					<option>GH1021 Liftmaster</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cor_caudro" class="col-sm-2 control-label">Cuadro de control:</label>
+		<div class="col-sm-3">
+			<select name="cor_caudro" id="cor_caudro" class="form-control">
+					<option>-defina cuadro-</option>
+					<option>No lleva</option>
+					<option>Incorporado</option>
+					<option>Derecha abajo rollo</option>
+					<option>Izquierda abajo rollo</option>
+					<option>Alejado, cobro extra</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cor_sensor" class="col-sm-2 control-label">Sensor infrarojo:</label>
+		<div class="col-sm-3">
+			<select name="cor_sensor" id="cor_sensor" class="form-control">
+					<option>-defina sensor-</option>
+					<option>No lleva</option>
+					<option>CPS</option>
+					<option>CPS-LN4</option>
+					<option>Pupila</option>
+					<option>Delta</option>
+					<option>-otro especificar-</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cor_banda" class="col-sm-2 control-label">Banda sensible:</label>
+		<div class="col-sm-3">
+			<select name="cor_banda" id="cor_banda" class="form-control">
+					<option>-defina si lleva banda-</option>
+					<option>Si</option>
+					<option>No lleva</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cor_cob_motor" class="col-sm-2 control-label">Cobertor motor:</label>
+		<div class="col-sm-3">
+			<select name="cor_cob_motor" id="cor_cob_motor" class="form-control">
+					<option>-defina cobertor motor-</option>
+					<option>No lleva</option>
+					<option>Si, simple x lluvia</option>
+					<option>Si, con candado</option>
+			</select>
+		</div>
+	</div>
+
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 7 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">7. Posición Motor o Catalina</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 8 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">8. Medios de Activación</h5>
+	<div class="col-sm-10 col-sm-offset-4">
+
+	<div class="form-group">
+		<label for="cor_bot" class="col-sm-2 control-label">Botonera:</label>
+		<div class="col-sm-3">
+			<select name="cor_bot" id="cor_bot" class="form-control">
+					<option>-defina boton-</option>
+					<option>No lleva</option>
+					<option>Si, un botón</option>
+					<option>Si, 2 botón</option>
+					<option>Si, 3 botón</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cor_selector" class="col-sm-2 control-label">Selector de Llave:</label>
+		<div class="col-sm-2">
+			<select name="cor_selector" id="cor_selector" class="form-control">
+					<option>-defina-</option>
+					<option>Si</option>
+					<option>No lleva</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cor_receptor" class="col-sm-2 control-label">Receptor Remotos:</label>
+		<div class="col-sm-2">
+			<select name="cor_receptor" id="cor_receptor" class="form-control">
+					<option>-defina-</option>
+					<option>Si</option>
+					<option>No lleva</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cor_controles" class="col-sm-2 control-label">Controles Remotos:</label>
+		<div class="col-sm-2">
+			<select name="cor_controles" id="cor_controles" class="form-control">
+					<option>-defina-</option>
+					<option>Si, especifique</option>
+					<option>No lleva</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cor_bot_cod" class="col-sm-2 control-label">Botonera Código:</label>
+		<div class="col-sm-2">
+			<select name="cor_bot_cod" id="cor_bot_cod" class="form-control">
+					<option>-defina-</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+			</select>
+		</div>
+	</div>
+
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 9 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">9. Sensor, Cuadro y Botonera (a máx 3m)</h5>
+	<div class="col-sm-10 col-sm-offset-5">
+		
+		<div class="form-group">
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+			    <strong>Total:</strong> Accesos entuba y cablea
+			  </label>
+			</div>
+			<div class="radio">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+			    <strong>Básico:</strong> Accesos cablea/tubos cliente
+			  </label>
+			</div>
+			<div class="radio disabled">
+			  <label>
+			    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+			    <strong>Mínimo:</strong> Cliente cablea 100%
+			  </label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<span>Voltaje</span>
+			<select name="cor_volt" id="cor_volt">
+				<option>220</option>
+				<option>110</option>
+			</select>
+			<span>a cargo</span>
+			<select name="cor_volt_carg" id="cor_volt_carg">
+				<option>Cliente</option>
+				<option>Accesos</option>
+			</select>	
+		</div>
+
+		<div class="form-group">
+			<span>Cableados botoneras por</span>
+			<select name="cor_cable_carg" id="cor_cable_carg">
+				<option>Cliente</option>
+				<option>Accesos</option>
+			</select>
+		</div>
+
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 10 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">10. Desinstalar</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 11 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">11. Herramienta y Equipo Especial</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 12 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">12. Rollo oculto</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 13 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">13. Fotos en Publica</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 14 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">14. Puerta Independiente</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 15 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">15. Segmentar</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 16 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">16. Dibujos y Comentarios</h5>
+	<div class="col-sm-10 col-sm-offset-2">
+	</div><!--end of column-->
+</div><!--end of row-->
+
+{{!-- Box 17 --}}
+<div class="row no-gutter">
+	<h5 class="box-heading">17. Condición Submital</h5>
+	<div class="col-sm-10 col-sm-offset-2">
 	</div><!--end of column-->
 </div><!--end of row-->
 

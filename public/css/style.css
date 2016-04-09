@@ -152,8 +152,38 @@ footer {
 
 #testinputdiv {
     position: absolute;
-    bottom: 52%;
     left: 5%;
+    bottom: 52%;
+}
+
+#testradio {
+    position: absolute;
+    left: 6%;
+    bottom: 11%;
+}
+
+#testradio2 {
+    position: absolute;
+    left: 13%;
+    bottom: 11%;
+}
+
+#testradio3 {
+    position: absolute;
+    left: 21%;
+    bottom: 11%;
+}
+
+#testradio4 {
+    position: absolute;
+    left: 29%;
+    bottom: 11%;
+}
+
+#testradio5 {
+    position: absolute;
+    left: 38%;
+    bottom: 11%;
 }
 
 .img-cobertor {width: 70%}
