@@ -140,9 +140,13 @@ footer {
 
 /*Cortina*/
 
+.box-container {text-align: center}
+
 .diagram-container {
     position: relative;
     display: inline-block;
+    text-align: center;
+    margin-top: 3em;
 }
 
 .diagram-input {
@@ -150,37 +154,55 @@ footer {
     border: 1px solid red;
 }
 
-#testinputdiv {
+#main-input-H {
+    position: absolute;
+    left: 3%;
+    bottom: 35%;
+}
+
+#main-input-CE {
     position: absolute;
     left: 5%;
     bottom: 52%;
 }
 
-#testradio {
+#main-input-CI {
+    position: absolute;
+    left: 31.25%;
+    bottom: 51%;
+}
+
+#main-input-H2 {
+    position: absolute;
+    left: 32%;
+    bottom: 35%;
+}
+
+#main-radio1 {
     position: absolute;
     left: 6%;
     bottom: 11%;
 }
 
-#testradio2 {
+#main-radio2 {
     position: absolute;
     left: 13%;
     bottom: 11%;
 }
 
-#testradio3 {
+#main-radio3 {
     position: absolute;
     left: 21%;
     bottom: 11%;
 }
 
-#testradio4 {
+#main-radio4 {
     position: absolute;
     left: 29%;
     bottom: 11%;
 }
 
-#testradio5 {
+#main-radio5 {
     position: absolute;
     left: 38%;
     bottom: 11%;
@@ -189,3 +211,147 @@ footer {
 .img-cobertor {width: 70%}
 
 .accesorio-otro {width: 15em}
+
+#box6-radio1 {
+    position: absolute;
+    left: 7%;
+    bottom:73%;
+}
+
+#box6-radio2 {
+    position: absolute;
+    left: 60%;
+    bottom: 73%;
+}
+
+#box6-radio3 {
+    position: absolute;
+    left: 42%;
+    bottom: 1%;
+}
+
+#box7-radio1 {
+    position: absolute;
+    left: 8%;
+    bottom:77%;
+}
+
+#box7-radio2 {
+    position: absolute;
+    left: 68%;
+    bottom: 77%;
+}
+
+#box7-radio3 {
+    position: absolute;
+    left: 62%;
+    bottom: 3%;
+}
+
+#box7-radio4 {
+    position: absolute;
+    left: 7%;
+    bottom: 3%;
+}
+
+#box12-input1 {
+    position: absolute;
+    left: 5;
+    bottom: 40%;
+}
+
+#box12-input2 {
+    position: absolute;
+    left: 39%;
+    bottom: 24%;
+}
+
+#box12-input3 {
+    position: absolute;
+    left: 55%;
+    bottom: 90%;
+}
+
+#box14-input1 {
+    position: absolute;
+    left:2%;
+    bottom: 39%;
+}
+
+#box14-input2 {
+    position: absolute;
+    left:24%;
+    bottom: 77%;
+}
+
+#box14-input3 {
+    position: absolute;
+    left:62%;
+    bottom: 77%;
+}
+
+#box14-input4 {
+    position: absolute;
+    left:84%;
+    bottom: 39%;
+}
+
+#box14-radio1 {
+    position: absolute;
+    left: 14%;
+    bottom: 2%;
+}
+
+#box14-radio2 {
+    position: absolute;
+    left: 53%;
+    bottom: 2%;
+}
+
+#box15-input1 {
+    position: absolute;
+    left: 3%;
+    bottom: 40%;
+}
+
+#box15-input2 {
+    position: absolute;
+    left: 3%;
+    bottom: 72%;
+}
+
+#box15-input3 {
+    position: absolute;
+    left: 21%;
+    bottom: 87%;
+}
+
+#box15-input4 {
+    position: absolute;
+    left: 70%;
+    bottom: 87%;
+}
+
+#box15-input5 {
+    position: absolute;
+    left: 86%;
+    bottom: 72%;
+}
+
+#box15-input6 {
+    position: absolute;
+    left: 86%;
+    bottom: 40%;
+}
+
+#box15-radio1 {
+    position: absolute;
+    left: 20%;
+    bottom: 14%;
+}
+
+#box15-radio2 {
+    position: absolute;
+    left: 57%;
+    bottom: 14%;
+}
