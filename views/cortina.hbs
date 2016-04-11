@@ -1,3 +1,11 @@
+{{#if sessionFlash}}
+	<div id="#" class="alert alert-dismissible alert-{{sessionFlash.type}}" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		{{{sessionFlash.message}}}
+	</div>
+{{/if}}
+
+
 {{#proyecto}}
 <form action="/saveCortina" method="POST" class="form-horizontal">
 	<input type="hidden" name="_id" value="{{_id}}">

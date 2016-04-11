@@ -9,6 +9,9 @@ AWS.config.update({accessKeyId: process.env.AWS_ACCESS_KEY_ID, secretAccessKey: 
 AWS.config.update({region: 'us-west-2'});
 var s3 = new AWS.S3();
 
+//validation:
+var util = require('util');
+
 //import models
 var Porton = require('../models/porton');
 var Proyecto = require('../models/proyecto');
@@ -127,60 +130,76 @@ module.exports = function(passport) {
 //save cortina spec to project	
 	router.post('/saveCortina', function(req, res) {
 
-		//error from req.params?
 		Proyecto.findById(req.body._id, function(err, proyecto) {
 			if(err)
 				res.send(err);
 
-			var cortinaSaved = {
-				cor_a: req.body.cor_a,
-				cor_h: req.body.cor_h,
-				cor_ci:  req.body.cor_ci,
-				cor_ce: req.body.cor_ce,
-				cor_li: req.body.cor_li,
-				cor_ld: req.body.cor_ld,
-				cor_p: req.body.cor_p,
-				cor_ss: req.body.cor_ss,
-				cor_sc: req.body.cor_sc,
-				cor_si: req.body.cor_si,
-				cor_b: req.body.cor_b,
-				cor_ti: req.body.cor_ti,
-				cor_td: req.body.cor_td,
-				cor_di: req.body.cor_di,
-				cor_dd: req.body.cor_dd,
-				cor_ciclos: req.body.cor_ciclos,
-				cor_horas: req.body.cor_horas,
-				cor_tipo_guia: req.body.cor_tipo_guia,
-				cor_ojos: req.body.cor_ojos,
-				cor_color_herr: req.body.cor_color_herr,
-				cor_co_izq: req.body.cor_co_izq,
-				cor_col_der: req.body.cor_col_der,
-				cor_carg_sup: req.body.cor_carg_sup,
-				cor_guia_des: req.body.cor_guia_des,
-				cor_perfil_pri: req.body.cor_perfil_pri,
-				cor_perfil_sec: req.body.cor_perfil_sec,
-				cor_color_ext: req.body.cor_color_ext,
-				cor_color_int: req.body.cor_color_int,
-				cor_cob_color: req.body.cor_cob_color
-			}
-			proyecto.cortina = cortinaSaved
+			//Server-side form validation
+			req.checkBody('cor_a', 'must be a number').isInt();
 
-			proyecto.save(function(err, proyecto) {
-				if (err)
-					res.send(err)
+			var valErrors = req.validationErrors();
+			if (valErrors) {
 				req.session.sessionFlash = {
-					type: 'success',
-					message: 'Cortina specifications saved!'
+					type: 'danger',
+					message: 'Form validation errors: ' + util.inspect(valErrors)
 				}
-				console.log(proyecto.cortina.cor_a);
-			}).then(function(proyecto){
-				res.redirect(303, '/api/proyectos/' + proyecto._id);
-			})
-			.catch(function(e){
-				console.log(e);
-			})
+				res.redirect(303, '/api/proyectos/' + proyecto._id + '/cortina');
+			} else {
+
+				var cortinaSaved = {
+					cor_a: req.body.cor_a,
+					cor_h: req.body.cor_h,
+					cor_ci:  req.body.cor_ci,
+					cor_ce: req.body.cor_ce,
+					cor_li: req.body.cor_li,
+					cor_ld: req.body.cor_ld,
+					cor_p: req.body.cor_p,
+					cor_ss: req.body.cor_ss,
+					cor_sc: req.body.cor_sc,
+					cor_si: req.body.cor_si,
+					cor_b: req.body.cor_b,
+					cor_ti: req.body.cor_ti,
+					cor_td: req.body.cor_td,
+					cor_di: req.body.cor_di,
+					cor_dd: req.body.cor_dd,
+					cor_ciclos: req.body.cor_ciclos,
+					cor_horas: req.body.cor_horas,
+					cor_tipo_guia: req.body.cor_tipo_guia,
+					cor_ojos: req.body.cor_ojos,
+					cor_color_herr: req.body.cor_color_herr,
+					cor_co_izq: req.body.cor_co_izq,
+					cor_col_der: req.body.cor_col_der,
+					cor_carg_sup: req.body.cor_carg_sup,
+					cor_guia_des: req.body.cor_guia_des,
+					cor_perfil_pri: req.body.cor_perfil_pri,
+					cor_perfil_sec: req.body.cor_perfil_sec,
+					cor_color_ext: req.body.cor_color_ext,
+					cor_color_int: req.body.cor_color_int,
+					cor_cob_color: req.body.cor_cob_color
+				}
+				proyecto.cortina = cortinaSaved
+
+				proyecto.save(function(err, proyecto) {
+					if (err)
+						res.send(err)
+					req.session.sessionFlash = {
+						type: 'success',
+						message: 'Cortina specifications saved!'
+					}
+					console.log(proyecto.cortina.cor_a);
+				}).then(function(proyecto){
+					console.log(proyecto);
+					res.redirect(303, '/api/proyectos/' + proyecto._id);
+				})
+				.catch(function(e){
+					console.log(e);
+				});
+
+
+			} //end of validation else clause
 		});
 	});
+
 
 	router.get('/encuestas', verified, function(req, res) {
 	  res.render('encuestas');
