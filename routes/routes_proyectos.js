@@ -44,7 +44,6 @@ module.exports = function(passport){
 		Proyecto.findById(req.params.id, function(err, proyecto){
 			if (err)
 				res.send(err);
-			console.log(proyecto);
 			res.render('proView', {proyecto: proyecto, user_email: req.session.email});
 		});
 	});
