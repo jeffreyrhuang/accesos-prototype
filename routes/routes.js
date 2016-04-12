@@ -135,7 +135,8 @@ module.exports = function(passport) {
 				res.send(err);
 
 			//Server-side form validation
-			req.checkBody('cor_a', 'must be a number').isInt();
+			req.checkBody('cor_a', 'Must be a number').isInt();
+			req.checkBody('cor_h', 'Must be a number').isInt();
 
 			var valErrors = req.validationErrors();
 			if (valErrors) {

@@ -7,7 +7,7 @@
 
 
 {{#proyecto}}
-<form action="/saveCortina" method="POST" class="form-horizontal">
+<form action="/saveCortina" method="POST" class="form-horizontal" id="cortinaForm">
 	<input type="hidden" name="_id" value="{{_id}}">
 
 <div class="row no-gutter">
@@ -15,12 +15,15 @@
   <h4>Especificar Cortina</h4>
 
   <h5 class="box-heading">1. Dimensiones</h5>
+
+	<div id="box1-errors" class="validation-box col-sm-offset-5"></div>
+
 	<div class="col-sm-5 col-sm-offset-2">
 		 <div class="form-group">
       <label for="cor_a" class="col-sm-1 control-label">A</label>
       <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_a">
+          <input type="text" class="form-control" name="cor_a" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -31,7 +34,7 @@
       <label for="cor_h" class="col-sm-1 control-label">H</label>
       <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_h">
+          <input type="text" class="form-control" name="cor_h" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -42,7 +45,7 @@
       <label for="cor_ci" class="col-sm-1 control-label">CI</label>
       <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_ci">
+          <input type="text" class="form-control" name="cor_ci" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -53,7 +56,7 @@
       <label for="cor_ce" class="col-sm-1 control-label">CE</label>
       <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_ce">
+          <input type="text" class="form-control" name="cor_ce" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -62,9 +65,9 @@
 
 		 <div class="form-group">
       <label for="cor_li" class="col-sm-1 control-label">Li</label>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_li">
+          <input type="text" class="form-control" name="cor_li" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -74,9 +77,9 @@
 
      <div class="form-group">
       <label for="cor_ld" class="col-sm-1 control-label">Ld</label>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_ld">
+          <input type="text" class="form-control" name="cor_ld" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -85,9 +88,9 @@
 
      <div class="form-group">
       <label for="cor_p" class="col-sm-1 control-label">P</label>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_p">
+          <input type="text" class="form-control" name="cor_p" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -100,9 +103,9 @@
 
   	<div class="form-group">
   		<label for="cor_ss" class="col-sm-1 control-label">SS</label>
-  		<div class="col-sm-3">
+  		<div class="col-sm-4">
   			<div class="input-group">
-  				<input type="text" class="form-control" name="cor_ss">
+  				<input type="text" class="form-control" name="cor_ss" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
   				<div class="input-group-addon">cm</div>
   			</div>
   		</div>
@@ -111,9 +114,9 @@
   	
   	<div class="form-group">
   		<label for="cor_sc" class="col-sm-1 control-label">SC</label>
-  		<div class="col-sm-3">
+  		<div class="col-sm-4">
   			<div class="input-group">
-  				<input type="text" class="form-control" name="cor_sc">
+  				<input type="text" class="form-control" name="cor_sc" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
   				<div class="input-group-addon">cm</div>
   			</div>
   		</div>
@@ -122,9 +125,9 @@
 
   	<div class="form-group">
   		<label for="cor_si" class="col-sm-1 control-label">SI</label>
-  		<div class="col-sm-3">
+  		<div class="col-sm-4">
   			<div class="input-group">
-  				<input type="text" class="form-control" name="cor_si">
+  				<input type="text" class="form-control" name="cor_si" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
   				<div class="input-group-addon">cm</div>
   			</div>
   		</div>
@@ -133,9 +136,9 @@
 		
 		<div class="form-group">
   		<label for="cor_b" class="col-sm-1 control-label">B</label>
-  		<div class="col-sm-3">
+  		<div class="col-sm-4">
   			<div class="input-group">
-  				<input type="text" class="form-control" name="cor_b">
+  				<input type="text" class="form-control" name="cor_b" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
   				<div class="input-group-addon">cm</div>
   			</div>
   		</div>
@@ -144,9 +147,9 @@
 		
 		<div class="form-group">
       <label for="cor_ti" class="col-sm-1 control-label">Ti</label>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_ti">
+          <input type="text" class="form-control" name="cor_ti" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -155,9 +158,9 @@
 
    	<div class="form-group">
       <label for="cor_td" class="col-sm-1 control-label">Td</label>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_td">
+          <input type="text" class="form-control" name="cor_td" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -166,9 +169,9 @@
 
     <div class="form-group">
       <label for="cor_di" class="col-sm-1 control-label">Di</label>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_di">
+          <input type="text" class="form-control" name="cor_di" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -177,9 +180,9 @@
 
     <div class="form-group">
       <label for="cor_dd" class="col-sm-1 control-label">Dd</label>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control" name="cor_dd">
+          <input type="text" class="form-control" name="cor_dd" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -271,7 +274,7 @@
 			<label for="cor_tipo_guia" class="col-sm-2 control-label">Tipo de Guía:</label>
 				<div class="col-sm-3">
 					<select name="cor_tipo_guia" id="cor_tipo_guia" class="form-control">
-						<option>-defina guía-</option>
+						<option value="">-defina guía-</option>
 						<option>Guía 2 pulg</option>
 						<option>Guía 3 pulg</option>
 						<option>Guía 4 pulg</option>
@@ -358,7 +361,7 @@
 			<label for="cor_perfil_pri" class="col-sm-2 control-label">Perfil principal:</label>
 				<div class="col-sm-4">
 					<select name="cor_perfil_pri" id="cor_perfil_pri" class="form-control">
-						<option>-defina perfil principal-</option>
+						<option value="">-defina perfil principal-</option>
 						<option>50 Elemax galv</option>
 						<option>51 Elemax galv micro</option>
 						<option>60 Elemax esmaltada</option>
@@ -381,7 +384,7 @@
 			<label for="cor_perfil_sec" class="col-sm-2 control-label">Perfil secundario:</label>
 				<div class="col-sm-4">
 					<select name="cor_perfil_sec" id="cor_perfil_sec" class="form-control">
-						<option>-defina perfil principal-</option>
+						<option value="">-defina perfil principal-</option>
 						<option>50 Elemax galv</option>
 						<option>51 Elemax galv micro</option>
 						<option>60 Elemax esmaltada</option>
@@ -404,7 +407,7 @@
 			<label for="cor_color_ext" class="col-sm-2 control-label">Color exterior:</label>
 				<div class="col-sm-3">
 					<select name="cor_color_ext" id="cor_color_ext" class="form-control">
-						<option>-defina color-</option>
+						<option value="">-defina color-</option>
 						<option>Gris-arena</option>
 						<option>Galvanizado</option>
 						<option>Café claro (china)</option>
@@ -421,7 +424,7 @@
 			<label for="cor_color_int" class="col-sm-2 control-label">Color interior:</label>
 				<div class="col-sm-3">
 					<select name="cor_color_int" id="cor_color_int" class="form-control">
-						<option>-defina color-</option>
+						<option value="">-defina color-</option>
 						<option>Gris-arena</option>
 						<option>Galvanizado</option>
 						<option>Café claro (china)</option>
@@ -568,7 +571,7 @@
 		<label for="cor_caudro" class="col-sm-2 control-label">Cuadro de control:</label>
 		<div class="col-sm-3">
 			<select name="cor_caudro" id="cor_caudro" class="form-control">
-					<option>-defina cuadro-</option>
+					<option value="">-defina cuadro-</option>
 					<option>No lleva</option>
 					<option>Incorporado</option>
 					<option>Derecha abajo rollo</option>
@@ -582,7 +585,7 @@
 		<label for="cor_sensor" class="col-sm-2 control-label">Sensor infrarojo:</label>
 		<div class="col-sm-3">
 			<select name="cor_sensor" id="cor_sensor" class="form-control">
-					<option>-defina sensor-</option>
+					<option value="">-defina sensor-</option>
 					<option>No lleva</option>
 					<option>CPS</option>
 					<option>CPS-LN4</option>
@@ -597,7 +600,7 @@
 		<label for="cor_banda" class="col-sm-2 control-label">Banda sensible:</label>
 		<div class="col-sm-3">
 			<select name="cor_banda" id="cor_banda" class="form-control">
-					<option>-defina si lleva banda-</option>
+					<option value="">-defina si lleva banda-</option>
 					<option>Si</option>
 					<option>No lleva</option>
 			</select>
@@ -608,7 +611,7 @@
 		<label for="cor_cob_motor" class="col-sm-2 control-label">Cobertor motor:</label>
 		<div class="col-sm-3">
 			<select name="cor_cob_motor" id="cor_cob_motor" class="form-control">
-					<option>-defina cobertor motor-</option>
+					<option value="">-defina cobertor motor-</option>
 					<option>No lleva</option>
 					<option>Si, simple x lluvia</option>
 					<option>Si, con candado</option>
@@ -685,7 +688,7 @@
 		<label for="cor_bot" class="col-sm-2 control-label">Botonera:</label>
 		<div class="col-sm-3">
 			<select name="cor_bot" id="cor_bot" class="form-control">
-					<option>-defina boton-</option>
+					<option value="">-defina boton-</option>
 					<option>No lleva</option>
 					<option>Si, un botón</option>
 					<option>Si, 2 botón</option>
@@ -698,7 +701,7 @@
 		<label for="cor_selector" class="col-sm-2 control-label">Selector de Llave:</label>
 		<div class="col-sm-2">
 			<select name="cor_selector" id="cor_selector" class="form-control">
-					<option>-defina-</option>
+					<option value="">-defina-</option>
 					<option>Si</option>
 					<option>No lleva</option>
 			</select>
@@ -709,7 +712,7 @@
 		<label for="cor_receptor" class="col-sm-2 control-label">Receptor Remotos:</label>
 		<div class="col-sm-2">
 			<select name="cor_receptor" id="cor_receptor" class="form-control">
-					<option>-defina-</option>
+					<option value="">-defina-</option>
 					<option>Si</option>
 					<option>No lleva</option>
 			</select>
@@ -720,7 +723,7 @@
 		<label for="cor_controles" class="col-sm-2 control-label">Controles Remotos:</label>
 		<div class="col-sm-2">
 			<select name="cor_controles" id="cor_controles" class="form-control">
-					<option>-defina-</option>
+					<option value="">-defina-</option>
 					<option>Si, especifique</option>
 					<option>No lleva</option>
 			</select>
@@ -731,7 +734,7 @@
 		<label for="cor_bot_cod" class="col-sm-2 control-label">Botonera Código:</label>
 		<div class="col-sm-2">
 			<select name="cor_bot_cod" id="cor_bot_cod" class="form-control">
-					<option>-defina-</option>
+					<option value="">-defina-</option>
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -887,7 +890,6 @@
 </div><!--end of row-->
 
 {{!-- Box 12 --}}
-{{!-- NEEDS TO BE FIXED + ADD DIAGRAM--}}
 <div class="row no-gutter">
 	<h5 class="box-heading">12. Rollo oculto</h5>
 	<div class="col-sm-offset-5">
@@ -949,7 +951,7 @@
 		<label for="cor_puerta" class="col-sm-2 control-label">Puerta Abre:</label>
 		<div class="col-sm-3">
 			<select name="cor_puerta" id="cor_puerta" class="form-control">
-					<option>-defina puerta-</option>
+					<option value="">-defina puerta-</option>
 					<option>Abre hacia adentro</option>
 					<option>Abre hacia afuera</option>
 					<option>No lleva puerta</option>
@@ -961,7 +963,7 @@
 		<label for="cor_cerradura" class="col-sm-2 control-label">Cerradura:</label>
 		<div class="col-sm-3">
 			<select name="cor_cerradura" id="cor_cerradura" class="form-control">
-					<option>-defina cerradura-</option>
+					<option value="">-defina cerradura-</option>
 					<option>Corriente Yale</option>
 					<option>Pico Lora Yale</option>
 					<option>Electro Yale</option>
@@ -976,7 +978,7 @@
 		<label for="cor_cierrapu" class="col-sm-2 control-label">Cierrapuertas:</label>
 		<div class="col-sm-3">
 			<select name="cor_cierrapu" id="cor_cierrapu" class="form-control">
-					<option>-defina cierrapuertas-</option>
+					<option value="">-defina cierrapuertas-</option>
 					<option>Si, ________</option>
 					<option>No lleva</option>
 			</select>
@@ -1115,6 +1117,14 @@
 		</form>
 </div>
 
-
-
 {{/proyecto}}
+
+{{#section 'jquery'}}
+<script type="text/javascript">
+	$('document').ready(function(){
+		$('#cortinaForm').parsley();
+	});
+
+</script>
+
+{{/section}}
