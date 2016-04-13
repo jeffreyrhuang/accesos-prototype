@@ -1,3 +1,4 @@
+{{!-- extra? --}}
 {{#if sessionFlash}}
 	<div id="#" class="alert alert-dismissible alert-{{sessionFlash.type}}" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -652,7 +653,7 @@
 
 	<div class="form-group">
 		<div class="diagram-container">
-			<img src="img/cortina-box7.png" alt="cortina-box7"/>
+			<img src="img/cortina-box7-L.png" alt="cortina-box7"/>
 			<div id="box7-radio1" class="radio">
 				<label>
 			    <input type="radio" name="optionsRadios" id="cor_posi_motor1" value="option1" aria-label="...">
@@ -893,9 +894,11 @@
 <div class="row no-gutter">
 	<h5 class="box-heading">12. Rollo oculto</h5>
 	<div class="col-sm-offset-5">
+	
+		<div id="box12-errors" class="validation-box"></div>
 
 		<div class="form-group">
-			<span>"Offset"</span> <input type="text" style="width: 30px;">
+			<span>"Offset"</span> <input type="text" style="width: 30px;" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box12-errors">
 			<span>cm más alto de viga.</span><br>
 			<span>Registro en cielo razo por parte de</span>
 				<select name="" id="">
@@ -910,13 +913,13 @@
 		<div class="diagram-container">
 			<img src="img/cortina-box12-M.png" alt="cortina-box12" />
 			<div id="box12-input1">	
-				<input type="text" name="box12-input1" class="diagram-input"/>
+				<input type="text" name="box12-input1" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box12-errors"/>
 			</div>
 			<div id="box12-input2">	
-				<input type="text" name="box12-input2" class="diagram-input"/>
+				<input type="text" name="box12-input2" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box12-errors"/>
 			</div>
 			<div id="box12-input3">	
-				<input type="text" name="box12-input3" class="diagram-input"/>
+				<input type="text" name="box12-input3" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box12-errors"/>
 			</div>
 		</div>
 	</div>
@@ -985,20 +988,22 @@
 		</div>
 	</div>
 
+	<div id="box14-errors" class="validation-box col-sm-offset-1"></div>
+
 	<div class="form-group">
 		<div class="diagram-container col-sm-offset-1">
-			<img src="img/cortina-box14-M.png" alt="cortina-box14"/>
+			<img src="img/cortina-box14.png" alt="cortina-box14"/>
 			<div id="box14-input1">	
-				<input type="text" name="box14-input1" class="diagram-input"/>
+				<input type="text" name="box14-input1" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
 			<div id="box14-input2">	
-				<input type="text" name="box14-input2" class="diagram-input"/>
+				<input type="text" name="box14-input2" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
 			<div id="box14-input3">	
-				<input type="text" name="box14-input3" class="diagram-input"/>
+				<input type="text" name="box14-input3" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
 			<div id="box14-input4">	
-				<input type="text" name="box14-input4" class="diagram-input"/>
+				<input type="text" name="box14-input4" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
 			<div id="box14-radio1" class="radio">
 				<label>
@@ -1020,28 +1025,30 @@
 <div class="row no-gutter">
 	<h5 class="box-heading">15. Segmentar</h5>
 	<div class="box-container">
+	
+	<div id="box15-errors" class="validation-box"></div>
 
 	<div class="form-group">
 		<div class="diagram-container">
 			<img src="img/cortina-box15-L.png" alt="cortina-box15"/>
 
 			<div id="box15-input1">	
-				<input type="text" name="box15-input1" class="diagram-input"/>
+				<input type="text" name="box15-input1" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input2">	
-				<input type="text" name="box15-input2" class="diagram-input"/>
+				<input type="text" name="box15-input2" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input3">	
-				<input type="text" name="box15-input3" class="diagram-input"/>
+				<input type="text" name="box15-input3" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input4">	
-				<input type="text" name="box15-input4" class="diagram-input"/>
+				<input type="text" name="box15-input4" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input5">	
-				<input type="text" name="box15-input5" class="diagram-input"/>
+				<input type="text" name="box15-input5" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input6">	
-				<input type="text" name="box15-input6" class="diagram-input"/>
+				<input type="text" name="box15-input6" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 
 			<div id="box15-radio1" class="radio">

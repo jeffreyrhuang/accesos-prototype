@@ -95,6 +95,7 @@ textarea.parsley-error {
 }
 
 .validation-box {
+    padding-top: 3em;
     padding-bottom: 2em;
 }
 /*---------------------------------*/
@@ -278,20 +279,20 @@ footer {
 
 #box7-radio2 {
     position: absolute;
-    left: 68%;
+    left: 65%;
     bottom: 77%;
 }
 
 #box7-radio3 {
     position: absolute;
-    left: 62%;
-    bottom: 3%;
+    left: 58%;
+    bottom: 2%;
 }
 
 #box7-radio4 {
     position: absolute;
-    left: 7%;
-    bottom: 3%;
+    left: 4%;
+    bottom: 2%;
 }
 
 #box12-input1 {

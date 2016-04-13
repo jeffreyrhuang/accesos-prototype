@@ -496,10 +496,25 @@ module.exports = function(passport) {
 
 			
 			//test number
-			doc.text('88', 355, 370);
+			doc.text('88', 353, 370);
 
-			//text circle
-			doc.circle(340, 350, 8)
+			//radio circles
+			doc.circle(345, 247, 7)
+				.circle(490, 247, 7)
+				.circle(555, 208, 7)
+				.circle(555, 152, 7)
+				.circle(555, 98, 7)
+				.circle(752, 98, 7)
+				.circle(752, 152, 7)
+				.circle(752, 208, 7)
+				.circle(680, 302, 7)
+				.circle(615, 302, 7)
+				//molding
+				.circle(362, 484, 7)
+				.circle(398, 484, 7)
+				.circle(433, 484, 7)
+				.circle(467, 484, 7)
+				.circle(513, 484, 7)
 				.stroke();
 			
 			//grid lines
@@ -550,6 +565,7 @@ module.exports = function(passport) {
 				.lineTo(272, 213)
 				.stroke();
 			
+			// PAGE 2
 			// doc.addPage();
 
 
