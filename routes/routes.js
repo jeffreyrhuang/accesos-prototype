@@ -670,7 +670,7 @@ module.exports = function(passport) {
 				.text('Cerradura', {lineGap: 1.5})
 				.text('Cierrapuertas', {lineGap: 1.5})
 				//box 17
-				.text('Aprobado', 451, 496, {lineGap: 1.5})
+				.text('Aprobado', 460, 496, {lineGap: 1.5})
 				.text('Aprobado c/ notas', {lineGap: 1.5})
 				.text('Rechazado', {lineGap: 1.5})
 
@@ -708,9 +708,9 @@ module.exports = function(passport) {
 
 				.rect(283, 532, 7, 7)
 
-				.rect(435, 497, 7, 7)
-				.rect(435, 511, 7, 7)
-				.rect(435, 525, 7, 7)
+				.rect(446, 497, 7, 7)
+				.rect(446, 511, 7, 7)
+				.rect(446, 525, 7, 7)
 
 				.stroke();
 

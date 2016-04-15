@@ -192,32 +192,113 @@ footer {
 
 .diagram-input {
     width: 40px;
-    border: 1px solid red;
+    border: 1px solid orange;
 }
 
-#main-input-H {
+
+#main-input-a {
+    position: absolute;
+    left: 71.5%;
+    bottom: 64%;
+}
+
+#main-input-h {
     position: absolute;
     left: 3%;
     bottom: 35%;
 }
 
-#main-input-CE {
+
+#main-input-h2 {
     position: absolute;
-    left: 5%;
-    bottom: 52%;
+    left: 32%;
+    bottom: 35%;
 }
 
-#main-input-CI {
+#main-input-h3 {
+    position: absolute;
+    left: 61%;
+    bottom: 32.5%;
+}
+
+#main-input-ci {
     position: absolute;
     left: 31.25%;
     bottom: 51%;
 }
 
-#main-input-H2 {
+#main-input-ce {
     position: absolute;
-    left: 32%;
-    bottom: 35%;
+    left: 5%;
+    bottom: 52%;
 }
+
+#main-input-li {
+    position: absolute;
+    left: 49%;
+    bottom: 25%;
+}
+
+#main-input-ld {
+    position: absolute;
+    left: 94.5%;
+    bottom: 25%;
+}
+
+#main-input-p {
+    position: absolute;
+    left: 41.5%;
+    bottom: 60%;
+}
+
+#main-input-ss {
+    position: absolute;
+    left: 75.5%;
+    bottom: 44%;
+}
+
+#main-input-sc {
+    position: absolute;
+    left: 75.5%;
+    bottom: 34%;
+}
+
+#main-input-si {
+    position: absolute;
+    left: 75.5%;
+    bottom: 23.5%;
+}
+
+#main-input-b {
+    position: absolute;
+    left: 72%;
+    bottom: 82%;
+}
+
+#main-input-ti {
+    position: absolute;
+    left: 57%;
+    bottom: 85%;
+}
+
+#main-input-td {
+    position: absolute;
+    left: 83%;
+    bottom: 85%;
+}
+
+#main-input-di {
+    position: absolute;
+    left: 50.75%;
+    bottom: 6.5%;
+}
+
+#main-input-dd {
+    position: absolute;
+    left: 91.5%;
+    bottom: 13.25%;
+}
+
 
 #main-radio1 {
     position: absolute;
@@ -295,19 +376,19 @@ footer {
     bottom: 2%;
 }
 
-#box12-input1 {
+#box12-ci {
     position: absolute;
     left: 5;
     bottom: 40%;
 }
 
-#box12-input2 {
+#box12-of {
     position: absolute;
     left: 39%;
     bottom: 24%;
 }
 
-#box12-input3 {
+#box12-p {
     position: absolute;
     left: 55%;
     bottom: 90%;
