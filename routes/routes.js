@@ -398,7 +398,7 @@ module.exports = function(passport) {
 			
 			doc.pipe(res);
 
-			doc.image('./public/img/accesoslogo.png', 664, 27, {width: 100});
+			doc.image('./public/img/accesoslogo.png', 664, 25, {width: 100});
 			doc.image('./public/img/cortina-main.png', 332, 63, {width: 443});
 			doc.image('./public/img/cortina-box4.png', 56, 491, {width: 108});
 
@@ -491,8 +491,10 @@ module.exports = function(passport) {
 				.text('Mirilla', {lineGap: 1.5})
 				.text('Hule inferior (std.)', {lineGap: 1.5})
 				.text('Sello lateral (opc.)', {lineGap: 1.5})
-
-
+				.text('____________', {lineGap: 1.5})
+				.text('____________', {lineGap: 1.5})
+				.text('____________', {lineGap: 1.5})
+				.text('____________', {lineGap: 1.5});
 
 			
 			//test number
@@ -509,6 +511,10 @@ module.exports = function(passport) {
 				.circle(752, 208, 7)
 				.circle(680, 302, 7)
 				.circle(615, 302, 7)
+
+				.circle(42, 473, 7)
+				.circle(38, 510, 7)
+				.circle(178, 510, 7)
 				//molding
 				.circle(362, 484, 7)
 				.circle(398, 484, 7)
@@ -517,6 +523,18 @@ module.exports = function(passport) {
 				.circle(513, 484, 7)
 				.stroke();
 			
+			//checkboxes
+			doc.rect(223, 384, 7, 7)
+				.rect(223, 398, 7, 7)
+				.rect(223, 412, 7, 7)
+				.rect(223, 426, 7, 7)
+				.rect(223, 440, 7, 7)
+				.rect(223, 454, 7, 7)
+				.rect(223, 468, 7, 7)
+
+				.stroke();
+				
+
 			//grid lines
 			doc.lineWidth(.5)
 				.rect(18, 18, 756, 576)
@@ -566,7 +584,205 @@ module.exports = function(passport) {
 				.stroke();
 			
 			// PAGE 2
-			// doc.addPage();
+			doc.addPage();
+
+			doc.image('./public/img/accesoslogo.png', 664, 25, {width: 100});
+			doc.image('./public/img/cortina-box6.png', 31, 145, {width: 195});
+			doc.image('./public/img/cortina-box7.png', 266, 63, {width: 140});
+			doc.image('./public/img/cortina-box12.png', 281, 376, {width: 143});
+			doc.image('./public/img/cortina-box14-L.png',427, 79, {width: 148}); 
+			doc.image('./public/img/cortina-box15-L.png', 581, 82, {width: 191});
+			
+			//Report title
+			//make this font oblique?
+			doc.font('Helvetica-Bold')
+				.fontSize(13)
+				.text('SUBMITTAL CORTINA (ES) 1 de 2', 176, 21, {underline: true});
+
+			//text headings
+			doc.font('Helvetica-Bold')
+				.fontSize(12)
+				.text('Fecha:', 513, 23)
+				.text('No. orden:', 513, 42)
+				.text('6. Automatización', 24, 46)
+				.text('7. Posición Motor o Catalina', 251, 46)
+				.text('8. Medios de Activatión', 251, 190)
+				.text('9. Sensor, Cuadro y Botonera (a máx 3m)', 24, 288)
+				.text('10. Desinstalar', 24, 387)
+				.text('11. Herramienta y Equipo Especial', 24, 423)
+				.text('12. Rollo oculto -', 278, 288)
+				.text('13. Fotos en Publica', 278, 515)
+				.text('14. Puerta Independiente', 431, 62)
+				.text('15. Segmentar', 591, 63)
+				.text('16. Dibujos y Comentarios', 431, 278)
+				.text('17. Condición Submital', 431, 479);
+
+			//Signature headings
+			doc.font('Helvetica-Bold')
+				.fontSize(10)
+				.text('Nombre VENDEDOR', 24, 549)
+				.text('Firma VENDEDOR', 224, 549)
+				.text('Nombre SUPERVISOR', 340, 549)
+				.text('V\xB0B\xB0 SUPERVISOR', 513, 549);
+
+			//Regular text
+			doc.font('Helvetica')
+				.fontSize(11)
+				//box 6
+				.text('Modelo de motor', 31, 64, {lineGap: 1.5})
+				.text('Cuadro de control', {lineGap: 1.5})
+				.text('Sensor infrarojo', {lineGap: 1.5})
+				.text('Banda sensible', {lineGap: 1.5})
+				.text('Cobertor motor', {lineGap: 1.5})
+				//box 8
+				.text('Botonera', 253, 210, {lineGap: 1.5})
+				.text('Selector de llave', {lineGap: 1.5})
+				.text('Receptor remotos', {lineGap: 1.5})
+				.text('Controles remotos', {lineGap: 1.5})
+				.text('Botonera código', {lineGap: 1.5})
+				//box 9
+				.text('    Total: Accesos entuba y cablea', 32, 306, {lineGap: 1.5})
+				.text('    Básico: Accesos cablea/tubos cliente', {lineGap: 1.5})
+				.text('    Mínimo: Cliente cablea 100%', {lineGap: 1.5})
+				.text('Voltaje       a cargo        ', {lineGap: 1.5})
+				.text('Cableados botoneras por', {lineGap: 1.5})
+				//box 10
+				.text('por parte de', 40, 403)
+				//box 11
+				.text('Herramienta certificada', 47, 442, {lineGap: 1.5})
+				.text('Andamios - Escalera extensión', {lineGap: 1.5})
+				.text('Montacargas', {lineGap: 1.5})
+				.text('Polainas, petos, guantes', {lineGap: 1.5})
+				.text('Conos y cinta de seguridad', {lineGap: 1.5})
+				.text('Vehículo 4x4', {lineGap: 1.5})
+				.text('Extintor                Candado de breaker', {lineGap: 1.5})
+				//box 12
+				.text('"Offset"', 378, 289)
+				.text('         más alto de viga', 280, 303, {lineGap: 1.5})
+				.text('Registro en cielo razo por', {lineGap: 1.5})
+				.text('parte de', {lineGap: 1.5})
+				.text('Nota: registro debe ser de', {lineGap: 1.5})
+				.text('lado a lado', {lineGap: 1.5})
+				//box 13
+				.text('Fotos listas', 298, 532)
+				//box 14
+				.text('Puerta abre', 431, 230, {lineGap: 1.5})
+				.text('Cerradura', {lineGap: 1.5})
+				.text('Cierrapuertas', {lineGap: 1.5})
+				//box 17
+				.text('Aprobado', 451, 496, {lineGap: 1.5})
+				.text('Aprobado c/ notas', {lineGap: 1.5})
+				.text('Rechazado', {lineGap: 1.5})
+
+			//radio circles
+			doc.circle(48, 170, 7)
+				.circle(149, 170, 7)
+				.circle(114, 272, 7)
+
+				.circle(262, 75, 7)
+				.circle(411, 68, 7)
+				.circle(260, 173, 7)
+				.circle(408, 173, 7)
+
+				.circle(440, 220, 7)
+				.circle(564, 220, 7)
+
+				.circle(619, 238, 6)
+				.circle(743, 238, 6)
+
+				.stroke();
+			
+			//checkboxes
+			doc.rect(30, 307, 7, 7)
+				.rect(30, 321, 7, 7)
+				.rect(30, 335, 7, 7)
+
+				.rect(30, 443, 7, 7)
+				.rect(30, 457, 7, 7)
+				.rect(30, 471, 7, 7)
+				.rect(30, 485, 7, 7)
+				.rect(30, 499, 7, 7)
+				.rect(30, 513, 7, 7)
+				.rect(30, 528, 7, 7)
+				.rect(122, 528, 7, 7)
+
+				.rect(283, 532, 7, 7)
+
+				.rect(435, 497, 7, 7)
+				.rect(435, 511, 7, 7)
+				.rect(435, 525, 7, 7)
+
+				.stroke();
+
+
+			//grid lines
+			doc.lineWidth(.5)
+				.rect(18, 18, 756, 576)
+				.stroke();
+
+			doc.moveTo(18, 545)
+				.lineTo(774, 545)
+
+				.moveTo(216, 545)
+				.lineTo(216, 594)
+
+				.moveTo(332, 545)
+				.lineTo(332, 594)
+
+				.moveTo(505, 545)
+				.lineTo(505, 594)
+
+				.moveTo(508, 38)
+				.lineTo(650, 38)
+				
+				.moveTo(508, 18)
+				.lineTo(508, 58)
+				
+				.moveTo(650, 18)
+				.lineTo(650, 58)
+
+				//middle divider
+				.moveTo(424, 42)
+				.lineTo(424, 545)
+
+				.moveTo(18, 42)
+				.lineTo(424, 42)
+				
+				.moveTo(424, 58)
+				.lineTo(774, 58)
+				
+				.moveTo(18, 285)
+				.lineTo(424, 285)
+
+				.moveTo(18, 384)
+				.lineTo(270, 384)
+
+				.moveTo(18, 420)
+				.lineTo(270, 420)
+
+				.moveTo(270, 285)
+				.lineTo(270, 545)
+
+				.moveTo(270, 512)
+				.lineTo(424, 512)
+
+				.moveTo(424, 273)
+				.lineTo(774, 273)
+
+				.moveTo(582, 58)
+				.lineTo(582, 273)
+
+				.moveTo(243, 187)
+				.lineTo(424, 187)
+
+				.moveTo(243, 187)
+				.lineTo(243, 285)
+
+				.moveTo(424, 475)
+				.lineTo(774, 475)
+
+				.stroke();
+
 
 
 			doc.end();
