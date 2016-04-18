@@ -24,7 +24,7 @@
       <label for="cor_a" class="col-sm-1 control-label">A</label>
       <div class="col-sm-4">
         <div class="input-group">
-          <input type="text" class="form-control sync-a" name="cor_a" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box1-errors">
+          <input type="text" class="form-control sync-a" name="cor_a" value="{{cortina.cor_a}}"data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box1-errors">
        		<div class="input-group-addon">cm</div>
       	</div>
       </div>
@@ -254,27 +254,27 @@
 
 			<div id="main-radio1" class="radio">
 				<label class="radio-label">
-			    <input type="radio" name="optionsRadios" id="cor_molding1" value="option1" aria-label="...">
+			    <input type="radio" name="cor_main_radio" id="cor_molding1" value="option1" aria-label="...">
 			  </label>
 			</div>
 			<div id="main-radio2" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_molding2" value="option2" aria-label="...">
+			    <input type="radio" name="cor_main_radio" id="cor_molding2" value="option2" aria-label="...">
 			  </label>
 			</div>
 			<div id="main-radio3" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_molding3" value="option3" aria-label="...">
+			    <input type="radio" name="cor_main_radio" id="cor_molding3" value="option3" aria-label="...">
 			  </label>
 			</div>
 			<div id="main-radio4" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_molding4" value="option4" aria-label="...">
+			    <input type="radio" name="cor_main_radio" id="cor_molding4" value="option4" aria-label="...">
 			  </label>
 			</div>
 			<div id="main-radio5" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_molding5" value="option5" aria-label="...">
+			    <input type="radio" name="cor_main_radio" id="cor_molding5" value="option5" aria-label="...">
 			  </label>
 			</div>
 		</div>
@@ -287,7 +287,7 @@
 	<div class="col-sm-10 col-sm-offset-3">
 			
 		<div class="form-group">
-			<label for="cor_ciclos" class="col-sm-2 control-label">Ciclos por hora:</label>
+			<label for="cor_ciclos" class="col-sm-3 control-label">Ciclos por hora:</label>
 				<div class="col-sm-3">
 					<select name="cor_ciclos" id="cor_ciclos" class="form-control">
 						<option>0-2 veces/hora</option>
@@ -300,9 +300,9 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_horas" class="col-sm-2 control-label">Horas de uso:</label>
+			<label for="cor_horas" class="col-sm-3 control-label">Horas de uso:</label>
 				<div class="col-sm-3">
-					<select name="cor_horas" id="cor_horas" class="form-control">
+					<select name="cor_horas" id="cor_horas" class="form-control" value="{{cortina.cor_horas}}">
 						<option>8 horas/día</option>
 						<option>12 horas/día</option>
 						<option>24 horas/día</option>
@@ -311,7 +311,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_tipo_guia" class="col-sm-2 control-label">Tipo de Guía:</label>
+			<label for="cor_tipo_guia" class="col-sm-3 control-label">Tipo de Guía:</label>
 				<div class="col-sm-3">
 					<select name="cor_tipo_guia" id="cor_tipo_guia" class="form-control">
 						<option value="">-defina guía-</option>
@@ -323,7 +323,7 @@
 		</div>
 		
 		<div class="form-group">
-			<label for="cor_ojos" class="col-sm-2 control-label">Ojos fijación:</label>
+			<label for="cor_ojos" class="col-sm-3 control-label">Ojos fijación:</label>
 				<div class="col-sm-2">
 					<select name="cor_ojos" id="cor_ojos" class="form-control">
 						<option>Si</option>
@@ -333,7 +333,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_color_herr" class="col-sm-2 control-label">Color de Herraje:</label>
+			<label for="cor_color_herr" class="col-sm-3 control-label">Color de Herraje:</label>
 				<div class="col-sm-2">
 					<select name="cor_color_herr" id="cor_color_herr" class="form-control">
 						<option>Gris Ferguson</option>
@@ -344,7 +344,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_col_izq" class="col-sm-2 control-label">Columna izquierda:</label>
+			<label for="cor_col_izq" class="col-sm-3 control-label">Columna izquierda:</label>
 				<div class="col-sm-5">
 					<select name="cor_co_izq" id="cor_co_izq" class="form-control">
 						<option>Concreto buenas condiciones</option>
@@ -356,7 +356,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_col_der" class="col-sm-2 control-label">Columna derecha:</label>
+			<label for="cor_col_der" class="col-sm-3 control-label">Columna derecha:</label>
 				<div class="col-sm-5">
 					<select name="cor_col_der" id="cor_col_der" class="form-control">
 						<option>Concreto buenas condiciones</option>
@@ -368,7 +368,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_carg_sup" class="col-sm-2 control-label">Cargador superior:</label>
+			<label for="cor_carg_sup" class="col-sm-3 control-label">Cargador superior:</label>
 				<div class="col-sm-5">
 					<select name="cor_carg_sup" id="cor_carg_sup" class="form-control">
 						<option>Concreto buenas condiciones</option>
@@ -380,7 +380,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_guia_des" class="col-sm-2 control-label">Guía desmontable:</label>
+			<label for="cor_guia_des" class="col-sm-3 control-label">Guía desmontable:</label>
 				<div class="col-sm-3">
 					<select name="cor_guia_des" id="cor_guia_des" class="form-control">
 						<option>No aplica</option>
@@ -398,7 +398,7 @@
 	<div class="col-sm-10 col-sm-offset-3">
 
 		<div class="form-group">
-			<label for="cor_perfil_pri" class="col-sm-2 control-label">Perfil principal:</label>
+			<label for="cor_perfil_pri" class="col-sm-3 control-label">Perfil principal:</label>
 				<div class="col-sm-4">
 					<select name="cor_perfil_pri" id="cor_perfil_pri" class="form-control">
 						<option value="">-defina perfil principal-</option>
@@ -421,7 +421,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_perfil_sec" class="col-sm-2 control-label">Perfil secundario:</label>
+			<label for="cor_perfil_sec" class="col-sm-3 control-label">Perfil secundario:</label>
 				<div class="col-sm-4">
 					<select name="cor_perfil_sec" id="cor_perfil_sec" class="form-control">
 						<option value="">-defina perfil principal-</option>
@@ -444,7 +444,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_color_ext" class="col-sm-2 control-label">Color exterior:</label>
+			<label for="cor_color_ext" class="col-sm-3 control-label">Color exterior:</label>
 				<div class="col-sm-3">
 					<select name="cor_color_ext" id="cor_color_ext" class="form-control">
 						<option value="">-defina color-</option>
@@ -461,7 +461,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="cor_color_int" class="col-sm-2 control-label">Color interior:</label>
+			<label for="cor_color_int" class="col-sm-3 control-label">Color interior:</label>
 				<div class="col-sm-3">
 					<select name="cor_color_int" id="cor_color_int" class="form-control">
 						<option value="">-defina color-</option>
@@ -501,19 +501,19 @@
 			<div class="col-sm-offset-3">
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadio" id="noCob" value="option1" aria-label="..." checked>
+				    <input type="radio" name="cor_box4_radio" id="noCob" value="option1">
 				    No lleva
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadio" id="roundCob" value="option2" aria-label="...">
+				    <input type="radio" name="cor_box4_radio" id="roundCob" value="option2">
 				    <img class="img-cobertor" src="/img/cobertor-round.png">
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadio" id="squareCob" value="option3" aria-label="...">
+				    <input type="radio" name="cor_box4_radio" id="squareCob" value="option3">
 				    <img class="img-cobertor" src="/img/cobertor-sq.png">
 				  </label>
 				</div>
@@ -533,43 +533,43 @@
 
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box5_checkbox" value="catalina">
 				    Catalina
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box5_checkbox" value="gancho">
 				    Gancho p bajar
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box5_checkbox" value="ojos">
 				    Ojos de candado
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box5_checkbox" value="cerradura">
 				    Cerradura central
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box5_checkbox" value="mirilla">
 				    Mirilla
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box5_checkbox" value="hule">
 				    Hule inferior (std.)
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box5_checkbox" value="sello">
 				    Sello lateral (opc.)
 				  </label>
 				</div>
@@ -594,9 +594,9 @@
 	<div class="col-sm-offset-4">
 		
 	<div class="form-group">
-		<label for="cor_motor" class="col-sm-2 control-label">Modelo de motor:</label>
-		<div class="col-sm-3">
-			<select name="cor_motor" id="cor_motor" class="form-control">
+		<label for="cor_mod_motor" class="col-sm-3 control-label">Modelo de motor:</label>
+		<div class="col-sm-4">
+			<select name="cor_mod_motor" id="cor_mod_motor" class="form-control">
 					<option>No lleva</option>
 					<option>Centro eje</option>
 					<option>3950 Liftmaster</option>
@@ -608,8 +608,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="cor_caudro" class="col-sm-2 control-label">Cuadro de control:</label>
-		<div class="col-sm-3">
+		<label for="cor_caudro" class="col-sm-3 control-label">Cuadro de control:</label>
+		<div class="col-sm-4">
 			<select name="cor_caudro" id="cor_caudro" class="form-control">
 					<option value="">-defina cuadro-</option>
 					<option>No lleva</option>
@@ -622,8 +622,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="cor_sensor" class="col-sm-2 control-label">Sensor infrarojo:</label>
-		<div class="col-sm-3">
+		<label for="cor_sensor" class="col-sm-3 control-label">Sensor infrarojo:</label>
+		<div class="col-sm-4">
 			<select name="cor_sensor" id="cor_sensor" class="form-control">
 					<option value="">-defina sensor-</option>
 					<option>No lleva</option>
@@ -637,8 +637,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="cor_banda" class="col-sm-2 control-label">Banda sensible:</label>
-		<div class="col-sm-3">
+		<label for="cor_banda" class="col-sm-3 control-label">Banda sensible:</label>
+		<div class="col-sm-4">
 			<select name="cor_banda" id="cor_banda" class="form-control">
 					<option value="">-defina si lleva banda-</option>
 					<option>Si</option>
@@ -648,8 +648,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="cor_cob_motor" class="col-sm-2 control-label">Cobertor motor:</label>
-		<div class="col-sm-3">
+		<label for="cor_cob_motor" class="col-sm-3 control-label">Cobertor motor:</label>
+		<div class="col-sm-4">
 			<select name="cor_cob_motor" id="cor_cob_motor" class="form-control">
 					<option value="">-defina cobertor motor-</option>
 					<option>No lleva</option>
@@ -664,17 +664,17 @@
 			<img src="img/cortina-box6.png" alt="cortina-box6"/>
 			<div id="box6-radio1" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_lado_motor1" value="option1" aria-label="...">
+			    <input type="radio" name="cor_box6_radio" id="cor_lado_motor1" value="option1" aria-label="...">
 			  </label>
 			</div>
 			<div id="box6-radio2" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_lado_motor2" value="option2" aria-label="...">
+			    <input type="radio" name="cor_box6_radio" id="cor_lado_motor2" value="option2" aria-label="...">
 			  </label>
 			</div>
 			<div id="box6-radio3" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_lado_motor3" value="option3" aria-label="...">
+			    <input type="radio" name="cor_box6_radio" id="cor_lado_motor3" value="option3" aria-label="...">
 			  </label>
 			</div>
 		</div>
@@ -695,22 +695,22 @@
 			<img src="img/cortina-box7-L.png" alt="cortina-box7"/>
 			<div id="box7-radio1" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_posi_motor1" value="option1" aria-label="...">
+			    <input type="radio" name="cor_box7_radio" id="cor_posi_motor1" value="option1" aria-label="...">
 			  </label>
 			</div>
 			<div id="box7-radio2" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_posi_motor2" value="option2" aria-label="...">
+			    <input type="radio" name="cor_box7_radio" id="cor_posi_motor2" value="option2" aria-label="...">
 			  </label>
 			</div>
 			<div id="box7-radio3" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_posi_motor3" value="option3" aria-label="...">
+			    <input type="radio" name="cor_box7_radio" id="cor_posi_motor3" value="option3" aria-label="...">
 			  </label>
 			</div>
 			<div id="box7-radio4" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_posi_motor4" value="option4" aria-label="...">
+			    <input type="radio" name="cor_box7_radio" id="cor_posi_motor4" value="option4" aria-label="...">
 			  </label>
 			</div>
 		</div>
@@ -722,10 +722,10 @@
 {{!-- Box 8 --}}
 <div class="row no-gutter">
 	<h5 class="box-heading">8. Medios de Activación</h5>
-	<div class="col-sm-10 col-sm-offset-4">
+	<div class="col-sm-10 col-sm-offset-3">
 
 	<div class="form-group">
-		<label for="cor_bot" class="col-sm-2 control-label">Botonera:</label>
+		<label for="cor_bot" class="col-sm-3 control-label">Botonera:</label>
 		<div class="col-sm-3">
 			<select name="cor_bot" id="cor_bot" class="form-control">
 					<option value="">-defina boton-</option>
@@ -738,8 +738,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="cor_selector" class="col-sm-2 control-label">Selector de Llave:</label>
-		<div class="col-sm-2">
+		<label for="cor_selector" class="col-sm-3 control-label">Selector de Llave:</label>
+		<div class="col-sm-3">
 			<select name="cor_selector" id="cor_selector" class="form-control">
 					<option value="">-defina-</option>
 					<option>Si</option>
@@ -749,8 +749,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="cor_receptor" class="col-sm-2 control-label">Receptor Remotos:</label>
-		<div class="col-sm-2">
+		<label for="cor_receptor" class="col-sm-3 control-label">Receptor Remotos:</label>
+		<div class="col-sm-3">
 			<select name="cor_receptor" id="cor_receptor" class="form-control">
 					<option value="">-defina-</option>
 					<option>Si</option>
@@ -760,8 +760,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="cor_controles" class="col-sm-2 control-label">Controles Remotos:</label>
-		<div class="col-sm-2">
+		<label for="cor_controles" class="col-sm-3 control-label">Controles Remotos:</label>
+		<div class="col-sm-3">
 			<select name="cor_controles" id="cor_controles" class="form-control">
 					<option value="">-defina-</option>
 					<option>Si, especifique</option>
@@ -771,8 +771,8 @@
 	</div>
 
 	<div class="form-group">
-		<label for="cor_bot_cod" class="col-sm-2 control-label">Botonera Código:</label>
-		<div class="col-sm-2">
+		<label for="cor_bot_cod" class="col-sm-3 control-label">Botonera Código:</label>
+		<div class="col-sm-3">
 			<select name="cor_bot_cod" id="cor_bot_cod" class="form-control">
 					<option value="">-defina-</option>
 					<option>1</option>
@@ -794,19 +794,19 @@
 		<div class="form-group">
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+			    <input type="radio" name="cor_box9_radio" id="cor_box9_radio1" value="option1">
 			    <strong>Total:</strong> Accesos entuba y cablea
 			  </label>
 			</div>
 			<div class="radio">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+			    <input type="radio" name="cor_box9_radio" id="cor_box9_radio2" value="option2">
 			    <strong>Básico:</strong> Accesos cablea/tubos cliente
 			  </label>
 			</div>
 			<div class="radio disabled">
 			  <label>
-			    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+			    <input type="radio" name="cor_box9_radio" id="cor_box9_radio3" value="option3">
 			    <strong>Mínimo:</strong> Cliente cablea 100%
 			  </label>
 			</div>
@@ -868,23 +868,23 @@
 
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box11_checkbox" value="herra">
 				    Herramienta certificada
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box11_checkbox" value="andamios">
 				    Andamios - Escalera extensión
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box11_checkbox" value="monta">
 				    Montacargas 
 				  </label>
 				  <span>por</span>
-				  <select name="" id="">
+				  <select name="cor_monta_carg" id="">
 						<option>Cliente</option>
 						<option>Accesos</option>
 					</select>
@@ -892,31 +892,31 @@
 
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box11_checkbox" value="polainas">
 				    Polainas, petos, guantes
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box11_checkbox" value="conos">
 				    Conos y cinta de seguridad
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box11_checkbox" value="vehiculo">
 				    Vehículo 4x4
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box11_checkbox" value="extintor">
 				    Extintor
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" value="">
+				    <input type="checkbox" name="cor_box11_checkbox" value="candado">
 				    Candado de Breaker
 				  </label>
 				</div>
@@ -937,10 +937,10 @@
 		<div id="box12-errors" class="validation-box"></div>
 
 		<div class="form-group">
-			<span>"Offset"</span> <input type="text" class="diagram-input" style="width: 30px;" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors">
+			<span>"Offset"</span> <input type="text" name="cor_offset" class="diagram-input" style="width: 30px;" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors">
 			<span>cm más alto de viga.</span><br>
 			<span>Registro en cielo razo por parte de</span>
-				<select name="" id="">
+				<select name="cor_rollo_carg" id="">
 					<option>Cliente</option>
 					<option>Accesos</option>
 				</select><br>
@@ -952,13 +952,13 @@
 		<div class="diagram-container">
 			<img src="img/cortina-box12-M.png" alt="cortina-box12" />
 			<div id="box12-ci">	
-				<input type="text" name="box12-ci" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors"/>
+				<input type="text" name="cor_box12_ci" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors"/>
 			</div>
 			<div id="box12-of">	
-				<input type="text" name="box12-of" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors"/>
+				<input type="text" name="cor_box12_of" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors"/>
 			</div>
 			<div id="box12-p">	
-				<input type="text" name="box12-p" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors"/>
+				<input type="text" name="cor_box12_p" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors"/>
 			</div>
 		</div>
 	</div>
@@ -975,7 +975,7 @@
 		<label for="" class="control-label">Fotos listas?</label>
 			<div class="checkbox">
 			  <label>
-			    <input type="checkbox" value="">
+			    <input type="checkbox" name="cor_box13_checkbox" value="confirmado">
 			    Confirmado
 			  </label>
 			</div>
@@ -1033,25 +1033,26 @@
 		<div class="diagram-container col-sm-offset-1">
 			<img src="img/cortina-box14.png" alt="cortina-box14"/>
 			<div id="box14-input1">	
-				<input type="text" name="box14-input1" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
+				<input type="text" name="cor_box14_input1" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
 			<div id="box14-input2">	
-				<input type="text" name="box14-input2" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
+				<input type="text" name="cor_box14_input2" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
 			<div id="box14-input3">	
-				<input type="text" name="box14-input3" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
+				<input type="text" name="cor_box14_input3" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
 			<div id="box14-input4">	
-				<input type="text" name="box14-input4" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
+				<input type="text" name="cor_box14_input4" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
+
 			<div id="box14-radio1" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_puerta_ind1" value="option1" aria-label="...">
+			    <input type="radio" name="cor_box14_radio" id="cor_puerta_ind1" value="option1">
 			  </label>
 			</div>
 			<div id="box14-radio2" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_puerta_ind2" value="option2" aria-label="...">
+			    <input type="radio" name="cor_box14_radio" id="cor_puerta_ind2" value="option2">
 			  </label>
 			</div>
 		</div>
@@ -1072,32 +1073,32 @@
 			<img src="img/cortina-box15-L.png" alt="cortina-box15"/>
 
 			<div id="box15-input1">	
-				<input type="text" name="box15-input1" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
+				<input type="text" name="cor_box15_input1" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input2">	
-				<input type="text" name="box15-input2" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
+				<input type="text" name="cor_box15_input2" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input3">	
-				<input type="text" name="box15-input3" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
+				<input type="text" name="cor_box15_input3" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input4">	
-				<input type="text" name="box15-input4" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
+				<input type="text" name="cor_box15_input4" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input5">	
-				<input type="text" name="box15-input5" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
+				<input type="text" name="cor_box15_input5" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 			<div id="box15-input6">	
-				<input type="text" name="box15-input6" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
+				<input type="text" name="cor_box15_input6" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 
 			<div id="box15-radio1" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_segment1" value="option1" aria-label="...">
+			    <input type="radio" name="cor_box15_radio" id="cor_segment1" value="option1">
 			  </label>
 			</div>
 			<div id="box15-radio2" class="radio">
 				<label>
-			    <input type="radio" name="optionsRadios" id="cor_segment2" value="option2" aria-label="...">
+			    <input type="radio" name="cor_box15_radio" id="cor_segment2" value="option2">
 			  </label>
 			</div>
 		</div>
@@ -1111,7 +1112,7 @@
 	<h5 class="box-heading">16. Dibujos y Comentarios</h5>
 	<div class="col-sm-offset-5">
 		<div class="form-group">
-			<textarea class="form-control" rows="5"></textarea>
+			<textarea class="form-control" name="cor_comentarios" rows="5"></textarea>
 		</div>
 	</div>
 </div><!--end of row-->
@@ -1124,22 +1125,22 @@
 		<div class="form-group">
 			<div class="checkbox">
 			  <label>
-			    <input type="checkbox" value="">
+			    <input type="checkbox" name="cor_box17_checkbox" value="">
 			    Aprobado
 			  </label>
 			</div>
 
 			<div class="checkbox">
 			  <label>
-			    <input type="checkbox" value="">
+			    <input type="checkbox" name="cor_box17_checkbox" value="">
 			    Aprobado c/ notas
 			  </label>
 			</div>
-			<textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+			<textarea class="form-control" name="cor_notas" cols="30" rows="5"></textarea>
 
 			<div class="checkbox">
 			  <label>
-			    <input type="checkbox" value="">
+			    <input type="checkbox" name="cor_box17_checkbox" value="">
 			    Rechazado
 			  </label>
 			</div>

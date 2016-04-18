@@ -135,8 +135,9 @@ module.exports = function(passport) {
 				res.send(err);
 
 			//Server-side form validation
-			req.checkBody('cor_a', 'Must be a number').isInt();
-			req.checkBody('cor_h', 'Must be a number').isInt();
+			//how to make field optional?
+			// req.checkBody('cor_a', 'Must be a number').notEmpty().isInt();
+			// req.checkBody('cor_h', 'Must be a number').isInt();
 
 			var valErrors = req.validationErrors();
 			if (valErrors) {
@@ -163,6 +164,8 @@ module.exports = function(passport) {
 					cor_td: req.body.cor_td,
 					cor_di: req.body.cor_di,
 					cor_dd: req.body.cor_dd,
+					cor_main_radio: req.body.cor_main_radio,
+					//box 2
 					cor_ciclos: req.body.cor_ciclos,
 					cor_horas: req.body.cor_horas,
 					cor_tipo_guia: req.body.cor_tipo_guia,
@@ -172,11 +175,76 @@ module.exports = function(passport) {
 					cor_col_der: req.body.cor_col_der,
 					cor_carg_sup: req.body.cor_carg_sup,
 					cor_guia_des: req.body.cor_guia_des,
+					//box 3
 					cor_perfil_pri: req.body.cor_perfil_pri,
 					cor_perfil_sec: req.body.cor_perfil_sec,
 					cor_color_ext: req.body.cor_color_ext,
 					cor_color_int: req.body.cor_color_int,
-					cor_cob_color: req.body.cor_cob_color
+					//box4
+					cor_cob_color: req.body.cor_cob_color,
+					cor_box4_radio: req.body.cor_box4_radio,
+					//box 5
+					cor_box5_checkbox: req.body.cor_box5_checkbox,
+					cor_accesorio1: req.body.cor_accesorio1,
+					cor_accesorio2: req.body.cor_accesorio2,
+					cor_accesorio3: req.body.cor_accesorio3,
+					cor_accesorio4: req.body.cor_accesorio4,
+					//box 6
+					cor_mod_motor: req.body.cor_mod_motor,
+					cor_caudro: req.body.cor_caudro,
+					cor_sensor: req.body.cor_sensor,
+					cor_banda: req.body.cor_banda,
+					cor_cob_motor: req.body.cor_cob_motor,
+					cor_box6_radio: req.body.cor_box6_radio,
+					//box 7
+					cor_box7_radio: req.body.cor_box7_radio,
+					//box 8
+					cor_bot: req.body.cor_bot,
+					cor_selector: req.body.cor_selector,
+					cor_receptor: req.body.cor_receptor,
+					cor_controles: req.body.cor_controles,
+					cor_bot_cod: req.body.cor_bot_cod,
+					//box 9
+					cor_box9_radio: req.body.cor_box9_radio,
+					cor_volt: req.body.cor_volt,
+					cor_volt_carg: req.body.cor_volt_carg,
+					cor_cable_carg: req.body.cor_cable_carg,
+					//box 10
+					cor_des: req.body.cor_des,
+					cor_des_carg: req.body.cor_des_carg,
+					//box 11
+					cor_box11_checkbox: req.body.cor_box11_checkbox,
+					cor_monta_carg: req.body.cor_monta_carg,
+					//box 12
+					cor_offset: req.body.cor_offset,
+					cor_rollo_carg: req.body.cor_rollo_carg,
+					cor_box12_ci: req.body.cor_box12_ci,
+					cor_box12_of: req.body.cor_box12_of,
+					cor_box12_p: req.body.cor_box12_p,
+					//box 13
+					cor_box13_checkbox: req.body.cor_box13_checkbox,
+					//box 14
+					cor_puerta: req.body.cor_puerta,
+					cor_cerradura: req.body.cor_cerradura,
+					cor_cierrapu: req.body.cor_cierrapu,
+					cor_box14_input1: req.body.cor_box14_input1,
+					cor_box14_input2: req.body.cor_box14_input2,
+					cor_box14_input3: req.body.cor_box14_input3,
+					cor_box14_input4: req.body.cor_box14_input4,
+					cor_box14_radio: req.body.cor_box14_radio,
+					//box 15
+					cor_box15_input1: req.body.cor_box15_input1,
+					cor_box15_input2: req.body.cor_box15_input2,
+					cor_box15_input3: req.body.cor_box15_input3,
+					cor_box15_input4: req.body.cor_box15_input4,
+					cor_box15_input5: req.body.cor_box15_input5,
+					cor_box15_input6: req.body.cor_box15_input6,
+					cor_box15_radio: req.body.cor_box15_radio,
+					//box 16
+					cor_comentarios: req.body.cor_comentarios,
+					//box 17
+					cor_box17_checkbox: req.body.cor_box17_checkbox,
+					cor_notas: req.body.cor_notas
 				}
 				proyecto.cortina = cortinaSaved
 
