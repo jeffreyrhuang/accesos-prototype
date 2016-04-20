@@ -202,6 +202,12 @@ footer {
     bottom: 64%;
 }
 
+#main-input-a2 {
+    position: absolute;
+    left: 71.5%;
+    bottom: 1%;
+}
+
 #main-input-h {
     position: absolute;
     left: 3%;
@@ -420,13 +426,13 @@ footer {
 
 #box14-radio1 {
     position: absolute;
-    left: 14%;
+    left: 13%;
     bottom: 2%;
 }
 
 #box14-radio2 {
     position: absolute;
-    left: 53%;
+    left: 52%;
     bottom: 2%;
 }
 

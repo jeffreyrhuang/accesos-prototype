@@ -85,7 +85,7 @@ var proyectoSchema = mongoose.Schema({
 		cor_box12_of: Number,
 		cor_box12_p: Number,
 		//box 13
-		cor_box13_checkbox: Array,
+		cor_box13_radio: String,
 		//box 14
 		cor_puerta: String,
 		cor_cerradura: String,
@@ -106,7 +106,7 @@ var proyectoSchema = mongoose.Schema({
 		//box 16
 		cor_comentarios: String,
 		//box 17
-		cor_box17_checkbox: Array,
+		cor_box17_radio: String,
 		cor_notas: String
 
 

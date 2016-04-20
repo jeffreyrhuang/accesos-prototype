@@ -64,9 +64,10 @@
 		<br>
 		<form action="/pdf" method="POST">
 			<input type="hidden" name="id" value="{{_id}}">
-			{{/proyecto}}
+			
 			<div class="form-group">
 			<button name="openPDF" type="submit" formaction="/openPdf" class="btn btn-default">Abrir Reporte de Peso</button>
+
 			<br>
 			<br>
 			<br>	
@@ -75,6 +76,14 @@
 			</div>
 			<button name="pdfGenerator" type="submit" class="btn btn-default">Enviar Reporte de Peso</button>
 		</form>
+					<hr>
+		<form action="/cortina-open" method="POST">
+			<input type="hidden" name="id" value="{{_id}}">
+			<div class="form-group">
+			<button name="cortina-open" type="submit" class="btn btn-default">Abrir Cortina Specifications</button>
+		</form>
+
 		
 	</div>
-</div>	
+</div>
+{{/proyecto}}	

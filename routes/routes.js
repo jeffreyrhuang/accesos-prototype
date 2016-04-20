@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var fs = require('fs');
+var _ = require('lodash/collection');
 var PDFDocument = require('pdfkit');
 var sendgrid = require('sendgrid')(process.env.SENDGRID_API);
 var AWS = require('aws-sdk');
@@ -222,7 +223,7 @@ module.exports = function(passport) {
 					cor_box12_of: req.body.cor_box12_of,
 					cor_box12_p: req.body.cor_box12_p,
 					//box 13
-					cor_box13_checkbox: req.body.cor_box13_checkbox,
+					cor_box13_radio: req.body.cor_box13_radio,
 					//box 14
 					cor_puerta: req.body.cor_puerta,
 					cor_cerradura: req.body.cor_cerradura,
@@ -243,7 +244,7 @@ module.exports = function(passport) {
 					//box 16
 					cor_comentarios: req.body.cor_comentarios,
 					//box 17
-					cor_box17_checkbox: req.body.cor_box17_checkbox,
+					cor_box17_radio: req.body.cor_box17_radio,
 					cor_notas: req.body.cor_notas
 				}
 				proyecto.cortina = cortinaSaved
@@ -510,7 +511,16 @@ module.exports = function(passport) {
 				.text('Li', {lineGap: 1.5})
 				.text('Ld', {lineGap: 1.5})
 				.text('P', {lineGap: 1.5})
-				.text('ancho buque', 95, 105, {lineGap: 1.5})
+
+				.text(proyecto.cortina.cor_a + ' cm', 63, 105, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_h + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ci + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ce + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_li + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ld + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_p + ' cm', {lineGap: 1.5})
+
+				.text('ancho buque', 115, 105, {lineGap: 1.5})
 				.text('alto buque', {lineGap: 1.5})
 				.text('cargador superior interno', {lineGap: 1.5})
 				.text('cargador superior externo', {lineGap: 1.5})
@@ -526,7 +536,17 @@ module.exports = function(passport) {
 				.text('Td', {lineGap: 1.5})
 				.text('Di', {lineGap: 1.5})
 				.text('Dd', {lineGap: 1.5})
-				.text('lámina principal superior', 355, 90, {lineGap: 1.5})
+
+				.text(proyecto.cortina.cor_ss + ' cm', 325, 91, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_sc + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_si + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_b + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ti + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_td + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_di + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_dd + ' cm', {lineGap: 1.5})
+
+				.text('lámina principal superior', 370, 91, {lineGap: 1.5})
 				.text('lámina secundaria', {lineGap: 1.5})
 				.text('lámina principal inferior', {lineGap: 1.5})
 				.text('ancho final libre', {lineGap: 1.5})
@@ -535,22 +555,23 @@ module.exports = function(passport) {
 				.text('desnivel izquierdo', {lineGap: 1.5})
 				.text('desnivel derecho', {lineGap: 1.5})
 				//box 2
-				.text('Ciclos por hora:', 31, 237, {lineGap: 1.5})
-				.text('Horas de uso:' , {lineGap: 1.5, indent: 20})
-				.text('Tipo de Guía:', {lineGap: 1.5})
-				.text('Color de Herraje:', {lineGap: 1.5})
-				.text('Columna izquierda:', {lineGap: 1.5})
-				.text('Columna derecha:', {lineGap: 1.5})
-				.text('Cargado superior:', {lineGap: 1.5})
-				.text('Guía desmontable:', {lineGap: 1.5})
-				.text('Ojos fijación:', 190, 268, {lineGap: 1.5})
+				.text('Ciclos por hora:   ' + proyecto.cortina.cor_ciclos, 31, 237, {lineGap: 1.5})
+				.text('Horas de uso:   ' + proyecto.cortina.cor_horas, {lineGap: 1.5, indent: 20})
+				.text('Tipo de Guía:   ' + proyecto.cortina.cor_tipo_guia, {lineGap: 1.5})
+				.text('Color de Herraje:   ' + proyecto.cortina.cor_color_herr, {lineGap: 1.5})
+				.text('Columna izquierda:   ' + proyecto.cortina.cor_co_izq, {lineGap: 1.5})
+				.text('Columna derecha:   ' + proyecto.cortina.cor_col_der, {lineGap: 1.5})
+				.text('Cargado superior:   ' + proyecto.cortina.cor_carg_sup, {lineGap: 1.5})
+				.text('Guía desmontable:   ' + proyecto.cortina.cor_guia_des, {lineGap: 1.5})
+				.text('Ojos fijación:   ' + proyecto.cortina.cor_ojos, 195, 268, {lineGap: 1.5})
 				//box 3
-				.text('Principal:', 31, 379, {lineGap: 1.5})
-				.text('Secund:', {lineGap: 1.5})
-				.text('Color exterior:', {lineGap: 1.5})
-				.text('Color interior:', {lineGap: 1.5})
+				.text('Principal:  ' + proyecto.cortina.cor_perfil_pri, 31, 379, {lineGap: 1.5})
+				.text('Secund:   ' + proyecto.cortina.cor_perfil_sec, {lineGap: 1.5})
+				.text('Color exterior:   ' + proyecto.cortina.cor_color_ext, {lineGap: 1.5})
+				.text('Color interior:   ' + proyecto.cortina.cor_color_int, {lineGap: 1.5})
 				//box 4
 				.text('no lleva', 58, 468)
+				.text(proyecto.cortina.cor_cob_color, 125, 458)
 				//box 5
 				.text('Catalina', 237, 383, {lineGap: 1.5})
 				.text('Gancho p bajar', {lineGap: 1.5})
@@ -581,27 +602,81 @@ module.exports = function(passport) {
 				.circle(615, 302, 7)
 
 				.circle(42, 473, 7)
-				.circle(38, 510, 7)
-				.circle(178, 510, 7)
-				//molding
-				.circle(362, 484, 7)
-				.circle(398, 484, 7)
-				.circle(433, 484, 7)
-				.circle(467, 484, 7)
-				.circle(513, 484, 7)
-				.stroke();
+				
+					if (proyecto.cortina.cor_box4_radio === 'option1') {
+						doc.circle(42, 473, 4)
+					}
+			doc.circle(38, 510, 7)
+					if (proyecto.cortina.cor_box4_radio === 'option2') {
+						doc.circle(38, 510, 4)
+					}
+
+			doc.circle(178, 510, 7)
+					if (proyecto.cortina.cor_box4_radio === 'option3') {
+						doc.circle(178, 510, 4)
+					}
+
+			//molding
+			doc.circle(362, 484, 7)
+					if (proyecto.cortina.cor_main_radio === 'option1') {
+						doc.circle(362, 484, 4)
+					}
+
+			doc.circle(398, 484, 7)
+					if (proyecto.cortina.cor_main_radio === 'option2') {
+						doc.circle(398, 484, 4)
+					}
+
+			doc.circle(433, 484, 7)
+				if (proyecto.cortina.cor_main_radio === 'option3') {
+						doc.circle(433, 484, 4)
+					}
+
+			doc.circle(467, 484, 7)
+				if (proyecto.cortina.cor_main_radio === 'option4') {
+						doc.circle(467, 484, 4)
+					}
+
+			doc.circle(513, 484, 7)
+				if (proyecto.cortina.cor_main_radio === 'option5') {
+						doc.circle(513, 484, 4)
+					}
 			
 			//checkboxes
 			doc.rect(223, 384, 7, 7)
-				.rect(223, 398, 7, 7)
-				.rect(223, 412, 7, 7)
-				.rect(223, 426, 7, 7)
-				.rect(223, 440, 7, 7)
-				.rect(223, 454, 7, 7)
-				.rect(223, 468, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'catalina')) {
+					doc.rect(223, 384, 4, 4)
+				}
 
-				.stroke();
-				
+			doc.rect(223, 398, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'gancho')) {
+					doc.rect(223, 398, 4, 4)
+				}
+
+			doc.rect(223, 412, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'ojos')) {
+					doc.rect(223, 412, 4, 4)
+				}
+
+			doc.rect(223, 426, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'cerradura')) {
+					doc.rect(223, 426, 4, 4)
+				}
+
+			doc.rect(223, 440, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'mirilla')) {
+					doc.rect(223, 440, 4, 4)
+				}
+
+			doc.rect(223, 454, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'hule')) {
+					doc.rect(223, 454, 4, 4)
+				}
+
+			doc.rect(223, 468, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box5_checkbox,'sello')) {
+					doc.rect(223, 468, 4, 4)
+				}
 
 			//grid lines
 			doc.lineWidth(.5)
@@ -697,46 +772,49 @@ module.exports = function(passport) {
 			doc.font('Helvetica')
 				.fontSize(11)
 				//box 6
-				.text('Modelo de motor', 31, 64, {lineGap: 1.5})
-				.text('Cuadro de control', {lineGap: 1.5})
-				.text('Sensor infrarojo', {lineGap: 1.5})
-				.text('Banda sensible', {lineGap: 1.5})
-				.text('Cobertor motor', {lineGap: 1.5})
+				.text('Modelo de motor:   ' + proyecto.cortina.cor_mod_motor, 31, 64, {lineGap: 1.5})
+				.text('Cuadro de control:   ' + proyecto.cortina.cor_caudro, {lineGap: 1.5})
+				.text('Sensor infrarojo:   ' + proyecto.cortina.cor_sensor, {lineGap: 1.5})
+				.text('Banda sensible:   ' + proyecto.cortina.cor_banda, {lineGap: 1.5})
+				.text('Cobertor motor:   ' + proyecto.cortina.cor_cob_motor, {lineGap: 1.5})
 				//box 8
-				.text('Botonera', 253, 210, {lineGap: 1.5})
-				.text('Selector de llave', {lineGap: 1.5})
-				.text('Receptor remotos', {lineGap: 1.5})
-				.text('Controles remotos', {lineGap: 1.5})
-				.text('Botonera código', {lineGap: 1.5})
+				.text('Botonera:  ' + proyecto.cortina.cor_bot, 251, 210, {lineGap: 1.5})
+				.text('Selector de llave:  ' + proyecto.cortina.cor_selector, {lineGap: 1.5})
+				.text('Receptor remotos:  ' + proyecto.cortina.cor_receptor, {lineGap: 1.5})
+				.text('Controles remotos:  ' + proyecto.cortina.cor_controles, {lineGap: 1.5})
+				.text('Botonera código:  ' + proyecto.cortina.cor_bot_cod, {lineGap: 1.5})
 				//box 9
 				.text('    Total: Accesos entuba y cablea', 32, 306, {lineGap: 1.5})
 				.text('    Básico: Accesos cablea/tubos cliente', {lineGap: 1.5})
-				.text('    Mínimo: Cliente cablea 100%', {lineGap: 1.5})
-				.text('Voltaje       a cargo        ', {lineGap: 1.5})
-				.text('Cableados botoneras por', {lineGap: 1.5})
+				.text('    Mínimo: Cliente cablea 100%', {lineGap: 3})
+				.text('Voltaje  ' + proyecto.cortina.cor_volt + '   a cargo   ' + proyecto.cortina.cor_volt_carg, {lineGap: 1.5})
+				.text('Cableados botoneras por   ' + proyecto.cortina.cor_cable_carg, {lineGap: 1.5})
 				//box 10
-				.text('por parte de', 40, 403)
+				.text(proyecto.cortina.cor_des, 125, 390)
+				.text('por parte de   ' + proyecto.cortina.cor_des_carg, 40, 403)
 				//box 11
 				.text('Herramienta certificada', 47, 442, {lineGap: 1.5})
 				.text('Andamios - Escalera extensión', {lineGap: 1.5})
-				.text('Montacargas', {lineGap: 1.5})
+				.text('Montacargas - ' + proyecto.cortina.cor_monta_carg, {lineGap: 1.5})
 				.text('Polainas, petos, guantes', {lineGap: 1.5})
 				.text('Conos y cinta de seguridad', {lineGap: 1.5})
 				.text('Vehículo 4x4', {lineGap: 1.5})
 				.text('Extintor                Candado de breaker', {lineGap: 1.5})
 				//box 12
 				.text('"Offset"', 378, 289)
-				.text('         más alto de viga', 280, 303, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_offset + ' cm' + '   más alto de viga', 280, 303, {lineGap: 1.5})
 				.text('Registro en cielo razo por', {lineGap: 1.5})
-				.text('parte de', {lineGap: 1.5})
+				.text('parte de    ' + proyecto.cortina.cor_rollo_carg, {lineGap: 1.5})
 				.text('Nota: registro debe ser de', {lineGap: 1.5})
 				.text('lado a lado', {lineGap: 1.5})
 				//box 13
 				.text('Fotos listas', 298, 532)
 				//box 14
-				.text('Puerta abre', 431, 230, {lineGap: 1.5})
-				.text('Cerradura', {lineGap: 1.5})
-				.text('Cierrapuertas', {lineGap: 1.5})
+				.text('Puerta abre:  ' + proyecto.cortina.cor_puerta, 428, 230, {lineGap: 1.5})
+				.text('Cerradura:  ' + proyecto.cortina.cor_cerradura, {lineGap: 1.5})
+				.text('Cierrapuertas:   ' + proyecto.cortina.cor_cierrapu, {lineGap: 1.5})
+				//box 16
+				.text(proyecto.cortina.cor_comentarios, 435, 300)
 				//box 17
 				.text('Aprobado', 460, 496, {lineGap: 1.5})
 				.text('Aprobado c/ notas', {lineGap: 1.5})
@@ -744,43 +822,117 @@ module.exports = function(passport) {
 
 			//radio circles
 			doc.circle(48, 170, 7)
-				.circle(149, 170, 7)
-				.circle(114, 272, 7)
+				if (proyecto.cortina.cor_box6_radio === 'option1') {
+						doc.circle(48, 170, 4)
+				}
+			doc.circle(149, 170, 7)
+				if (proyecto.cortina.cor_box6_radio === 'option2') {
+						doc.circle(149, 170, 4)
+				}
+			doc.circle(114, 272, 7)
+				if (proyecto.cortina.cor_box6_radio === 'option3') {
+						doc.circle(114, 272, 4)
+				}
 
-				.circle(262, 75, 7)
-				.circle(411, 68, 7)
-				.circle(260, 173, 7)
-				.circle(408, 173, 7)
+			doc.circle(262, 75, 7)
+				if (proyecto.cortina.cor_box7_radio === 'option1') {
+						doc.circle(262, 75, 4)
+				}
+			doc.circle(411, 68, 7)
+				if (proyecto.cortina.cor_box7_radio === 'option2') {
+						doc.circle(411, 68, 4)
+				}
+			doc.circle(408, 173, 7)
+				if (proyecto.cortina.cor_box7_radio === 'option3') {
+						doc.circle(408, 173, 4)
+				}
+			doc.circle(260, 173, 7)
+				if (proyecto.cortina.cor_box7_radio === 'option4') {
+						doc.circle(260, 173, 4)
+				}
 
-				.circle(440, 220, 7)
-				.circle(564, 220, 7)
+			doc.circle(440, 220, 7)
+				if (proyecto.cortina.cor_box14_radio === 'option1') {
+						doc.circle(440, 220, 4)
+				}
+			doc.circle(564, 220, 7)
+				if (proyecto.cortina.cor_box14_radio === 'option2') {
+						doc.circle(564, 220, 4)
+				}
 
-				.circle(619, 238, 6)
-				.circle(743, 238, 6)
-
-				.stroke();
+			doc.circle(619, 238, 6)
+				if (proyecto.cortina.cor_box15_radio === 'option1') {
+						doc.circle(619, 238, 3)
+				}
+			doc.circle(743, 238, 6)
+				if (proyecto.cortina.cor_box15_radio === 'option2') {
+						doc.circle(743, 238, 3)
+				}
 			
 			//checkboxes
 			doc.rect(30, 307, 7, 7)
-				.rect(30, 321, 7, 7)
-				.rect(30, 335, 7, 7)
+				if (proyecto.cortina.cor_box9_radio === 'option1') {
+						doc.rect(31, 308, 4, 4)
+				}
+			doc.rect(30, 321, 7, 7)
+				if (proyecto.cortina.cor_box9_radio === 'option2') {
+					doc.rect(31, 322, 4, 4)
+				}
+			doc.rect(30, 335, 7, 7)
+				if (proyecto.cortina.cor_box9_radio === 'option3') {
+					doc.rect(31, 336, 4, 4)
+				}
 
-				.rect(30, 443, 7, 7)
-				.rect(30, 457, 7, 7)
-				.rect(30, 471, 7, 7)
-				.rect(30, 485, 7, 7)
-				.rect(30, 499, 7, 7)
-				.rect(30, 513, 7, 7)
-				.rect(30, 528, 7, 7)
-				.rect(122, 528, 7, 7)
+			doc.rect(30, 443, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'herra')) {
+					doc.rect(31, 444, 4, 4)
+				}
+			doc.rect(30, 457, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'andamios')) {
+					doc.rect(31, 458, 4, 4)
+				}
+			doc.rect(30, 471, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'monta')) {
+					doc.rect(31, 472, 4, 4)
+				}
+			doc.rect(30, 485, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'polainas')) {
+					doc.rect(31, 486, 4, 4)
+				}
+			doc.rect(30, 499, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'conos')) {
+					doc.rect(31, 500, 4, 4)
+				}
+			doc.rect(30, 513, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'vehiculo')) {
+					doc.rect(31, 514, 4, 4)
+				}
+			doc.rect(30, 528, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'extintor')) {
+					doc.rect(31, 529, 4, 4)
+				}
+			doc.rect(122, 528, 7, 7)
+				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'candado')) {
+					doc.rect(123, 529, 4, 4)
+				}
 
-				.rect(283, 532, 7, 7)
+			doc.rect(283, 532, 7, 7)
+				if (proyecto.cortina.cor_box13_radio === 'option1') {
+					doc.rect(284, 533, 4, 4)
+				}
 
-				.rect(446, 497, 7, 7)
-				.rect(446, 511, 7, 7)
-				.rect(446, 525, 7, 7)
-
-				.stroke();
+			doc.rect(446, 497, 7, 7)
+				if (proyecto.cortina.cor_box17_radio === 'option1') {
+					doc.rect(447, 498, 4, 4)
+				}
+			doc.rect(446, 511, 7, 7)
+				if (proyecto.cortina.cor_box17_radio === 'option2') {
+					doc.rect(447, 512, 4, 4)
+				}
+			doc.rect(446, 525, 7, 7)
+				if (proyecto.cortina.cor_box17_radio === 'option3') {
+					doc.rect(447, 526, 4, 4)
+				}
 
 
 			//grid lines
