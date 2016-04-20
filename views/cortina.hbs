@@ -293,11 +293,13 @@
 			<label for="cor_ciclos" class="col-sm-3 control-label">Ciclos por hora:</label>
 				<div class="col-sm-3">
 					<select name="cor_ciclos" id="cor_ciclos" class="form-control">
-						<option>0-2 veces/hora</option>
-						<option>3-5 veces/hora</option>
-						<option>6-14 veces/hora</option>
-						<option>15-29 veces/hora</option>
-						<option>30-50 veces/hora</option>
+						{{#select cortina.cor_ciclos}}
+						<option value="0-2 veces/hora">0-2 veces/hora</option>
+						<option value="3-5 veces/hora">3-5 veces/hora</option>
+						<option value="6-14 veces/hora">6-14 veces/hora</option>
+						<option value="15-29 veces/hora">15-29 veces/hora</option>
+						<option value="30-50 veces/hora">30-50 veces/hora</option>
+						{{/select}}
 					</select>
 				</div>
 		</div>
@@ -305,10 +307,12 @@
 		<div class="form-group">
 			<label for="cor_horas" class="col-sm-3 control-label">Horas de uso:</label>
 				<div class="col-sm-3">
-					<select name="cor_horas" id="cor_horas" class="form-control" value="{{cortina.cor_horas}}">
-						<option>8 horas/día</option>
-						<option>12 horas/día</option>
-						<option>24 horas/día</option>
+					<select name="cor_horas" id="cor_horas" class="form-control">
+						{{#select cortina.cor_horas}}
+						<option value="8 horas/día">8 horas/día</option>
+						<option value="12 horas/día">12 horas/día</option>
+						<option value="24 horas/día">24 horas/día</option>
+						{{/select}}
 					</select>
 				</div>
 		</div>
@@ -317,10 +321,12 @@
 			<label for="cor_tipo_guia" class="col-sm-3 control-label">Tipo de Guía:</label>
 				<div class="col-sm-3">
 					<select name="cor_tipo_guia" id="cor_tipo_guia" class="form-control">
+						{{#select cortina.cor_tipo_guia}}
 						<option value="">-defina guía-</option>
-						<option>Guía 2 pulg</option>
-						<option>Guía 3 pulg</option>
-						<option>Guía 4 pulg</option>
+						<option value="Guía 2 pulg">Guía 2 pulg</option>
+						<option value="Guía 3 pulg">Guía 3 pulg</option>
+						<option value="Guía 4 pulg">Guía 4 pulg</option>
+						{{/select}}
 					</select>
 				</div>
 		</div>
@@ -329,8 +335,10 @@
 			<label for="cor_ojos" class="col-sm-3 control-label">Ojos fijación:</label>
 				<div class="col-sm-2">
 					<select name="cor_ojos" id="cor_ojos" class="form-control">
-						<option>Si</option>
-						<option>No</option>
+						{{#select cortina.cor_ojos}}
+						<option value="Si">Si</option>
+						<option value="No">No</option>
+						{{/select}}
 					</select>
 				</div>
 		</div>
@@ -339,9 +347,9 @@
 			<label for="cor_color_herr" class="col-sm-3 control-label">Color de Herraje:</label>
 				<div class="col-sm-2">
 					<select name="cor_color_herr" id="cor_color_herr" class="form-control">
-						<option>Gris Ferguson</option>
-						<option>Negro</option>
-						<option>Blanco</option>
+						<option value="">Gris Ferguson</option>
+						<option value="">Negro</option>
+						<option value="">Blanco</option>
 					</select>
 				</div>
 		</div>
@@ -350,10 +358,10 @@
 			<label for="cor_col_izq" class="col-sm-3 control-label">Columna izquierda:</label>
 				<div class="col-sm-5">
 					<select name="cor_co_izq" id="cor_co_izq" class="form-control">
-						<option>Concreto buenas condiciones</option>
-						<option>Metal, existe buenas condiciones</option>
-						<option>Gypsum, agregar columna ____x____</option>
-						<option>Concreto, agregar columna ____x____</option>
+						<option value="">Concreto buenas condiciones</option>
+						<option value="">Metal, existe buenas condiciones</option>
+						<option value="">Gypsum, agregar columna ____x____</option>
+						<option value="">Concreto, agregar columna ____x____</option>
 					</select>
 				</div>
 		</div>
@@ -362,10 +370,10 @@
 			<label for="cor_col_der" class="col-sm-3 control-label">Columna derecha:</label>
 				<div class="col-sm-5">
 					<select name="cor_col_der" id="cor_col_der" class="form-control">
-						<option>Concreto buenas condiciones</option>
-						<option>Metal, existe buenas condiciones</option>
-						<option>Gypsum, agregar columna ____x____</option>
-						<option>Concreto, agregar columna ____x____</option>
+						<option value="">Concreto buenas condiciones</option>
+						<option value="">Metal, existe buenas condiciones</option>
+						<option value="">Gypsum, agregar columna ____x____</option>
+						<option value="">Concreto, agregar columna ____x____</option>
 					</select>
 				</div>
 		</div>
@@ -374,10 +382,10 @@
 			<label for="cor_carg_sup" class="col-sm-3 control-label">Cargador superior:</label>
 				<div class="col-sm-5">
 					<select name="cor_carg_sup" id="cor_carg_sup" class="form-control">
-						<option>Concreto buenas condiciones</option>
-						<option>Metal, existe buenas condiciones</option>
-						<option>Gypsum, agregar columna ____x____</option>
-						<option>Concreto, agregar columna ____x____</option>
+						<option value="">Concreto buenas condiciones</option>
+						<option value="">Metal, existe buenas condiciones</option>
+						<option value="">Gypsum, agregar columna ____x____</option>
+						<option value="">Concreto, agregar columna ____x____</option>
 					</select>
 				</div>
 		</div>
@@ -386,8 +394,8 @@
 			<label for="cor_guia_des" class="col-sm-3 control-label">Guía desmontable:</label>
 				<div class="col-sm-3">
 					<select name="cor_guia_des" id="cor_guia_des" class="form-control">
-						<option>No aplica</option>
-						<option>Si, indicar ubicación relativa</option>
+						<option value="">No aplica</option>
+						<option value="">Si, indicar ubicación relativa</option>
 					</select>
 				</div>
 		</div>
@@ -405,20 +413,20 @@
 				<div class="col-sm-4">
 					<select name="cor_perfil_pri" id="cor_perfil_pri" class="form-control">
 						<option value="">-defina perfil principal-</option>
-						<option>50 Elemax galv</option>
-						<option>51 Elemax galv micro</option>
-						<option>60 Elemax esmaltada</option>
-						<option>61 Elemax esmaltada micro</option>
-						<option>20 Flat slat</option>
-						<option>21 Flat slat micro</option>
-						<option>22 Flat slat insulada</option>
-						<option>30 C275 Overhead</option>
-						<option>40 Grille</option>
-						<option>10 China lisa</option>
-						<option>11 China microp.</option>
-						<option>00 Perfil alto</option>
-						<option>01 Perfil alto micro</option>
-						<option>02 Perfil alto 20g</option>
+						<option value="">50 Elemax galv</option>
+						<option value="">51 Elemax galv micro</option>
+						<option value="">60 Elemax esmaltada</option>
+						<option value="">61 Elemax esmaltada micro</option>
+						<option value="">20 Flat slat</option>
+						<option value="">21 Flat slat micro</option>
+						<option value="">22 Flat slat insulada</option>
+						<option value="">30 C275 Overhead</option>
+						<option value="">40 Grille</option>
+						<option value="">10 China lisa</option>
+						<option value="">11 China microp.</option>
+						<option value="">00 Perfil alto</option>
+						<option value="">01 Perfil alto micro</option>
+						<option value="">02 Perfil alto 20g</option>
 					</select>
 				</div>
 		</div>
@@ -428,20 +436,20 @@
 				<div class="col-sm-4">
 					<select name="cor_perfil_sec" id="cor_perfil_sec" class="form-control">
 						<option value="">-defina perfil principal-</option>
-						<option>50 Elemax galv</option>
-						<option>51 Elemax galv micro</option>
-						<option>60 Elemax esmaltada</option>
-						<option>61 Elemax esmaltada micro</option>
-						<option>20 Flat slat</option>
-						<option>21 Flat slat micro</option>
-						<option>22 Flat slat insulada</option>
-						<option>30 C275 Overhead</option>
-						<option>40 Grille</option>
-						<option>10 China lisa</option>
-						<option>11 China microp.</option>
-						<option>00 Perfil alto</option>
-						<option>01 Perfil alto micro</option>
-						<option>02 Perfil alto 20g</option>
+						<option value="">50 Elemax galv</option>
+						<option value="">51 Elemax galv micro</option>
+						<option value="">60 Elemax esmaltada</option>
+						<option value="">61 Elemax esmaltada micro</option>
+						<option value="">20 Flat slat</option>
+						<option value="">21 Flat slat micro</option>
+						<option value="">22 Flat slat insulada</option>
+						<option value="">30 C275 Overhead</option>
+						<option value="">40 Grille</option>
+						<option value="">10 China lisa</option>
+						<option value="">11 China microp.</option>
+						<option value="">00 Perfil alto</option>
+						<option value="">01 Perfil alto micro</option>
+						<option value="">02 Perfil alto 20g</option>
 					</select>
 				</div>
 		</div>
@@ -451,14 +459,14 @@
 				<div class="col-sm-3">
 					<select name="cor_color_ext" id="cor_color_ext" class="form-control">
 						<option value="">-defina color-</option>
-						<option>Gris-arena</option>
-						<option>Galvanizado</option>
-						<option>Café claro (china)</option>
-						<option>Blanco (china)</option>
-						<option>Gris (china)</option>
-						<option>Verde (china)</option>
-						<option>Gris overhead</option>
-						<option>Reverso lógico</option>
+						<option value="">Gris-arena</option>
+						<option value="">Galvanizado</option>
+						<option value="">Café claro (china)</option>
+						<option value="">Blanco (china)</option>
+						<option value="">Gris (china)</option>
+						<option value="">Verde (china)</option>
+						<option value="">Gris overhead</option>
+						<option value="">Reverso lógico</option>
 					</select>
 				</div>
 		</div>
@@ -468,14 +476,14 @@
 				<div class="col-sm-3">
 					<select name="cor_color_int" id="cor_color_int" class="form-control">
 						<option value="">-defina color-</option>
-						<option>Gris-arena</option>
-						<option>Galvanizado</option>
-						<option>Café claro (china)</option>
-						<option>Blanco (china)</option>
-						<option>Gris (china)</option>
-						<option>Verde (china)</option>
-						<option>Gris overhead</option>
-						<option>Reverso lógico</option>
+						<option value="">Gris-arena</option>
+						<option value="">Galvanizado</option>
+						<option value="">Café claro (china)</option>
+						<option value="">Blanco (china)</option>
+						<option value="">Gris (china)</option>
+						<option value="">Verde (china)</option>
+						<option value="">Gris overhead</option>
+						<option value="">Reverso lógico</option>
 					</select>
 				</div>
 		</div>
@@ -492,10 +500,10 @@
 			<label for="cor_cob_color" class="col-sm-2 control-label">Color:</label>
 				<div class="col-sm-3">
 					<select name="cor_cob_color" id="cor_cob_color" class="form-control">
-						<option>Gris (china)</option>
-						<option>Galvanizado</option>
-						<option>Café claro (china)</option>
-						<option>Blanco (china)</option>
+						<option value="">Gris (china)</option>
+						<option value="">Galvanizado</option>
+						<option value="">Café claro (china)</option>
+						<option value="">Blanco (china)</option>
 					</select>
 				</div>
 		</div>
@@ -600,12 +608,12 @@
 		<label for="cor_mod_motor" class="col-sm-3 control-label">Modelo de motor:</label>
 		<div class="col-sm-4">
 			<select name="cor_mod_motor" id="cor_mod_motor" class="form-control">
-					<option>No lleva</option>
-					<option>Centro eje</option>
-					<option>3950 Liftmaster</option>
-					<option>MH5011 Liftmaster</option>
-					<option>H5011 Liftmaster</option>
-					<option>GH1021 Liftmaster</option>
+					<option value="">No lleva</option>
+					<option value="">Centro eje</option>
+					<option value="">3950 Liftmaster</option>
+					<option value="">MH5011 Liftmaster</option>
+					<option value="">H5011 Liftmaster</option>
+					<option value="">GH1021 Liftmaster</option>
 			</select>
 		</div>
 	</div>
@@ -615,11 +623,11 @@
 		<div class="col-sm-4">
 			<select name="cor_caudro" id="cor_caudro" class="form-control">
 					<option value="">-defina cuadro-</option>
-					<option>No lleva</option>
-					<option>Incorporado</option>
-					<option>Derecha abajo rollo</option>
-					<option>Izquierda abajo rollo</option>
-					<option>Alejado, cobro extra</option>
+					<option value="">No lleva</option>
+					<option value="">Incorporado</option>
+					<option value="">Derecha abajo rollo</option>
+					<option value="">Izquierda abajo rollo</option>
+					<option value="">Alejado, cobro extra</option>
 			</select>
 		</div>
 	</div>
@@ -629,12 +637,12 @@
 		<div class="col-sm-4">
 			<select name="cor_sensor" id="cor_sensor" class="form-control">
 					<option value="">-defina sensor-</option>
-					<option>No lleva</option>
-					<option>CPS</option>
-					<option>CPS-LN4</option>
-					<option>Pupila</option>
-					<option>Delta</option>
-					<option>-otro especificar-</option>
+					<option value="">No lleva</option>
+					<option value="">CPS</option>
+					<option value="">CPS-LN4</option>
+					<option value="">Pupila</option>
+					<option value="">Delta</option>
+					<option value="">-otro especificar-</option>
 			</select>
 		</div>
 	</div>
@@ -644,8 +652,8 @@
 		<div class="col-sm-4">
 			<select name="cor_banda" id="cor_banda" class="form-control">
 					<option value="">-defina si lleva banda-</option>
-					<option>Si</option>
-					<option>No lleva</option>
+					<option value="">Si</option>
+					<option value="">No lleva</option>
 			</select>
 		</div>
 	</div>
@@ -655,9 +663,9 @@
 		<div class="col-sm-4">
 			<select name="cor_cob_motor" id="cor_cob_motor" class="form-control">
 					<option value="">-defina cobertor motor-</option>
-					<option>No lleva</option>
-					<option>Si, simple x lluvia</option>
-					<option>Si, con candado</option>
+					<option value="">No lleva</option>
+					<option value="">Si, simple x lluvia</option>
+					<option value="">Si, con candado</option>
 			</select>
 		</div>
 	</div>
@@ -732,10 +740,10 @@
 		<div class="col-sm-3">
 			<select name="cor_bot" id="cor_bot" class="form-control">
 					<option value="">-defina boton-</option>
-					<option>No lleva</option>
-					<option>Si, un botón</option>
-					<option>Si, 2 botón</option>
-					<option>Si, 3 botón</option>
+					<option value="">No lleva</option>
+					<option value="">Si, un botón</option>
+					<option value="">Si, 2 botón</option>
+					<option value="">Si, 3 botón</option>
 			</select>
 		</div>
 	</div>
@@ -745,8 +753,8 @@
 		<div class="col-sm-3">
 			<select name="cor_selector" id="cor_selector" class="form-control">
 					<option value="">-defina-</option>
-					<option>Si</option>
-					<option>No lleva</option>
+					<option value="">Si</option>
+					<option value="">No lleva</option>
 			</select>
 		</div>
 	</div>
@@ -756,8 +764,8 @@
 		<div class="col-sm-3">
 			<select name="cor_receptor" id="cor_receptor" class="form-control">
 					<option value="">-defina-</option>
-					<option>Si</option>
-					<option>No lleva</option>
+					<option value="">Si</option>
+					<option value="">No lleva</option>
 			</select>
 		</div>
 	</div>
@@ -767,8 +775,8 @@
 		<div class="col-sm-3">
 			<select name="cor_controles" id="cor_controles" class="form-control">
 					<option value="">-defina-</option>
-					<option>Si, especifique</option>
-					<option>No lleva</option>
+					<option value="">Si, especifique</option>
+					<option value="">No lleva</option>
 			</select>
 		</div>
 	</div>
@@ -778,10 +786,10 @@
 		<div class="col-sm-3">
 			<select name="cor_bot_cod" id="cor_bot_cod" class="form-control">
 					<option value="">-defina-</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
+					<option value="">1</option>
+					<option value="">2</option>
+					<option value="">3</option>
+					<option value="">4</option>
 			</select>
 		</div>
 	</div>
@@ -818,21 +826,21 @@
 		<div class="form-group">
 			<span>Voltaje</span>
 			<select name="cor_volt" id="cor_volt">
-				<option>220</option>
-				<option>110</option>
+				<option value="">220</option>
+				<option value="">110</option>
 			</select>
 			<span>a cargo</span>
 			<select name="cor_volt_carg" id="cor_volt_carg">
-				<option>Cliente</option>
-				<option>Accesos</option>
+				<option value="">Cliente</option>
+				<option value="">Accesos</option>
 			</select>	
 		</div>
 
 		<div class="form-group">
 			<span>Cableados botoneras por</span>
 			<select name="cor_cable_carg" id="cor_cable_carg">
-				<option>Cliente</option>
-				<option>Accesos</option>
+				<option value="">Cliente</option>
+				<option value="">Accesos</option>
 			</select>
 		</div>
 
@@ -847,14 +855,14 @@
 		<div class="form-group">
 			<span>Desinstalar</span>
 			<select name="cor_des" id="cor_des">
-				<option>Eliminar  **escriba detalle**</option>
-				<option>Buque listo para trabajar</option>
-				<option>Portón o sección p poder trabajar</option>
+				<option value="">Eliminar  **escriba detalle**</option>
+				<option value="">Buque listo para trabajar</option>
+				<option value="">Portón o sección p poder trabajar</option>
 			</select>
 			<span>por parte de</span>
 			<select name="cor_des_carg" id="cor_des_carg">
-				<option>Accesos</option>
-				<option>Cliente</option>
+				<option value="">Accesos</option>
+				<option value="">Cliente</option>
 			</select>
 		</div>
 
@@ -944,8 +952,8 @@
 			<span>cm más alto de viga.</span><br>
 			<span>Registro en cielo razo por parte de</span>
 				<select name="cor_rollo_carg" id="">
-					<option>Cliente</option>
-					<option>Accesos</option>
+					<option value="">Cliente</option>
+					<option value="">Accesos</option>
 				</select><br>
 			<span>Nota: registro debe ser de lado a lado</span>
 
@@ -997,9 +1005,9 @@
 		<div class="col-sm-3">
 			<select name="cor_puerta" id="cor_puerta" class="form-control">
 					<option value="">-defina puerta-</option>
-					<option>Abre hacia adentro</option>
-					<option>Abre hacia afuera</option>
-					<option>No lleva puerta</option>
+					<option value="">Abre hacia adentro</option>
+					<option value="">Abre hacia afuera</option>
+					<option value="">No lleva puerta</option>
 			</select>
 		</div>
 	</div>
@@ -1009,12 +1017,12 @@
 		<div class="col-sm-3">
 			<select name="cor_cerradura" id="cor_cerradura" class="form-control">
 					<option value="">-defina cerradura-</option>
-					<option>Corriente Yale</option>
-					<option>Pico Lora Yale</option>
-					<option>Electro Yale</option>
-					<option>Ojos de candado</option>
-					<option>Otro</option>
-					<option>No aplica</option>
+					<option value="">Corriente Yale</option>
+					<option value="">Pico Lora Yale</option>
+					<option value="">Electro Yale</option>
+					<option value="">Ojos de candado</option>
+					<option value="">Otro</option>
+					<option value="">No aplica</option>
 			</select>
 		</div>
 	</div>
@@ -1024,8 +1032,8 @@
 		<div class="col-sm-3">
 			<select name="cor_cierrapu" id="cor_cierrapu" class="form-control">
 					<option value="">-defina cierrapuertas-</option>
-					<option>Si, ________</option>
-					<option>No lleva</option>
+					<option value="">Si, ________</option>
+					<option value="">No lleva</option>
 			</select>
 		</div>
 	</div>
