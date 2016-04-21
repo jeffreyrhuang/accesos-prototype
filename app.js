@@ -58,6 +58,14 @@ var handlebars = exphbs.create({
         new RegExp(' value=\"' + checked + '\"'),
         '$& checked="checked"');
     }
+    // array: function(array, options) {
+    //   for (var i = 0, i < array.length; i++) {
+    //     return options.fn(this[i]).replace(
+    //       new RegExp(' value=\"' + array[i] + '\"'),
+    //       '$& checked="checked"')
+    //   }
+    // }
+
   }
 });
 app.engine('hbs', handlebars.engine);

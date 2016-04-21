@@ -47,7 +47,7 @@ var proyectoSchema = mongoose.Schema({
 		cor_cob_color: String,
 		cor_box4_radio: String,
 		//box 5
-		cor_box5_checkbox: Array,
+		cor_box5_check: Array,
 		cor_accesorio1: String,
 		cor_accesorio2: String,
 		cor_accesorio3: String,
@@ -76,7 +76,7 @@ var proyectoSchema = mongoose.Schema({
 		cor_des: String,
 		cor_des_carg: String,
 		//box 11
-		cor_box11_checkbox: Array,
+		cor_box11_check: Array,
 		cor_monta_carg: String,
 		//box 12
 		cor_offset: Number,

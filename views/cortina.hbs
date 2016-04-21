@@ -543,52 +543,54 @@
 <div class="row no-gutter">
 	<h5 class="box-heading">5. Accesorios</h5>
 	<div class="col-sm-10 col-sm-offset-3">
-
+		
 		<div class="form-group">
 			<div class="col-sm-offset-3">
-
+		
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box5_checkbox" value="catalina">
+				    <input type="checkbox" name="cor_box5_check" id="catalina" value="catalina">
 				    Catalina
 				  </label>
 				</div>
+
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box5_checkbox" value="gancho">
+				    <input type="checkbox" name="cor_box5_check" id="gancho" value="gancho">
 				    Gancho p bajar
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box5_checkbox" value="ojos">
+				    <input type="checkbox" name="cor_box5_check" id="ojos" value="ojos">
 				    Ojos de candado
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box5_checkbox" value="cerradura">
+				    <input type="checkbox" name="cor_box5_check" id="cerradura" value="cerradura">
 				    Cerradura central
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box5_checkbox" value="mirilla">
+				    <input type="checkbox" name="cor_box5_check" id="mirilla" value="mirilla">
 				    Mirilla
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box5_checkbox" value="hule">
+				    <input type="checkbox" name="cor_box5_check" id="hule" value="hule">
 				    Hule inferior (std.)
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box5_checkbox" value="sello">
+				    <input type="checkbox" name="cor_box5_check" id="sello" value="sello">
 				    Sello lateral (opc.)
 				  </label>
 				</div>
+			
 				<div>
 					<label for="" class="control-label">Otros</label>
 					<input type="text" name="cor_accesorio1" class="form-control accesorio-otro">
@@ -888,23 +890,23 @@
 
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box11_checkbox" value="herra">
+				    <input type="checkbox" name="cor_box11_check" id="herra" value="herra">
 				    Herramienta certificada
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box11_checkbox" value="andamios">
+				    <input type="checkbox" name="cor_box11_check" id="andamios" value="andamios">
 				    Andamios - Escalera extensión
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box11_checkbox" value="monta">
+				    <input type="checkbox" name="cor_box11_check" id="monta" value="monta">
 				    Montacargas 
 				  </label>
 				  <span>por</span>
-				  <select name="cor_monta_carg" id="">
+				  <select name="cor_monta_carg">
 						<option>Cliente</option>
 						<option>Accesos</option>
 					</select>
@@ -912,31 +914,31 @@
 
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box11_checkbox" value="polainas">
+				    <input type="checkbox" name="cor_box11_check" id="polainas" value="polainas">
 				    Polainas, petos, guantes
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box11_checkbox" value="conos">
+				    <input type="checkbox" name="cor_box11_check" id="conos" value="conos">
 				    Conos y cinta de seguridad
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box11_checkbox" value="vehiculo">
+				    <input type="checkbox" name="cor_box11_check" id="vehiculo" value="vehiculo">
 				    Vehículo 4x4
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box11_checkbox" value="extintor">
+				    <input type="checkbox" name="cor_box11_check" id="extintor" value="extintor">
 				    Extintor
 				  </label>
 				</div>
 				<div class="checkbox">
 				  <label>
-				    <input type="checkbox" name="cor_box11_checkbox" value="candado">
+				    <input type="checkbox" name="cor_box11_check" id="candado" value="candado">
 				    Candado de Breaker
 				  </label>
 				</div>
@@ -1184,6 +1186,8 @@
 </form><!--close huge ass form-->
 
 
+<div class="checkbox-array" id="hidden-box5">{{cortina.cor_box5_check}}</div>
+<div class="checkbox-array" id="hidden-box11">{{cortina.cor_box11_check}}</div>
 
 {{/proyecto}}
 
@@ -1236,6 +1240,55 @@
 		$('.sync-dd').keyup(function(){
 			$('.sync-dd').val($(this).val()).change();
 		});
+		
+		if($('#hidden-box5').text().indexOf("catalina") > -1) {
+			$('#catalina').prop("checked", true);
+		}
+		if($('#hidden-box5').text().indexOf("gancho") > -1) {
+			$('#gancho').prop("checked", true);
+		}
+		if($('#hidden-box5').text().indexOf("ojos") > -1) {
+			$('#ojos').prop("checked", true);
+		}
+		if($('#hidden-box5').text().indexOf("cerradura") > -1) {
+			$('#cerradura').prop("checked", true);
+		}
+		if($('#hidden-box5').text().indexOf("mirilla") > -1) {
+			$('#mirilla').prop("checked", true);
+		}
+		if($('#hidden-box5').text().indexOf("hule") > -1) {
+			$('#hule').prop("checked", true);
+		}
+		if($('#hidden-box5').text().indexOf("sello") > -1) {
+			$('#sello').prop("checked", true);
+		}
+
+		if($('#hidden-box11').text().indexOf("herra") > -1) {
+			$('#herra').prop("checked", true);
+		}
+		if($('#hidden-box11').text().indexOf("andamios") > -1) {
+			$('#andamios').prop("checked", true);
+		}
+		if($('#hidden-box11').text().indexOf("monta") > -1) {
+			$('#monta').prop("checked", true);
+		}
+		if($('#hidden-box11').text().indexOf("polainas") > -1) {
+			$('#polainas').prop("checked", true);
+		}
+		if($('#hidden-box11').text().indexOf("conos") > -1) {
+			$('#conos').prop("checked", true);
+		}
+		if($('#hidden-box11').text().indexOf("vehiculo") > -1) {
+			$('#vehiculo').prop("checked", true);
+		}
+		if($('#hidden-box11').text().indexOf("extintor") > -1) {
+			$('#extintor').prop("checked", true);
+		}
+		if($('#hidden-box11').text().indexOf("candado") > -1) {
+			$('#candado').prop("checked", true);
+		}
+
+
 
 	});
 

@@ -185,7 +185,7 @@ module.exports = function(passport) {
 					cor_cob_color: req.body.cor_cob_color,
 					cor_box4_radio: req.body.cor_box4_radio,
 					//box 5
-					cor_box5_checkbox: req.body.cor_box5_checkbox,
+					cor_box5_check: req.body.cor_box5_check,
 					cor_accesorio1: req.body.cor_accesorio1,
 					cor_accesorio2: req.body.cor_accesorio2,
 					cor_accesorio3: req.body.cor_accesorio3,
@@ -214,7 +214,7 @@ module.exports = function(passport) {
 					cor_des: req.body.cor_des,
 					cor_des_carg: req.body.cor_des_carg,
 					//box 11
-					cor_box11_checkbox: req.body.cor_box11_checkbox,
+					cor_box11_check: req.body.cor_box11_check,
 					cor_monta_carg: req.body.cor_monta_carg,
 					//box 12
 					cor_offset: req.body.cor_offset,
@@ -247,6 +247,7 @@ module.exports = function(passport) {
 					cor_box17_radio: req.body.cor_box17_radio,
 					cor_notas: req.body.cor_notas
 				}
+			
 				proyecto.cortina = cortinaSaved
 
 				proyecto.save(function(err, proyecto) {
@@ -256,7 +257,6 @@ module.exports = function(passport) {
 						type: 'success',
 						message: 'Cortina specifications saved!'
 					}
-					console.log(proyecto.cortina.cor_a);
 				}).then(function(proyecto){
 					console.log(proyecto);
 					res.redirect(303, '/api/proyectos/' + proyecto._id);
