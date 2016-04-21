@@ -52,6 +52,11 @@ var handlebars = exphbs.create({
       return options.fn(this).replace(
         new RegExp(' value=\"' + selected + '\"'),
         '$& selected="selected"');
+    },
+    check: function(checked, options) {
+      return options.fn(this).replace(
+        new RegExp(' value=\"' + checked + '\"'),
+        '$& checked="checked"');
     }
   }
 });
