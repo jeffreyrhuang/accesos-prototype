@@ -13,9 +13,9 @@
 
 <div class="row no-gutter">
 	<a href="/api/proyectos/{{_id}}" id="backbutton"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar</a>
-  <h4>Especificar Cortina</h4>
+  <h3>Especificar Cortina</h3>
 
-  <h5 class="box-heading">1. Dimensiones</h5>
+  <h4 class="box-heading">1. Dimensiones</h4>
 
 	<div id="box1-errors" class="validation-box col-sm-offset-5"></div>
 
@@ -197,7 +197,7 @@
 {{!-- Main diagram --}}
 <div class="row no-gutter">
 	<div style="text-align: center">
-		<div class="diagram-container">
+		<div class="diagram-container" style="margin-top: 3em;">
 			<img src="img/cortina-main.png" alt="cortina-main"/>
 
 			<div id="main-input-a">	
@@ -255,7 +255,7 @@
 				<input type="text" name="main-input-dd" value="{{cortina.cor_dd}}" class="diagram-input sync-dd"/>
 			</div>
 			
-			{{#check cortina.cor_main_radio}}
+			{{#radio cortina.cor_main_radio}}
 			<div id="main-radio1" class="radio">
 				<label class="radio-label">
 			    <input type="radio" name="cor_main_radio" value="option1">
@@ -281,27 +281,27 @@
 			    <input type="radio" name="cor_main_radio" value="option5">
 			  </label>
 			</div>
-			{{/check}}
+			{{/radio}}
 		</div>
 	</div>
 </div>
 
 {{!-- box 2 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">2. Herraje Principal</h5>
+	<h4 class="box-heading">2. Herraje Principal</h4>
 	<div class="col-sm-10 col-sm-offset-3">
 			
 		<div class="form-group">
 			<label for="cor_ciclos" class="col-sm-3 control-label">Ciclos por hora:</label>
 				<div class="col-sm-3">
-					<select name="cor_ciclos" id="cor_ciclos" class="form-control">
-						{{#select cortina.cor_ciclos}}
+					<select name="cor_ciclos" class="form-control">
+					{{#select cortina.cor_ciclos}}
 						<option value="0-2 veces/hora">0-2 veces/hora</option>
 						<option value="3-5 veces/hora">3-5 veces/hora</option>
 						<option value="6-14 veces/hora">6-14 veces/hora</option>
 						<option value="15-29 veces/hora">15-29 veces/hora</option>
 						<option value="30-50 veces/hora">30-50 veces/hora</option>
-						{{/select}}
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -309,12 +309,12 @@
 		<div class="form-group">
 			<label for="cor_horas" class="col-sm-3 control-label">Horas de uso:</label>
 				<div class="col-sm-3">
-					<select name="cor_horas" id="cor_horas" class="form-control">
-						{{#select cortina.cor_horas}}
+					<select name="cor_horas" class="form-control">
+					{{#select cortina.cor_horas}}
 						<option value="8 horas/día">8 horas/día</option>
 						<option value="12 horas/día">12 horas/día</option>
 						<option value="24 horas/día">24 horas/día</option>
-						{{/select}}
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -322,13 +322,13 @@
 		<div class="form-group">
 			<label for="cor_tipo_guia" class="col-sm-3 control-label">Tipo de Guía:</label>
 				<div class="col-sm-3">
-					<select name="cor_tipo_guia" id="cor_tipo_guia" class="form-control">
-						{{#select cortina.cor_tipo_guia}}
+					<select name="cor_tipo_guia" class="form-control">
+					{{#select cortina.cor_tipo_guia}}
 						<option value="">-defina guía-</option>
 						<option value="Guía 2 pulg">Guía 2 pulg</option>
 						<option value="Guía 3 pulg">Guía 3 pulg</option>
 						<option value="Guía 4 pulg">Guía 4 pulg</option>
-						{{/select}}
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -336,11 +336,11 @@
 		<div class="form-group">
 			<label for="cor_ojos" class="col-sm-3 control-label">Ojos fijación:</label>
 				<div class="col-sm-2">
-					<select name="cor_ojos" id="cor_ojos" class="form-control">
-						{{#select cortina.cor_ojos}}
+					<select name="cor_ojos" class="form-control">
+					{{#select cortina.cor_ojos}}
 						<option value="Si">Si</option>
 						<option value="No">No</option>
-						{{/select}}
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -348,10 +348,12 @@
 		<div class="form-group">
 			<label for="cor_color_herr" class="col-sm-3 control-label">Color de Herraje:</label>
 				<div class="col-sm-2">
-					<select name="cor_color_herr" id="cor_color_herr" class="form-control">
-						<option value="">Gris Ferguson</option>
-						<option value="">Negro</option>
-						<option value="">Blanco</option>
+					<select name="cor_color_herr" class="form-control">
+					{{#select cortina.cor_color_herr}}
+						<option value="Gris Ferguson">Gris Ferguson</option>
+						<option value="Negro">Negro</option>
+						<option value="Blanco">Blanco</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -359,11 +361,13 @@
 		<div class="form-group">
 			<label for="cor_col_izq" class="col-sm-3 control-label">Columna izquierda:</label>
 				<div class="col-sm-5">
-					<select name="cor_co_izq" id="cor_co_izq" class="form-control">
-						<option value="">Concreto buenas condiciones</option>
-						<option value="">Metal, existe buenas condiciones</option>
-						<option value="">Gypsum, agregar columna ____x____</option>
-						<option value="">Concreto, agregar columna ____x____</option>
+					<select name="cor_col_izq" class="form-control">
+					{{#select cortina.cor_col_izq}}
+						<option value="Concreto buenas condiciones">Concreto buenas condiciones</option>
+						<option value="Metal, existe buenas condiciones">Metal, existe buenas condiciones</option>
+						<option value="Gypsum, agregar columna ____x____">Gypsum, agregar columna ____x____</option>
+						<option value="Concreto, agregar columna ____x____">Concreto, agregar columna ____x____</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -371,11 +375,13 @@
 		<div class="form-group">
 			<label for="cor_col_der" class="col-sm-3 control-label">Columna derecha:</label>
 				<div class="col-sm-5">
-					<select name="cor_col_der" id="cor_col_der" class="form-control">
-						<option value="">Concreto buenas condiciones</option>
-						<option value="">Metal, existe buenas condiciones</option>
-						<option value="">Gypsum, agregar columna ____x____</option>
-						<option value="">Concreto, agregar columna ____x____</option>
+					<select name="cor_col_der" class="form-control">
+					{{#select cortina.cor_col_der}}
+						<option value="Concreto buenas condiciones">Concreto buenas condiciones</option>
+						<option value="Metal, existe buenas condiciones">Metal, existe buenas condiciones</option>
+						<option value="Gypsum, agregar columna ____x____">Gypsum, agregar columna ____x____</option>
+						<option value="Concreto, agregar columna ____x____">Concreto, agregar columna ____x____</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -383,11 +389,13 @@
 		<div class="form-group">
 			<label for="cor_carg_sup" class="col-sm-3 control-label">Cargador superior:</label>
 				<div class="col-sm-5">
-					<select name="cor_carg_sup" id="cor_carg_sup" class="form-control">
-						<option value="">Concreto buenas condiciones</option>
-						<option value="">Metal, existe buenas condiciones</option>
-						<option value="">Gypsum, agregar columna ____x____</option>
-						<option value="">Concreto, agregar columna ____x____</option>
+					<select name="cor_carg_sup" class="form-control">
+					{{#select cortina.cor_carg_sup}}
+						<option value="Concreto buenas condiciones">Concreto buenas condiciones</option>
+						<option value="Metal, existe buenas condiciones">Metal, existe buenas condiciones</option>
+						<option value="Gypsum, agregar columna ____x____">Gypsum, agregar columna ____x____</option>
+						<option value="Concreto, agregar columna ____x____">Concreto, agregar columna ____x____</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -395,9 +403,11 @@
 		<div class="form-group">
 			<label for="cor_guia_des" class="col-sm-3 control-label">Guía desmontable:</label>
 				<div class="col-sm-3">
-					<select name="cor_guia_des" id="cor_guia_des" class="form-control">
-						<option value="">No aplica</option>
-						<option value="">Si, indicar ubicación relativa</option>
+					<select name="cor_guia_des" class="form-control">
+					{{#select cortina.cor_guia_des}}
+						<option value="No aplica">No aplica</option>
+						<option value="Si, indicar ubicación relativa">Si, indicar ubicación relativa</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -407,28 +417,30 @@
 
 {{!-- Box 3 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">3. Tipo de lámina</h5>
+	<h4 class="box-heading">3. Tipo de lámina</h4>
 	<div class="col-sm-10 col-sm-offset-3">
 
 		<div class="form-group">
 			<label for="cor_perfil_pri" class="col-sm-3 control-label">Perfil principal:</label>
 				<div class="col-sm-4">
-					<select name="cor_perfil_pri" id="cor_perfil_pri" class="form-control">
+					<select name="cor_perfil_pri" class="form-control">
+					{{#select cortina.cor_perfil_pri}}
 						<option value="">-defina perfil principal-</option>
-						<option value="">50 Elemax galv</option>
-						<option value="">51 Elemax galv micro</option>
-						<option value="">60 Elemax esmaltada</option>
-						<option value="">61 Elemax esmaltada micro</option>
-						<option value="">20 Flat slat</option>
-						<option value="">21 Flat slat micro</option>
-						<option value="">22 Flat slat insulada</option>
-						<option value="">30 C275 Overhead</option>
-						<option value="">40 Grille</option>
-						<option value="">10 China lisa</option>
-						<option value="">11 China microp.</option>
-						<option value="">00 Perfil alto</option>
-						<option value="">01 Perfil alto micro</option>
-						<option value="">02 Perfil alto 20g</option>
+						<option value="50 Elemax galv">50 Elemax galv</option>
+						<option value="51 Elemax galv micro">51 Elemax galv micro</option>
+						<option value="60 Elemax esmaltada">60 Elemax esmaltada</option>
+						<option value="61 Elemax esmaltada micro">61 Elemax esmaltada micro</option>
+						<option value="20 Flat slat">20 Flat slat</option>
+						<option value="21 Flat slat micro">21 Flat slat micro</option>
+						<option value="22 Flat slat insulada">22 Flat slat insulada</option>
+						<option value="30 C275 Overhead">30 C275 Overhead</option>
+						<option value="40 Grille">40 Grille</option>
+						<option value="10 China lisa">10 China lisa</option>
+						<option value="11 China microp.">11 China microp.</option>
+						<option value="00 Perfil alto">00 Perfil alto</option>
+						<option value="01 Perfil alto micro">01 Perfil alto micro</option>
+						<option value="02 Perfil alto 20g">02 Perfil alto 20g</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -436,22 +448,24 @@
 		<div class="form-group">
 			<label for="cor_perfil_sec" class="col-sm-3 control-label">Perfil secundario:</label>
 				<div class="col-sm-4">
-					<select name="cor_perfil_sec" id="cor_perfil_sec" class="form-control">
-						<option value="">-defina perfil principal-</option>
-						<option value="">50 Elemax galv</option>
-						<option value="">51 Elemax galv micro</option>
-						<option value="">60 Elemax esmaltada</option>
-						<option value="">61 Elemax esmaltada micro</option>
-						<option value="">20 Flat slat</option>
-						<option value="">21 Flat slat micro</option>
-						<option value="">22 Flat slat insulada</option>
-						<option value="">30 C275 Overhead</option>
-						<option value="">40 Grille</option>
-						<option value="">10 China lisa</option>
-						<option value="">11 China microp.</option>
-						<option value="">00 Perfil alto</option>
-						<option value="">01 Perfil alto micro</option>
-						<option value="">02 Perfil alto 20g</option>
+					<select name="cor_perfil_sec" class="form-control">
+				{{#select cortina.cor_perfil_sec}}
+						<option value="">-defina perfil secundario-</option>
+						<option value="50 Elemax galv">50 Elemax galv</option>
+						<option value="51 Elemax galv micro">51 Elemax galv micro</option>
+						<option value="60 Elemax esmaltada">60 Elemax esmaltada</option>
+						<option value="61 Elemax esmaltada micro">61 Elemax esmaltada micro</option>
+						<option value="20 Flat slat">20 Flat slat</option>
+						<option value="21 Flat slat micro">21 Flat slat micro</option>
+						<option value="22 Flat slat insulada">22 Flat slat insulada</option>
+						<option value="30 C275 Overhead">30 C275 Overhead</option>
+						<option value="40 Grille">40 Grille</option>
+						<option value="10 China lisa">10 China lisa</option>
+						<option value="11 China microp.">11 China microp.</option>
+						<option value="00 Perfil alto">00 Perfil alto</option>
+						<option value="01 Perfil alto micro">01 Perfil alto micro</option>
+						<option value="02 Perfil alto 20g">02 Perfil alto 20g</option>
+				{{/select}}
 					</select>
 				</div>
 		</div>
@@ -459,16 +473,18 @@
 		<div class="form-group">
 			<label for="cor_color_ext" class="col-sm-3 control-label">Color exterior:</label>
 				<div class="col-sm-3">
-					<select name="cor_color_ext" id="cor_color_ext" class="form-control">
+					<select name="cor_color_ext" class="form-control">
+					{{#select cortina.cor_color_ext}}
 						<option value="">-defina color-</option>
-						<option value="">Gris-arena</option>
-						<option value="">Galvanizado</option>
-						<option value="">Café claro (china)</option>
-						<option value="">Blanco (china)</option>
-						<option value="">Gris (china)</option>
-						<option value="">Verde (china)</option>
-						<option value="">Gris overhead</option>
-						<option value="">Reverso lógico</option>
+						<option value="Gris - arena">Gris - arena</option>
+						<option value="Galvanizado">Galvanizado</option>
+						<option value="Café claro - china">Café claro - china</option>
+						<option value="Blanco - china">Blanco - china</option>
+						<option value="Gris - china">Gris - china</option>
+						<option value="Verde - china">Verde - china</option>
+						<option value="Gris overhead">Gris overhead</option>
+						<option value="Reverso lógico">Reverso lógico</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -476,16 +492,18 @@
 		<div class="form-group">
 			<label for="cor_color_int" class="col-sm-3 control-label">Color interior:</label>
 				<div class="col-sm-3">
-					<select name="cor_color_int" id="cor_color_int" class="form-control">
+					<select name="cor_color_int" class="form-control">
+					{{#select cortina.cor_color_int}}
 						<option value="">-defina color-</option>
-						<option value="">Gris-arena</option>
-						<option value="">Galvanizado</option>
-						<option value="">Café claro (china)</option>
-						<option value="">Blanco (china)</option>
-						<option value="">Gris (china)</option>
-						<option value="">Verde (china)</option>
-						<option value="">Gris overhead</option>
-						<option value="">Reverso lógico</option>
+						<option value="Gris - arena">Gris - arena</option>
+						<option value="Galvanizado">Galvanizado</option>
+						<option value="Café claro - china">Café claro - china</option>
+						<option value="Blanco - china">Blanco - china</option>
+						<option value="Gris - china">Gris - china</option>
+						<option value="Verde - china">Verde - china</option>
+						<option value="Gris overhead">Gris overhead</option>
+						<option value="Reverso lógico">Reverso lógico</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -495,18 +513,20 @@
 
 {{!-- Box 4 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">4. Cobertor</h5>
+	<h4 class="box-heading">4. Cobertor</h4>
 	<div class="col-sm-10 col-sm-offset-3">
 		
 		<div class="form-group">
 			<label for="cor_cob_color" class="col-sm-2 control-label">Color:</label>
 				<div class="col-sm-3">
-					<select name="cor_cob_color" id="cor_cob_color" class="form-control">
+					<select name="cor_cob_color" class="form-control">
+					{{#select cortina.cor_cob_color}}
 						<option value="">-defina color-</option>
-						<option value="">Gris (china)</option>
-						<option value="">Galvanizado</option>
-						<option value="">Café claro (china)</option>
-						<option value="">Blanco (china)</option>
+						<option value="Gris - china">Gris - china</option>
+						<option value="Galvanizado">Galvanizado</option>
+						<option value="Café claro - china">Café claro - china</option>
+						<option value="Blanco - china">Blanco - china</option>
+					{{/select}}
 					</select>
 				</div>
 		</div>
@@ -514,7 +534,7 @@
 		<div class="form-group">
 			<div class="col-sm-offset-3">
 				<div class="radio">
-					{{#check cortina.cor_box4_radio}}
+					{{#radio cortina.cor_box4_radio}}
 				  <label>
 				    <input type="radio" name="cor_box4_radio" value="option1">
 				    No lleva
@@ -532,7 +552,7 @@
 				    <img class="img-cobertor" src="/img/cobertor-sq.png">
 				  </label>
 				</div>
-					{{/check}}
+					{{/radio}}
 			</div>
 		</div>
 
@@ -541,7 +561,7 @@
 
 {{!-- Box 5 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">5. Accesorios</h5>
+	<h4 class="box-heading">5. Accesorios</h4>
 	<div class="col-sm-10 col-sm-offset-3">
 		
 		<div class="form-group">
@@ -553,7 +573,6 @@
 				    Catalina
 				  </label>
 				</div>
-
 				<div class="checkbox">
 				  <label>
 				    <input type="checkbox" name="cor_box5_check" id="gancho" value="gancho">
@@ -593,10 +612,10 @@
 			
 				<div>
 					<label for="" class="control-label">Otros</label>
-					<input type="text" name="cor_accesorio1" class="form-control accesorio-otro">
-					<input type="text" name="cor_accesorio2" class="form-control accesorio-otro">
-					<input type="text" name="cor_accesorio3" class="form-control accesorio-otro">
-					<input type="text" name="cor_accesorio4" class="form-control accesorio-otro">
+					<input type="text" name="cor_accesorio1" value="{{cortina.cor_accesorio1}}" class="form-control accesorio-otro">
+					<input type="text" name="cor_accesorio2" value="{{cortina.cor_accesorio2}}" class="form-control accesorio-otro">
+					<input type="text" name="cor_accesorio3" value="{{cortina.cor_accesorio3}}" class="form-control accesorio-otro">
+					<input type="text" name="cor_accesorio4" value="{{cortina.cor_accesorio4}}" class="form-control accesorio-otro">
 				</div>
 				
 
@@ -608,19 +627,21 @@
 
 {{!-- Box 6 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">6. Automatización</h5>
+	<h4 class="box-heading">6. Automatización</h4>
 	<div class="col-sm-offset-4">
 		
 	<div class="form-group">
 		<label for="cor_mod_motor" class="col-sm-3 control-label">Modelo de motor:</label>
 		<div class="col-sm-4">
-			<select name="cor_mod_motor" id="cor_mod_motor" class="form-control">
-					<option value="">No lleva</option>
-					<option value="">Centro eje</option>
-					<option value="">3950 Liftmaster</option>
-					<option value="">MH5011 Liftmaster</option>
-					<option value="">H5011 Liftmaster</option>
-					<option value="">GH1021 Liftmaster</option>
+			<select name="cor_mod_motor" class="form-control">
+					{{#select cortina.cor_mod_motor}}
+					<option value="No lleva">No lleva</option>
+					<option value="Centro eje">Centro eje</option>
+					<option value="3950 Liftmaster">3950 Liftmaster</option>
+					<option value="MH5011 Liftmaster">MH5011 Liftmaster</option>
+					<option value="H5011 Liftmaster">H5011 Liftmaster</option>
+					<option value="GH1021 Liftmaster">GH1021 Liftmaster</option>
+					{{/select}}
 			</select>
 		</div>
 	</div>
@@ -628,13 +649,15 @@
 	<div class="form-group">
 		<label for="cor_caudro" class="col-sm-3 control-label">Cuadro de control:</label>
 		<div class="col-sm-4">
-			<select name="cor_caudro" id="cor_caudro" class="form-control">
+			<select name="cor_caudro" class="form-control">
+					{{#select cortina.cor_caudro}}
 					<option value="">-defina cuadro-</option>
-					<option value="">No lleva</option>
-					<option value="">Incorporado</option>
-					<option value="">Derecha abajo rollo</option>
-					<option value="">Izquierda abajo rollo</option>
-					<option value="">Alejado, cobro extra</option>
+					<option value="No lleva">No lleva</option>
+					<option value="Incorporado">Incorporado</option>
+					<option value="Derecha abajo rollo">Derecha abajo rollo</option>
+					<option value="Izquierda abajo rollo">Izquierda abajo rollo</option>
+					<option value="Alejado, cobro extra">Alejado, cobro extra</option>
+					{{/select}}
 			</select>
 		</div>
 	</div>
@@ -642,14 +665,16 @@
 	<div class="form-group">
 		<label for="cor_sensor" class="col-sm-3 control-label">Sensor infrarojo:</label>
 		<div class="col-sm-4">
-			<select name="cor_sensor" id="cor_sensor" class="form-control">
+			<select name="cor_sensor" class="form-control">
+					{{#select cortina.cor_sensor}}
 					<option value="">-defina sensor-</option>
-					<option value="">No lleva</option>
-					<option value="">CPS</option>
-					<option value="">CPS-LN4</option>
-					<option value="">Pupila</option>
-					<option value="">Delta</option>
-					<option value="">-otro especificar-</option>
+					<option value="No lleva">No lleva</option>
+					<option value="CPS">CPS</option>
+					<option value="CPS-LN4">CPS-LN4</option>
+					<option value="Pupila">Pupila</option>
+					<option value="Delta">Delta</option>
+					<option value="-otro especificar-">-otro especificar-</option>
+					{{/select}}
 			</select>
 		</div>
 	</div>
@@ -657,10 +682,12 @@
 	<div class="form-group">
 		<label for="cor_banda" class="col-sm-3 control-label">Banda sensible:</label>
 		<div class="col-sm-4">
-			<select name="cor_banda" id="cor_banda" class="form-control">
+			<select name="cor_banda" class="form-control">
+				{{#select cortina.cor_banda}}
 					<option value="">-defina si lleva banda-</option>
-					<option value="">Si</option>
-					<option value="">No lleva</option>
+					<option value="Si">Si</option>
+					<option value="No lleva">No lleva</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -668,19 +695,21 @@
 	<div class="form-group">
 		<label for="cor_cob_motor" class="col-sm-3 control-label">Cobertor motor:</label>
 		<div class="col-sm-4">
-			<select name="cor_cob_motor" id="cor_cob_motor" class="form-control">
+			<select name="cor_cob_motor" class="form-control">
+				{{#select cortina.cor_cob_motor}}
 					<option value="">-defina cobertor motor-</option>
-					<option value="">No lleva</option>
-					<option value="">Si, simple x lluvia</option>
-					<option value="">Si, con candado</option>
+					<option value="No lleva">No lleva</option>
+					<option value="Si, simple x lluvia">Si, simple x lluvia</option>
+					<option value="Si, con candado">Si, con candado</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<div class="diagram-container col-sm-offset-1">
+		<div class="diagram-container col-sm-offset-1" style="margin-top: 2em;">
 			<img src="img/cortina-box6.png" alt="cortina-box6"/>
-			{{#check cortina.cor_box6_radio}}
+			{{#radio cortina.cor_box6_radio}}
 			<div id="box6-radio1" class="radio">
 				<label>
 			    <input type="radio" name="cor_box6_radio" value="option1">
@@ -696,7 +725,7 @@
 			    <input type="radio" name="cor_box6_radio" value="option3">
 			  </label>
 			</div>
-			{{/check}}
+			{{/radio}}
 		</div>
 	</div>
 
@@ -707,13 +736,13 @@
 
 {{!-- Box 7 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">7. Posición Motor o Catalina</h5>
+	<h4 class="box-heading">7. Posición Motor o Catalina</h4>
 	<div class="box-container">
 
 	<div class="form-group">
 		<div class="diagram-container">
 			<img src="img/cortina-box7-L.png" alt="cortina-box7"/>
-			{{#check cortina.cor_box7_radio}}
+			{{#radio cortina.cor_box7_radio}}
 			<div id="box7-radio1" class="radio">
 				<label>
 			    <input type="radio" name="cor_box7_radio" value="option1">
@@ -734,7 +763,7 @@
 			    <input type="radio" name="cor_box7_radio" value="option4">
 			  </label>
 			</div>
-			{{/check}}
+			{{/radio}}
 		</div>
 	</div>
 
@@ -743,18 +772,20 @@
 
 {{!-- Box 8 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">8. Medios de Activación</h5>
+	<h4 class="box-heading">8. Medios de Activación</h4>
 	<div class="col-sm-10 col-sm-offset-3">
 
 	<div class="form-group">
 		<label for="cor_bot" class="col-sm-3 control-label">Botonera:</label>
 		<div class="col-sm-3">
-			<select name="cor_bot" id="cor_bot" class="form-control">
+			<select name="cor_bot" class="form-control">
+				{{#select cortina.cor_bot}}
 					<option value="">-defina boton-</option>
-					<option value="">No lleva</option>
-					<option value="">Si, un botón</option>
-					<option value="">Si, 2 botón</option>
-					<option value="">Si, 3 botón</option>
+					<option value="No lleva">No lleva</option>
+					<option value="Si, un botón">Si, un botón</option>
+					<option value="Si, 2 botón">Si, 2 botón</option>
+					<option value="Si, 3 botón">Si, 3 botón</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -762,10 +793,12 @@
 	<div class="form-group">
 		<label for="cor_selector" class="col-sm-3 control-label">Selector de Llave:</label>
 		<div class="col-sm-3">
-			<select name="cor_selector" id="cor_selector" class="form-control">
+			<select name="cor_selector" class="form-control">
+				{{#select cortina.cor_selector}}
 					<option value="">-defina-</option>
-					<option value="">Si</option>
-					<option value="">No lleva</option>
+					<option value="Si">Si</option>
+					<option value="No lleva">No lleva</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -773,10 +806,12 @@
 	<div class="form-group">
 		<label for="cor_receptor" class="col-sm-3 control-label">Receptor Remotos:</label>
 		<div class="col-sm-3">
-			<select name="cor_receptor" id="cor_receptor" class="form-control">
+			<select name="cor_receptor" class="form-control">
+				{{#select cortina.cor_receptor}}
 					<option value="">-defina-</option>
-					<option value="">Si</option>
-					<option value="">No lleva</option>
+					<option value="Si">Si</option>
+					<option value="No lleva">No lleva</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -784,10 +819,12 @@
 	<div class="form-group">
 		<label for="cor_controles" class="col-sm-3 control-label">Controles Remotos:</label>
 		<div class="col-sm-3">
-			<select name="cor_controles" id="cor_controles" class="form-control">
+			<select name="cor_controles" class="form-control">
+				{{#select cortina.cor_controles}}
 					<option value="">-defina-</option>
-					<option value="">Si, especifique</option>
-					<option value="">No lleva</option>
+					<option value="Si, especifique">Si, especifique</option>
+					<option value="No lleva">No lleva</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -795,12 +832,14 @@
 	<div class="form-group">
 		<label for="cor_bot_cod" class="col-sm-3 control-label">Botonera Código:</label>
 		<div class="col-sm-3">
-			<select name="cor_bot_cod" id="cor_bot_cod" class="form-control">
+			<select name="cor_bot_cod" class="form-control">
+				{{#select cortina.cor_bot_cod}}
 					<option value="">-defina-</option>
-					<option value="">1</option>
-					<option value="">2</option>
-					<option value="">3</option>
-					<option value="">4</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -810,10 +849,11 @@
 
 {{!-- Box 9 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">9. Sensor, Cuadro y Botonera (a máx 3m)</h5>
+	<h4 class="box-heading">9. Sensor, Cuadro y Botonera (a máx 3m)</h4>
 	<div class="col-sm-10 col-sm-offset-5">
 		
 		<div class="form-group">
+			{{#radio cortina.cor_box9_radio}}
 			<div class="radio">
 			  <label>
 			    <input type="radio" name="cor_box9_radio" id="cor_box9_radio1" value="option1">
@@ -832,26 +872,33 @@
 			    <strong>Mínimo:</strong> Cliente cablea 100%
 			  </label>
 			</div>
+			{{/radio}}
 		</div>
 
 		<div class="form-group">
 			<span>Voltaje</span>
-			<select name="cor_volt" id="cor_volt">
-				<option value="">220</option>
-				<option value="">110</option>
+			<select name="cor_volt">
+				{{#select cortina.cor_volt}}
+				<option value="220">220</option>
+				<option value="110">110</option>
+				{{/select}}
 			</select>
 			<span>a cargo</span>
-			<select name="cor_volt_carg" id="cor_volt_carg">
-				<option value="">Cliente</option>
-				<option value="">Accesos</option>
+			<select name="cor_volt_carg">
+				{{#select cortina.cor_volt_carg}}
+				<option value="Cliente">Cliente</option>
+				<option value="Accesos">Accesos</option>
+				{{/select}}
 			</select>	
 		</div>
 
 		<div class="form-group">
 			<span>Cableados botoneras por</span>
-			<select name="cor_cable_carg" id="cor_cable_carg">
-				<option value="">Cliente</option>
-				<option value="">Accesos</option>
+			<select name="cor_cable_carg">
+				{{#select cortina.cor_cable_carg}}
+				<option value="Cliente">Cliente</option>
+				<option value="Accesos">Accesos</option>
+				{{/select}}
 			</select>
 		</div>
 
@@ -860,20 +907,24 @@
 
 {{!-- Box 10 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">10. Desinstalar</h5>
+	<h4 class="box-heading">10. Desinstalar</h4>
 	<div class="col-sm-10 col-sm-offset-4">
 
 		<div class="form-group">
 			<span>Desinstalar</span>
-			<select name="cor_des" id="cor_des">
-				<option value="">Eliminar  **escriba detalle**</option>
-				<option value="">Buque listo para trabajar</option>
-				<option value="">Portón o sección p poder trabajar</option>
+			<select name="cor_des">
+				{{#select cortina.cor_des}}
+				<option value="Eliminar  **escriba detalle**">Eliminar  **escriba detalle**</option>
+				<option value="Buque listo para trabajar">Buque listo para trabajar</option>
+				<option value="Portón o sección p poder trabajar">Portón o sección p poder trabajar</option>
+				{{/select}}
 			</select>
 			<span>por parte de</span>
-			<select name="cor_des_carg" id="cor_des_carg">
-				<option value="">Accesos</option>
-				<option value="">Cliente</option>
+			<select name="cor_des_carg">
+				{{#select cortina.cor_des_carg}}
+				<option value="Accesos">Accesos</option>
+				<option value="Cliente">Cliente</option>
+				{{/select}}
 			</select>
 		</div>
 
@@ -882,7 +933,7 @@
 
 {{!-- Box 11 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">11. Herramienta y Equipo Especial</h5>
+	<h4 class="box-heading">11. Herramienta y Equipo Especial</h4>
 	<div class="col-sm-offset-3">
 
 		<div class="form-group">
@@ -907,8 +958,10 @@
 				  </label>
 				  <span>por</span>
 				  <select name="cor_monta_carg">
-						<option>Cliente</option>
-						<option>Accesos</option>
+				  	{{#select cortina.cor_monta_carg}}
+						<option value="Cliente">Cliente</option>
+						<option value="Accesos">Accesos</option>
+						{{/select}}
 					</select>
 				</div>
 
@@ -953,7 +1006,7 @@
 
 {{!-- Box 12 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">12. Rollo oculto</h5>
+	<h4 class="box-heading">12. Rollo oculto</h4>
 	<div class="col-sm-offset-5">
 	
 		<div id="box12-errors" class="validation-box"></div>
@@ -962,9 +1015,11 @@
 			<span>"Offset"</span> <input type="text" name="cor_offset" value="{{cortina.cor_offset}}" class="diagram-input" style="width: 30px;" data-parsley-type="number" data-parsley-trigger="input focusout change" data-parsley-trigger-after-failure="input focusout change" data-parsley-errors-container="#box12-errors">
 			<span>cm más alto de viga.</span><br>
 			<span>Registro en cielo razo por parte de</span>
-				<select name="cor_rollo_carg" id="">
-					<option value="">Cliente</option>
-					<option value="">Accesos</option>
+				<select name="cor_rollo_carg">
+					{{#select cortina.cor_rollo_carg}}
+					<option value="Cliente">Cliente</option>
+					<option value="Accesos">Accesos</option>
+					{{/select}}
 				</select><br>
 			<span>Nota: registro debe ser de lado a lado</span>
 
@@ -990,19 +1045,19 @@
 
 {{!-- Box 13 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">13. Fotos en Publica</h5>
+	<h4 class="box-heading">13. Fotos en Publica</h4>
 	<div class="box-container">
 
 	<div class="form-group">
 		<label for="" class="control-label">Fotos listas?</label>
-		{{#check cortina.cor_box13_radio}}
-			<div class="radio">
+		{{#radio cortina.cor_box13_check}}
+			<div class="checkbox">
 			  <label>
-			    <input type="radio" name="cor_box13_radio" value="option1">
+			    <input type="checkbox" name="cor_box13_check" value="confirmado">
 			    Confirmado
 			  </label>
 			</div>
-		{{/check}}
+		{{/radio}}
 	</div>
 
 	</div><!--end of column-->
@@ -1010,17 +1065,19 @@
 
 {{!-- Box 14 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">14. Puerta Independiente</h5>
+	<h4 class="box-heading">14. Puerta Independiente</h4>
 	<div class="col-sm-offset-4">
 		
 	<div class="form-group">
 		<label for="cor_puerta" class="col-sm-2 control-label">Puerta Abre:</label>
 		<div class="col-sm-3">
-			<select name="cor_puerta" id="cor_puerta" class="form-control">
+			<select name="cor_puerta" class="form-control">
+				{{#select cortina.cor_puerta}}
 					<option value="">-defina puerta-</option>
-					<option value="">Abre hacia adentro</option>
-					<option value="">Abre hacia afuera</option>
-					<option value="">No lleva puerta</option>
+					<option value="Abre hacia adentro">Abre hacia adentro</option>
+					<option value="Abre hacia afuera">Abre hacia afuera</option>
+					<option value="No lleva puerta">No lleva puerta</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -1028,14 +1085,16 @@
 	<div class="form-group">
 		<label for="cor_cerradura" class="col-sm-2 control-label">Cerradura:</label>
 		<div class="col-sm-3">
-			<select name="cor_cerradura" id="cor_cerradura" class="form-control">
+			<select name="cor_cerradura" class="form-control">
+				{{#select cortina.cor_cerradura}}
 					<option value="">-defina cerradura-</option>
-					<option value="">Corriente Yale</option>
-					<option value="">Pico Lora Yale</option>
-					<option value="">Electro Yale</option>
-					<option value="">Ojos de candado</option>
-					<option value="">Otro</option>
-					<option value="">No aplica</option>
+					<option value="Corriente Yale">Corriente Yale</option>
+					<option value="Pico Lora Yale">Pico Lora Yale</option>
+					<option value="Electro Yale">Electro Yale</option>
+					<option value="Ojos de candado">Ojos de candado</option>
+					<option value="Otro">Otro</option>
+					<option value="No aplica">No aplica</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -1043,10 +1102,12 @@
 	<div class="form-group">
 		<label for="cor_cierrapu" class="col-sm-2 control-label">Cierrapuertas:</label>
 		<div class="col-sm-3">
-			<select name="cor_cierrapu" id="cor_cierrapu" class="form-control">
+			<select name="cor_cierrapu" class="form-control">
+				{{#select cortina.cor_cierrapu}}
 					<option value="">-defina cierrapuertas-</option>
-					<option value="">Si, ________</option>
-					<option value="">No lleva</option>
+					<option value="Si, ________">Si, ________</option>
+					<option value="No lleva">No lleva</option>
+				{{/select}}
 			</select>
 		</div>
 	</div>
@@ -1069,7 +1130,7 @@
 				<input type="text" name="cor_box14_input4" value="{{cortina.cor_box14_input4}}" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box14-errors"/>
 			</div>
 
-			{{#check cortina.cor_box14_radio}}
+			{{#radio cortina.cor_box14_radio}}
 			<div id="box14-radio1" class="radio">
 				<label>
 			    <input type="radio" name="cor_box14_radio" value="option1">
@@ -1080,7 +1141,7 @@
 			    <input type="radio" name="cor_box14_radio" value="option2">
 			  </label>
 			</div>
-			{{/check}}
+			{{/radio}}
 		</div>
 	</div>
 
@@ -1089,7 +1150,7 @@
 
 {{!-- Box 15 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">15. Segmentar</h5>
+	<h4 class="box-heading">15. Segmentar</h4>
 	<div class="box-container">
 	
 	<div id="box15-errors" class="validation-box"></div>
@@ -1117,7 +1178,7 @@
 				<input type="text" name="cor_box15_input6" value="{{cortina.cor_box15_input6}}" class="diagram-input" data-parsley-type="number" data-parsley-trigger="input focusout" data-parsley-errors-container="#box15-errors"/>
 			</div>
 
-			{{#check cortina.cor_box15_radio}}
+			{{#radio cortina.cor_box15_radio}}
 			<div id="box15-radio1" class="radio">
 				<label>
 			    <input type="radio" name="cor_box15_radio" value="option1">
@@ -1128,7 +1189,7 @@
 			    <input type="radio" name="cor_box15_radio" value="option2">
 			  </label>
 			</div>
-			{{/check}}
+			{{/radio}}
 		</div>
 	</div>
 
@@ -1137,7 +1198,7 @@
 
 {{!-- Box 16 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">16. Dibujos y Comentarios</h5>
+	<h4 class="box-heading">16. Dibujos y Comentarios</h4>
 	<div class="col-sm-offset-5">
 		<div class="form-group">
 			<textarea class="form-control" name="cor_comentarios" rows="5">{{cortina.cor_comentarios}}</textarea>
@@ -1147,11 +1208,11 @@
 
 {{!-- Box 17 --}}
 <div class="row no-gutter">
-	<h5 class="box-heading">17. Condición Submital</h5>
+	<h4 class="box-heading">17. Condición Submital</h4>
 	<div class="col-sm-offset-5">
 		
 		<div class="form-group">
-			{{#check cortina.cor_box17_radio}}
+			{{#radio cortina.cor_box17_radio}}
 			<div class="radio">
 			  <label>
 			    <input type="radio" name="cor_box17_radio" value="option1">
@@ -1173,7 +1234,7 @@
 			    Rechazado
 			  </label>
 			</div>
-			{{/check}}
+			{{/radio}}
 		</div>
 
 	</div><!--end of column-->

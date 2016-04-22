@@ -172,7 +172,7 @@ module.exports = function(passport) {
 					cor_tipo_guia: req.body.cor_tipo_guia,
 					cor_ojos: req.body.cor_ojos,
 					cor_color_herr: req.body.cor_color_herr,
-					cor_co_izq: req.body.cor_co_izq,
+					cor_col_izq: req.body.cor_col_izq,
 					cor_col_der: req.body.cor_col_der,
 					cor_carg_sup: req.body.cor_carg_sup,
 					cor_guia_des: req.body.cor_guia_des,
@@ -223,7 +223,7 @@ module.exports = function(passport) {
 					cor_box12_of: req.body.cor_box12_of,
 					cor_box12_p: req.body.cor_box12_p,
 					//box 13
-					cor_box13_radio: req.body.cor_box13_radio,
+					cor_box13_check: req.body.cor_box13_check,
 					//box 14
 					cor_puerta: req.body.cor_puerta,
 					cor_cerradura: req.body.cor_cerradura,

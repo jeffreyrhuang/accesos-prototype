@@ -34,7 +34,7 @@ var proyectoSchema = mongoose.Schema({
 		cor_tipo_guia: String,
 		cor_ojos: String,
 		cor_color_herr: String,
-		cor_co_izq: String,
+		cor_col_izq: String,
 		cor_col_der: String,
 		cor_carg_sup: String,
 		cor_guia_des: String,
@@ -85,7 +85,7 @@ var proyectoSchema = mongoose.Schema({
 		cor_box12_of: Number,
 		cor_box12_p: Number,
 		//box 13
-		cor_box13_radio: String,
+		cor_box13_check: String,
 		//box 14
 		cor_puerta: String,
 		cor_cerradura: String,

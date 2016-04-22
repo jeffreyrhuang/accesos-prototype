@@ -53,7 +53,7 @@ var handlebars = exphbs.create({
         new RegExp(' value=\"' + selected + '\"'),
         '$& selected="selected"');
     },
-    check: function(checked, options) {
+    radio: function(checked, options) {
       return options.fn(this).replace(
         new RegExp(' value=\"' + checked + '\"'),
         '$& checked="checked"');
@@ -65,7 +65,6 @@ var handlebars = exphbs.create({
     //       '$& checked="checked"')
     //   }
     // }
-
   }
 });
 app.engine('hbs', handlebars.engine);

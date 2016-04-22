@@ -13,13 +13,12 @@ nav {
 
 .btn {font-size: 1em}
 
-/*h3 {
+h3 {
     font-family: Georgia;
     text-align: center;
     font-weight: bold;
-    padding: 1.5em;
     margin-top: 2em;
-}*/
+}
 
 h4 {
     font-family: Georgia;
@@ -27,15 +26,6 @@ h4 {
     font-weight: bold;
     padding: 1.5em;
     margin-top: 2em;
-}
-
-h5 {font-weight: bold}
-
-.box-heading {
-    text-align: center;
-    margin-top: 3em;
-    margin-bottom: 2em;
-    text-decoration: underline;
 }
 
 .no-gutter > [class*='col-'] {
@@ -95,8 +85,7 @@ textarea.parsley-error {
 }
 
 .validation-box {
-    padding-top: 3em;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
 }
 /*---------------------------------*/
 
@@ -183,11 +172,17 @@ footer {
 
 .box-container {text-align: center}
 
+.box-heading {
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    text-decoration: underline;
+}
+
 .diagram-container {
     position: relative;
     display: inline-block;
     text-align: center;
-    margin-top: 3em;
 }
 
 .diagram-input {
