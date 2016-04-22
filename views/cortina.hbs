@@ -609,6 +609,9 @@
 				    Sello lateral (opc.)
 				  </label>
 				</div>
+				<div class="checkbox" style="display: none;">
+					<input type="checkbox" name="cor_box5_check" value="dummy" checked="checked">
+				</div>
 			
 				<div>
 					<label for="" class="control-label">Otros</label>
@@ -995,6 +998,9 @@
 				    Candado de Breaker
 				  </label>
 				</div>
+				<div class="checkbox" style="display: none;">
+					<input type="checkbox" name="cor_box11_check" value="dummy" checked="checked">
+				</div>
 
 
 			</div>
@@ -1050,14 +1056,17 @@
 
 	<div class="form-group">
 		<label for="" class="control-label">Fotos listas?</label>
-		{{#radio cortina.cor_box13_check}}
+	
 			<div class="checkbox">
 			  <label>
-			    <input type="checkbox" name="cor_box13_check" value="confirmado">
+			    <input type="checkbox" name="cor_box13_check" id="fotos" value="fotos">
 			    Confirmado
 			  </label>
 			</div>
-		{{/radio}}
+			<div class="checkbox" style="display: none;">
+					<input type="checkbox" name="cor_box13_check" value="dummy" checked="checked">
+			</div>
+	
 	</div>
 
 	</div><!--end of column-->
@@ -1249,6 +1258,7 @@
 
 <div class="checkbox-array" id="hidden-box5">{{cortina.cor_box5_check}}</div>
 <div class="checkbox-array" id="hidden-box11">{{cortina.cor_box11_check}}</div>
+<div class="checkbox-array" id="hidden-box13">{{cortina.cor_box13_check}}</div>
 
 {{/proyecto}}
 
@@ -1349,7 +1359,9 @@
 			$('#candado').prop("checked", true);
 		}
 
-
+		if($('#hidden-box13').text().indexOf("fotos") > -1 ) {
+			$('#fotos').prop("checked", true);
+		}
 
 	});
 
