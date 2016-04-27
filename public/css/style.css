@@ -339,8 +339,8 @@ footer {
 
 #main-radio-instal2 {
     position: absolute;
-    left: 33%;
-    bottom: 60%;
+    left: 34%;
+    bottom: 61%;
 }
 
 #main-radio-izq1 {
@@ -390,6 +390,21 @@ footer {
     left: 78%;
     bottom: 48.5%;
 }
+
+/*experiment style radio button*/
+.radio-label {
+    position: relative;
+    background-color: orange;
+    border-radius: 10px;
+    display: inline-block;
+} 
+
+.radio-label input {
+    position: absolute;
+    right: 0.3em;
+}
+
+/*-------------------*/
 
 .img-cobertor {width: 70%}
 
@@ -481,13 +496,13 @@ footer {
 
 #box14-radio1 {
     position: absolute;
-    left: 13%;
+    left: 12.5%;
     bottom: 2%;
 }
 
 #box14-radio2 {
     position: absolute;
-    left: 52%;
+    left: 51.5%;
     bottom: 2%;
 }
 
