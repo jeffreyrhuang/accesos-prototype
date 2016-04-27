@@ -166,6 +166,10 @@ module.exports = function(passport) {
 					cor_di: req.body.cor_di,
 					cor_dd: req.body.cor_dd,
 					cor_main_radio: req.body.cor_main_radio,
+					cor_main_radio_instal: req.body.cor_main_radio_instal,
+					cor_main_radio_izq: req.body.cor_main_radio_izq,
+					cor_main_radio_der: req.body.cor_main_radio_der,
+					cor_main_radio_uni: req.body.cor_main_radio_uni,
 					//box 2
 					cor_ciclos: req.body.cor_ciclos,
 					cor_horas: req.body.cor_horas,

@@ -301,34 +301,94 @@ footer {
 }
 
 
-#main-radio1 {
+#main-radio-mold1 {
     position: absolute;
     left: 6%;
     bottom: 11%;
 }
 
-#main-radio2 {
+#main-radio-mold2 {
     position: absolute;
     left: 13%;
     bottom: 11%;
 }
 
-#main-radio3 {
+#main-radio-mold3 {
     position: absolute;
     left: 21%;
     bottom: 11%;
 }
 
-#main-radio4 {
+#main-radio-mold4 {
     position: absolute;
     left: 29%;
     bottom: 11%;
 }
 
-#main-radio5 {
+#main-radio-mold5 {
     position: absolute;
     left: 38%;
     bottom: 11%;
+}
+
+#main-radio-instal1 {
+    position: absolute;
+    left: 2.5%;
+    bottom: 61%;
+}
+
+#main-radio-instal2 {
+    position: absolute;
+    left: 33%;
+    bottom: 60%;
+}
+
+#main-radio-izq1 {
+    position: absolute;
+    left: 50%;
+    bottom: 92%;
+}
+
+#main-radio-izq2 {
+    position: absolute;
+    left: 50%;
+    bottom: 80%;
+}
+
+#main-radio-izq3 {
+    position: absolute;
+    left: 50%;
+    bottom: 68%;
+}
+
+#main-radio-der1 {
+    position: absolute;
+    left: 93%;
+    bottom: 92%;
+}
+
+#main-radio-der2 {
+    position: absolute;
+    left: 93%;
+    bottom: 80%;
+}
+
+#main-radio-der3 {
+    position: absolute;
+    left: 93%;
+    bottom: 68%;
+}
+
+#main-radio-uni1 {
+    position: absolute;
+    left: 63%;
+    bottom: 48.5%;
+}
+
+#main-radio-uni2 {
+    position: absolute;
+    left: 78%;
+    bottom: 48.5%;
 }
 
 .img-cobertor {width: 70%}

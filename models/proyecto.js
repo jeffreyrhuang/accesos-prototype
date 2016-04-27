@@ -28,6 +28,10 @@ var proyectoSchema = mongoose.Schema({
 		cor_di: Number,
 		cor_dd: Number,
 		cor_main_radio: String,
+		cor_main_radio_instal: String,
+		cor_main_radio_izq: String,
+		cor_main_radio_der: String,
+		cor_main_radio_uni: String,
 		//box 2
 		cor_ciclos: String,
 		cor_horas: String,
