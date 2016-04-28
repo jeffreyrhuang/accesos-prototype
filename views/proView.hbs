@@ -68,11 +68,39 @@
 					<hr>
 		<form action="/cortina-open" method="POST">
 			<input type="hidden" name="id" value="{{_id}}">
-			<div class="form-group">
 			<button name="cortina-open" type="submit" class="btn btn-default">Abrir Cortina Specifications</button>
+		</form>
+
+		<form action="/api/proyectos/{{_id}}" id="cortina-delete" method="DELETE" style="float: right; margin-right: 50px;">
+			<button type="submit" class="btn btn-danger btn-sm">Delete</button>
 		</form>
 
 		
 	</div>
 </div>
 {{/proyecto}}	
+
+{{#section 'jquery'}}
+<script>
+    $('document').ready(function(){
+
+      //Delete Button
+      $('#cortina-delete').on('submit', function(e){
+          e.preventDefault();
+          var action = $(this).attr('action');
+          //AJAX call
+          $.ajax({
+            url: action,
+            method: 'DELETE',
+            success: function(data) {
+            	window.location=data;
+            }
+          }).done(function(){
+            console.log('AJAX was a success')
+          });
+      });
+
+
+    });
+</script>
+{{/section}}

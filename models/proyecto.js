@@ -113,7 +113,6 @@ var proyectoSchema = mongoose.Schema({
 		cor_box17_radio: String,
 		cor_notas: String
 
-
 	}
 
 },{
