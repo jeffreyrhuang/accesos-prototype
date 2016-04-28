@@ -478,7 +478,7 @@ module.exports = function(passport) {
 			//text headings
 			doc.font('Helvetica-Bold')
 				.fontSize(12)
-				.text('Cliente:', 26, 43)
+				.text('Cliente:   ' + proyecto.cliente, 26, 43)
 				.text('Ubicación (ID):', 252, 43)
 				.text('Fecha:', 513, 23)
 				.text('No. orden:', 513, 42)
@@ -515,22 +515,22 @@ module.exports = function(passport) {
 				.text('Li', {lineGap: 1.5})
 				.text('Ld', {lineGap: 1.5})
 				.text('P', {lineGap: 1.5})
+				
+				.text(proyecto.cortina.cor_a, 63, 105, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_h, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ci, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ce, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_li, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ld, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_p, {lineGap: 1.5})
 
-				.text(proyecto.cortina.cor_a + ' cm', 63, 105, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_h + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_ci + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_ce + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_li + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_ld + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_p + ' cm', {lineGap: 1.5})
-
-				.text('ancho buque', 115, 105, {lineGap: 1.5})
-				.text('alto buque', {lineGap: 1.5})
-				.text('cargador superior interno', {lineGap: 1.5})
-				.text('cargador superior externo', {lineGap: 1.5})
-				.text('espacio lateral izquierdo', {lineGap: 1.5})
-				.text('espacio laterla derecho', {lineGap: 1.5})
-				.text('profundidad cielo', {lineGap: 1.5})
+				.text('cm  ancho buque', 98, 105, {lineGap: 1.5})
+				.text('cm  alto buque', {lineGap: 1.5})
+				.text('cm  cargador superior interno', {lineGap: 1.5})
+				.text('cm  cargador superior externo', {lineGap: 1.5})
+				.text('cm  espacio lateral izquierdo', {lineGap: 1.5})
+				.text('cm  espacio laterla derecho', {lineGap: 1.5})
+				.text('cm  profundidad cielo', {lineGap: 1.5})
 				//box 1b
 				.text('SS', 291, 91, {lineGap: 1.5})
 				.text('SC', {lineGap: 1.5})
@@ -541,29 +541,29 @@ module.exports = function(passport) {
 				.text('Di', {lineGap: 1.5})
 				.text('Dd', {lineGap: 1.5})
 
-				.text(proyecto.cortina.cor_ss + ' cm', 325, 91, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_sc + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_si + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_b + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_ti + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_td + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_di + ' cm', {lineGap: 1.5})
-				.text(proyecto.cortina.cor_dd + ' cm', {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ss, 325, 91, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_sc, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_si, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_b, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_ti, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_td, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_di, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_dd, {lineGap: 1.5})
 
-				.text('lámina principal superior', 370, 91, {lineGap: 1.5})
-				.text('lámina secundaria', {lineGap: 1.5})
-				.text('lámina principal inferior', {lineGap: 1.5})
-				.text('ancho final libre', {lineGap: 1.5})
-				.text('tubo a agregar izquierda', {lineGap: 1.5})
-				.text('tubo a agregar derecha', {lineGap: 1.5})
-				.text('desnivel izquierdo', {lineGap: 1.5})
-				.text('desnivel derecho', {lineGap: 1.5})
+				.text('cm  lámina principal superior', 355, 91, {lineGap: 1.5})
+				.text('cm  lámina secundaria', {lineGap: 1.5})
+				.text('cm  lámina principal inferior', {lineGap: 1.5})
+				.text('cm  ancho final libre', {lineGap: 1.5})
+				.text('cm  tubo a agregar izquierda', {lineGap: 1.5})
+				.text('cm  tubo a agregar derecha', {lineGap: 1.5})
+				.text('cm  desnivel izquierdo', {lineGap: 1.5})
+				.text('cm  desnivel derecho', {lineGap: 1.5})
 				//box 2
 				.text('Ciclos por hora:   ' + proyecto.cortina.cor_ciclos, 31, 237, {lineGap: 1.5})
 				.text('Horas de uso:   ' + proyecto.cortina.cor_horas, {lineGap: 1.5, indent: 20})
 				.text('Tipo de Guía:   ' + proyecto.cortina.cor_tipo_guia, {lineGap: 1.5})
 				.text('Color de Herraje:   ' + proyecto.cortina.cor_color_herr, {lineGap: 1.5})
-				.text('Columna izquierda:   ' + proyecto.cortina.cor_co_izq, {lineGap: 1.5})
+				.text('Columna izquierda:   ' + proyecto.cortina.cor_col_izq, {lineGap: 1.5})
 				.text('Columna derecha:   ' + proyecto.cortina.cor_col_der, {lineGap: 1.5})
 				.text('Cargado superior:   ' + proyecto.cortina.cor_carg_sup, {lineGap: 1.5})
 				.text('Guía desmontable:   ' + proyecto.cortina.cor_guia_des, {lineGap: 1.5})
@@ -583,15 +583,19 @@ module.exports = function(passport) {
 				.text('Cerradura central', {lineGap: 1.5})
 				.text('Mirilla', {lineGap: 1.5})
 				.text('Hule inferior (std.)', {lineGap: 1.5})
-				.text('Sello lateral (opc.)', {lineGap: 1.5})
-				.text('____________', {lineGap: 1.5})
-				.text('____________', {lineGap: 1.5})
-				.text('____________', {lineGap: 1.5})
-				.text('____________', {lineGap: 1.5});
+				.text('Sello lateral (opc.)', {lineGap: 3})
+				.text(proyecto.cortina.cor_accesorio1, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_accesorio2, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_accesorio3, {lineGap: 1.5})
+				.text(proyecto.cortina.cor_accesorio4, {lineGap: 1.5});
 
 			
 			//test number
-			doc.text('88', 353, 370);
+			doc.text('88', 348, 367)  // H1
+				.text('88', 474, 367)		// H2
+				.text('88', 605, 378)		// H3
+				.text('88', 356, 283)		// CE
+				.text('88', 473, 287)		// CI
 
 			//radio circles
 			doc.circle(345, 247, 7)
@@ -1007,9 +1011,8 @@ module.exports = function(passport) {
 
 				.stroke();
 
-
-
 			doc.end();
+			console.log(proyecto.cortina)
 		});
 	});
 
