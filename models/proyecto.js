@@ -12,6 +12,7 @@ var proyectoSchema = mongoose.Schema({
 	ancho: Number,
 	peso: Number,
 	cortina: {
+		cor_submitted: Boolean,
 		cor_a: Number,
 		cor_h: Number,
 		cor_ci: Number,

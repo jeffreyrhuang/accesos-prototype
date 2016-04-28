@@ -19,6 +19,11 @@
 
 	{{!-- iterate over OBJECT --}}
 	{{#proyecto}}
+
+	{{!-- check for submitted forms: --}}
+		<div id="cortina-submitted">{{cortina.cor_submitted}}</div>
+
+		{{!--Main table--}}
 		<table class="table table-hover" id="project-table">
 			<tr><td><b>Nombre: </b></td><td>{{name}}</td></tr>
 			<tr><td><b>Cliente: </b></td><td>{{cliente}}</td></tr>
@@ -66,10 +71,13 @@
 			<button name="pdfGenerator" type="submit" class="btn btn-default">Enviar Reporte de Peso</button>
 		</form>
 					<hr>
-		<form action="/cortina-open" method="POST">
-			<input type="hidden" name="id" value="{{_id}}">
-			<button name="cortina-open" type="submit" class="btn btn-default">Abrir Cortina Specifications</button>
-		</form>
+
+		<div id="cortina-spec">			
+			<form action="/cortina-open" method="POST">
+				<input type="hidden" name="id" value="{{_id}}">
+				<button name="cortina-open" type="submit" class="btn btn-default">Abrir Cortina Specifications</button>
+			</form>
+		</div>
 
 		<hr>
 		<!-- Button trigger modal -->
@@ -106,6 +114,10 @@
 {{#section 'jquery'}}
 <script>
     $('document').ready(function(){
+
+    	if ($('#cortina-submitted').text() == "true") {
+    		$('#cortina-spec').show();
+    	} 
 
       //Delete Button
       $('#cortina-delete').on('submit', function(e){

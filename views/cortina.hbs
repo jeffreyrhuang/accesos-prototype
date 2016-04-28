@@ -10,6 +10,7 @@
 {{#proyecto}}
 <form action="/saveCortina" method="POST" class="form-horizontal" id="cortinaForm">
 	<input type="hidden" name="_id" value="{{_id}}">
+	<input type="hidden" name="cor_submitted" value=true />
 
 <div class="row no-gutter">
 	<a href="/api/proyectos/{{_id}}" id="backbutton"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Regresar</a>

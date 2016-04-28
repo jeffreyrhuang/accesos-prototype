@@ -150,6 +150,7 @@ module.exports = function(passport) {
 			} else {
 
 				var cortinaSaved = {
+					cor_submitted: req.body.cor_submitted,
 					cor_a: req.body.cor_a,
 					cor_h: req.body.cor_h,
 					cor_ci:  req.body.cor_ci,

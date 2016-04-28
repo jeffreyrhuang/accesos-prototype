@@ -138,6 +138,10 @@ textarea.parsley-error {
 #projectsbutton {margin-left: -2.8em}
 
 
+#cortina-submitted {display: none;}
+#cortina-spec {display: none;}
+
+
 /*Menu Principal*/
 
 .menubutton {
