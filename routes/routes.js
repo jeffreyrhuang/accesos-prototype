@@ -507,57 +507,60 @@ module.exports = function(passport) {
 				.fontSize(11)
 				.text('**Cree una hoja separada para cada puerta si existe CUALQUIER diferencia**', 24, 64)
 				.text('Cantidad: ____', 427, 64)
+
 				//box 1a
-				.text('A', 31, 105, {lineGap: 1.5})
-				.text('H', {lineGap: 1.5})
-				.text('CI', {lineGap: 1.5})
-				.text('CE', {lineGap: 1.5})
-				.text('Li', {lineGap: 1.5})
-				.text('Ld', {lineGap: 1.5})
-				.text('P', {lineGap: 1.5})
-				
-				.text(proyecto.cortina.cor_a, 63, 105, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_h, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_ci, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_ce, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_li, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_ld, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_p, {lineGap: 1.5})
+				.text('A', 31, 105)
+				.text('H', 31, 120)
+				.text('CI', 31, 135)
+				.text('CE', 31, 150)
+				.text('Li', 31, 165)
+				.text('Ld', 31, 180)
+				.text('P', 31, 195)
 
-				.text('cm  ancho buque', 98, 105, {lineGap: 1.5})
-				.text('cm  alto buque', {lineGap: 1.5})
-				.text('cm  cargador superior interno', {lineGap: 1.5})
-				.text('cm  cargador superior externo', {lineGap: 1.5})
-				.text('cm  espacio lateral izquierdo', {lineGap: 1.5})
-				.text('cm  espacio laterla derecho', {lineGap: 1.5})
-				.text('cm  profundidad cielo', {lineGap: 1.5})
+				if (proyecto.cortina.cor_a) 	{ doc.text(proyecto.cortina.cor_a + ' cm', 63, 105) }
+				if (proyecto.cortina.cor_h) 	{ doc.text(proyecto.cortina.cor_h + ' cm', 63, 120) }
+				if (proyecto.cortina.cor_ci) 	{ doc.text(proyecto.cortina.cor_ci + ' cm', 63, 135) }
+				if (proyecto.cortina.cor_ce) 	{ doc.text(proyecto.cortina.cor_ce, + ' cm', 63, 150) }
+				if (proyecto.cortina.cor_li) 	{ doc.text(proyecto.cortina.cor_li + ' cm', 63, 165) }
+				if (proyecto.cortina.cor_ld) 	{ doc.text(proyecto.cortina.cor_ld + ' cm', 63, 180) }
+				if (proyecto.cortina.cor_p) 	{ doc.text(proyecto.cortina.cor_p + ' cm', 63, 195) }
+
+				doc.text('ancho buque', 110, 105)
+				.text('alto buque', 110, 120)
+				.text('cargador superior interno', 110, 135)
+				.text('cargador superior externo', 110, 150)
+				.text('espacio lateral izquierdo', 110, 165)
+				.text('espacio laterla derecho', 110, 180)
+				.text('profundidad cielo', 110, 195)
+
 				//box 1b
-				.text('SS', 291, 91, {lineGap: 1.5})
-				.text('SC', {lineGap: 1.5})
-				.text('SI', {lineGap: 1.5})
-				.text('B', {lineGap: 1.5})
-				.text('Ti', {lineGap: 1.5})
-				.text('Td', {lineGap: 1.5})
-				.text('Di', {lineGap: 1.5})
-				.text('Dd', {lineGap: 1.5})
+				.text('SS', 291, 90)
+				.text('SC', 291, 105)
+				.text('SI', 291, 120)
+				.text('B', 291, 135)
+				.text('Ti', 291, 150)
+				.text('Td', 291, 165)
+				.text('Di', 291, 180)
+				.text('Dd', 291, 195)
 
-				.text(proyecto.cortina.cor_ss, 325, 91, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_sc, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_si, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_b, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_ti, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_td, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_di, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_dd, {lineGap: 1.5})
+				if (proyecto.cortina.cor_ss) 	{ doc.text(proyecto.cortina.cor_ss + ' cm', 325, 90) };
+				if (proyecto.cortina.cor_sc) 	{ doc.text(proyecto.cortina.cor_sc + ' cm', 325, 105) };
+				if (proyecto.cortina.cor_si) 	{ doc.text(proyecto.cortina.cor_si + ' cm', 325, 120) };
+				if (proyecto.cortina.cor_b) 	{ doc.text(proyecto.cortina.cor_b + ' cm', 325, 135) };
+				if (proyecto.cortina.cor_ti) 	{ doc.text(proyecto.cortina.cor_ti + ' cm', 325, 150) };
+				if (proyecto.cortina.cor_td) 	{ doc.text(proyecto.cortina.cor_td + ' cm', 325, 165) };
+				if (proyecto.cortina.cor_di) 	{ doc.text(proyecto.cortina.cor_di + ' cm', 325, 180) };
+				if (proyecto.cortina.cor_dd) 	{ doc.text(proyecto.cortina.cor_dd + ' cm', 325, 195) };
 
-				.text('cm  lámina principal superior', 355, 91, {lineGap: 1.5})
-				.text('cm  lámina secundaria', {lineGap: 1.5})
-				.text('cm  lámina principal inferior', {lineGap: 1.5})
-				.text('cm  ancho final libre', {lineGap: 1.5})
-				.text('cm  tubo a agregar izquierda', {lineGap: 1.5})
-				.text('cm  tubo a agregar derecha', {lineGap: 1.5})
-				.text('cm  desnivel izquierdo', {lineGap: 1.5})
-				.text('cm  desnivel derecho', {lineGap: 1.5})
+				doc.text('lámina principal superior', 370, 90)
+				.text('lámina secundaria', 370, 105)
+				.text('lámina principal inferior', 370, 120)
+				.text('ancho final libre', 370, 135)
+				.text('tubo a agregar izquierda', 370, 150)
+				.text('tubo a agregar derecha', 370, 165)
+				.text('desnivel izquierdo', 370, 180)
+				.text('desnivel derecho', 370, 195)
+
 				//box 2
 				.text('Ciclos por hora:   ' + proyecto.cortina.cor_ciclos, 31, 237, {lineGap: 1.5})
 				.text('Horas de uso:   ' + proyecto.cortina.cor_horas, {lineGap: 1.5, indent: 20})
@@ -591,6 +594,7 @@ module.exports = function(passport) {
 
 			
 			//test number
+
 			doc.text('88', 348, 367)  // H1
 				.text('88', 474, 367)		// H2
 				.text('88', 605, 378)		// H3
@@ -810,8 +814,11 @@ module.exports = function(passport) {
 				.text('Extintor                Candado de breaker', {lineGap: 1.5})
 				//box 12
 				.text('"Offset"', 378, 289)
-				.text(proyecto.cortina.cor_offset + ' cm' + '   más alto de viga', 280, 303, {lineGap: 1.5})
-				.text('Registro en cielo razo por', {lineGap: 1.5})
+				
+				if (proyecto.cortina.cor_offset) 	{ doc.text(proyecto.cortina.cor_offset + ' cm', 280, 303) }
+
+				doc.text('más alto de viga', 315, 303)
+				.text('Registro en cielo razo por', 280, 318, {lineGap: 1.5})
 				.text('parte de    ' + proyecto.cortina.cor_rollo_carg, {lineGap: 1.5})
 				.text('Nota: registro debe ser de', {lineGap: 1.5})
 				.text('lado a lado', {lineGap: 1.5})
