@@ -80,7 +80,7 @@ module.exports = function(passport){
 		Proyecto.findById(req.params.id, function(err, proyecto){
 			if (err)
 				res.send(err)
-			console.log('project found for peso calc, ' + proyecto);
+			console.log('peso route working')
 			res.render('peso', {proyecto: proyecto});
 		});
 	});

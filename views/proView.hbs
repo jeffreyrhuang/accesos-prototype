@@ -21,7 +21,8 @@
 	{{#proyecto}}
 
 	{{!-- check for submitted forms: --}}
-		<div id="cortina-submitted">{{cortina.cor_submitted}}</div>
+		<div id="peso-submitted" class="">{{peso_submitted}}</div>
+		<div id="cortina-submitted" class="">{{cor_submitted}}</div>
 
 		{{!--Main table--}}
 		<table class="table table-hover" id="project-table">
@@ -44,33 +45,42 @@
 		<h5><strong>Herramientas:</strong></h5>
 		<br>
 		<a href="/api/proyectos/{{_id}}/peso" class="btn btn-info">Calcular Peso</a>
-
-		<a href="/api/proyectos/{{_id}}/cortina" class="btn btn-info">Especificar Cortina</a>
 	</div>
 </div>
-
 
 <hr>
 
 <div class="row">
 	<div class="col-sm-offset-2">
-		<h5><strong>Reportes:</strong></h5>
+		<h5><strong>Especificar Acceso:</strong></h5>
 		<br>
-		<form action="/pdf" method="POST">
-			<input type="hidden" name="id" value="{{_id}}">
-			
-			<div class="form-group">
-			<button name="openPDF" type="submit" formaction="/openPdf" class="btn btn-default">Abrir Reporte de Peso</button>
+		<a href="/api/proyectos/{{_id}}/cortina" class="btn btn-info">Especificar Cortina</a>
+	</div>	
+</div>
 
-			<br>
-			<br>
-			<br>	
-				<label for="">Enviar a:</label>
-				<input type="email" class="form-control" name="toEmail" value="{{user_email}}">
-			</div>
-			<button name="pdfGenerator" type="submit" class="btn btn-default">Enviar Reporte de Peso</button>
-		</form>
-					<hr>
+<hr>
+
+<div class="row">
+	<div class="col-sm-offset-2">
+		<h5><strong>PDF Reportes:</strong></h5>
+		<br>
+
+		<div id="peso-spec">
+			<form action="/pdf" method="POST">
+				<input type="hidden" name="id" value="{{_id}}">
+				
+				<div class="form-group">
+				<button name="openPDF" type="submit" formaction="/openPdf" class="btn btn-default">Abrir Reporte de Peso</button>
+				<br>
+				<br>
+				<br>	
+					<label for="">Enviar a:</label>
+					<input type="email" class="form-control" name="toEmail" value="{{user_email}}">
+				</div>
+				<button name="pdfGenerator" type="submit" class="btn btn-default">Enviar Reporte de Peso</button>
+			</form>
+		</div>
+				<br>
 
 		<div id="cortina-spec">			
 			<form action="/cortina-open" method="POST">
@@ -79,7 +89,6 @@
 			</form>
 		</div>
 
-		<hr>
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" style="float: right; margin-right: 10em; margin: 2em;">
 		  Delete Project
@@ -114,6 +123,10 @@
 {{#section 'jquery'}}
 <script>
     $('document').ready(function(){
+			
+			if ($('#peso-submitted').text() == "true") {
+				$('#peso-spec').show();
+			} 
 
     	if ($('#cortina-submitted').text() == "true") {
     		$('#cortina-spec').show();

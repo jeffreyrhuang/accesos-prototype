@@ -11,8 +11,8 @@ var proyectoSchema = mongoose.Schema({
 	alto: Number,
 	ancho: Number,
 	peso: Number,
+	peso_submitted: Boolean,
 	cortina: {
-		cor_submitted: Boolean,
 		cor_a: Number,
 		cor_h: Number,
 		cor_ci: Number,
@@ -113,8 +113,8 @@ var proyectoSchema = mongoose.Schema({
 		//box 17
 		cor_box17_radio: String,
 		cor_notas: String
-
-	}
+	},
+	cor_submitted: Boolean
 
 },{
 	collection: 'accesosProyecto',

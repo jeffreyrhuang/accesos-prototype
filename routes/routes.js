@@ -88,6 +88,7 @@ module.exports = function(passport) {
 					return info
 				})
 				.then(function(info){
+					console.log('peso ajax response working')
 					res.json({success: true, alto: req.body.alto, ancho: req.body.ancho, peso: info.peso, portonModel: req.body.portonModel, portonNo: info.portonNo});
 				})
 				.catch(function(e){
@@ -110,13 +111,14 @@ module.exports = function(passport) {
 			proyecto.peso = req.body.pesoSaved;
 			proyecto.alto = req.body.altoSaved;
 			proyecto.ancho = req.body.anchoSaved;
+			proyecto.peso_submitted = req.body.peso_submitted;
 
 			proyecto.save(function(err, proyecto){
 				if (err)
 					res.send(err)
 				req.session.sessionFlash = {
 					type: 'success',
-					message: 'Nueva información añadida!'
+					message: 'Peso información añadida!'
 				};
 			})
 			.then(function(proyecto){
@@ -150,7 +152,6 @@ module.exports = function(passport) {
 			} else {
 
 				var cortinaSaved = {
-					cor_submitted: req.body.cor_submitted,
 					cor_a: req.body.cor_a,
 					cor_h: req.body.cor_h,
 					cor_ci:  req.body.cor_ci,
@@ -252,7 +253,7 @@ module.exports = function(passport) {
 					cor_box17_radio: req.body.cor_box17_radio,
 					cor_notas: req.body.cor_notas
 				}
-			
+				proyecto.cor_submitted = req.body.cor_submitted
 				proyecto.cortina = cortinaSaved
 
 				proyecto.save(function(err, proyecto) {
