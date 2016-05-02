@@ -522,7 +522,7 @@ module.exports = function(passport) {
 				if (proyecto.cortina.cor_a) 	{ doc.text(proyecto.cortina.cor_a + ' cm', 63, 105) }
 				if (proyecto.cortina.cor_h) 	{ doc.text(proyecto.cortina.cor_h + ' cm', 63, 120) }
 				if (proyecto.cortina.cor_ci) 	{ doc.text(proyecto.cortina.cor_ci + ' cm', 63, 135) }
-				if (proyecto.cortina.cor_ce) 	{ doc.text(proyecto.cortina.cor_ce, + ' cm', 63, 150) }
+				if (proyecto.cortina.cor_ce) 	{ doc.text(proyecto.cortina.cor_ce + ' cm', 63, 150) }
 				if (proyecto.cortina.cor_li) 	{ doc.text(proyecto.cortina.cor_li + ' cm', 63, 165) }
 				if (proyecto.cortina.cor_ld) 	{ doc.text(proyecto.cortina.cor_ld + ' cm', 63, 180) }
 				if (proyecto.cortina.cor_p) 	{ doc.text(proyecto.cortina.cor_p + ' cm', 63, 195) }
@@ -604,90 +604,147 @@ module.exports = function(passport) {
 				.text('88', 473, 287)		// CI
 
 			//radio circles
-			doc.circle(345, 247, 7)
-				.circle(490, 247, 7)
-				.circle(555, 208, 7)
-				.circle(555, 152, 7)
-				.circle(555, 98, 7)
-				.circle(752, 98, 7)
-				.circle(752, 152, 7)
-				.circle(752, 208, 7)
-				.circle(680, 302, 7)
-				.circle(615, 302, 7)
+				//radio - main diagram, instalacion
+			doc.circle(345, 247, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_instal === 'option1') {
+					doc.circle(345, 247, 4)
+					.fillAndStroke('#777', 'black');
+				}
+			doc.circle(490, 247, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_instal === 'option2') {
+					doc.circle(490, 247, 4)
+					.fillAndStroke('#777', 'black');
+				}
 
-				.circle(42, 473, 7)
-				
-					if (proyecto.cortina.cor_box4_radio === 'option1') {
-						doc.circle(42, 473, 4)
-					}
-			doc.circle(38, 510, 7)
-					if (proyecto.cortina.cor_box4_radio === 'option2') {
-						doc.circle(38, 510, 4)
-					}
+			// radio - main diagram, izquierda
+			doc.circle(555, 98, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_izq === 'option1') {
+					doc.circle(555, 98, 4)
+					.fillAndStroke('#777', 'black');
+				}
+			doc.circle(555, 152, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_izq === 'option2') {
+					doc.circle(555, 152, 4)
+					.fillAndStroke('#777', 'black');
+				}
+			doc.circle(555, 208, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_izq === 'option3') {
+					doc.circle(555, 208, 4)
+					.fillAndStroke('#777', 'black');
+				}
 
-			doc.circle(178, 510, 7)
-					if (proyecto.cortina.cor_box4_radio === 'option3') {
-						doc.circle(178, 510, 4)
-					}
+			// radio- main diagram, derecha
+			doc.circle(752, 98, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_der === 'option1') {
+					doc.circle(752, 98, 4)
+					.fillAndStroke('#777', 'black');
+				}
+			doc.circle(752, 152, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_der === 'option2') {
+					doc.circle(752, 152, 4)
+					.fillAndStroke('#777', 'black');
+				}
+			doc.circle(752, 208, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_der === 'option3') {
+					doc.circle(752, 208, 4)
+					.fillAndStroke('#777', 'black');
+				}
+
+			//radio - uniforme / combinada
+			doc.circle(615, 302, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_uni === 'option1') {
+					doc.circle(615, 302, 4)
+					.fillAndStroke('#777', 'black');
+				}
+			doc.circle(680, 302, 7).stroke();
+				if (proyecto.cortina.cor_main_radio_uni === 'option2') {
+					doc.circle(680, 302, 4)
+					.fillAndStroke('#777', 'black');
+				}
+
+			//radio - box 4
+			doc.circle(42, 473, 7).stroke();
+				if (proyecto.cortina.cor_box4_radio === 'option1') {
+					doc.circle(42, 473, 4)
+					.fillAndStroke( '#777', 'black');
+				}
+
+			doc.circle(38, 510, 7).stroke();
+				if (proyecto.cortina.cor_box4_radio === 'option2') {
+					doc.circle(38, 510, 4)
+					.fillAndStroke( '#777', 'black');
+				}
+
+			doc.circle(178, 510, 7).stroke();
+				if (proyecto.cortina.cor_box4_radio === 'option3') {
+					doc.circle(178, 510, 4)
+					.fillAndStroke( '#777', 'black');
+				}
 
 			//molding
-			doc.circle(362, 484, 7)
+			doc.circle(362, 484, 7).stroke();
 					if (proyecto.cortina.cor_main_radio === 'option1') {
 						doc.circle(362, 484, 4)
+						.fillAndStroke( '#777', 'black');
 					}
 
-			doc.circle(398, 484, 7)
+			doc.circle(398, 484, 7).stroke();
 					if (proyecto.cortina.cor_main_radio === 'option2') {
 						doc.circle(398, 484, 4)
+						.fillAndStroke( '#777', 'black');
 					}
 
-			doc.circle(433, 484, 7)
+			doc.circle(433, 484, 7).stroke();
 				if (proyecto.cortina.cor_main_radio === 'option3') {
 						doc.circle(433, 484, 4)
+						.fillAndStroke( '#777', 'black');
 					}
 
-			doc.circle(467, 484, 7)
+			doc.circle(467, 484, 7).stroke();
 				if (proyecto.cortina.cor_main_radio === 'option4') {
 						doc.circle(467, 484, 4)
+						.fillAndStroke( '#777', 'black');
 					}
 
-			doc.circle(513, 484, 7)
+			doc.circle(513, 484, 7).stroke();
 				if (proyecto.cortina.cor_main_radio === 'option5') {
 						doc.circle(513, 484, 4)
+						.fillAndStroke( '#777', 'black');
 					}
 			
+			
 			//checkboxes
-			doc.rect(223, 384, 7, 7)
+			doc.rect(223, 384, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'catalina')) {
 					doc.rect(223, 384, 4, 4)
 				}
 
-			doc.rect(223, 398, 7, 7)
+			doc.rect(223, 398, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'gancho')) {
 					doc.rect(223, 398, 4, 4)
 				}
 
-			doc.rect(223, 412, 7, 7)
+			doc.rect(223, 412, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'ojos')) {
 					doc.rect(223, 412, 4, 4)
 				}
 
-			doc.rect(223, 426, 7, 7)
+			doc.rect(223, 426, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'cerradura')) {
 					doc.rect(223, 426, 4, 4)
 				}
 
-			doc.rect(223, 440, 7, 7)
+			doc.rect(223, 440, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'mirilla')) {
 					doc.rect(223, 440, 4, 4)
 				}
 
-			doc.rect(223, 454, 7, 7)
+			doc.rect(223, 454, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'hule')) {
 					doc.rect(223, 454, 4, 4)
 				}
 
-			doc.rect(223, 468, 7, 7)
+			doc.rect(223, 468, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box5_checkbox,'sello')) {
 					doc.rect(223, 468, 4, 4)
 				}
@@ -838,115 +895,126 @@ module.exports = function(passport) {
 				.text('Rechazado', {lineGap: 1.5})
 
 			//radio circles
-			doc.circle(48, 170, 7)
+			doc.circle(48, 170, 7).stroke();
 				if (proyecto.cortina.cor_box6_radio === 'option1') {
 						doc.circle(48, 170, 4)
+						.fillAndStroke( '#777', 'black');
 				}
-			doc.circle(149, 170, 7)
+			doc.circle(149, 170, 7).stroke();
 				if (proyecto.cortina.cor_box6_radio === 'option2') {
 						doc.circle(149, 170, 4)
+						.fillAndStroke( '#777', 'black');
 				}
-			doc.circle(114, 272, 7)
+			doc.circle(114, 272, 7).stroke();
 				if (proyecto.cortina.cor_box6_radio === 'option3') {
 						doc.circle(114, 272, 4)
+						.fillAndStroke( '#777', 'black');
 				}
 
-			doc.circle(262, 75, 7)
+			doc.circle(262, 75, 7).stroke();
 				if (proyecto.cortina.cor_box7_radio === 'option1') {
 						doc.circle(262, 75, 4)
+						.fillAndStroke( '#777', 'black');
 				}
-			doc.circle(411, 68, 7)
+			doc.circle(411, 68, 7).stroke();
 				if (proyecto.cortina.cor_box7_radio === 'option2') {
 						doc.circle(411, 68, 4)
+						.fillAndStroke( '#777', 'black');
 				}
-			doc.circle(408, 173, 7)
+			doc.circle(408, 173, 7).stroke();
 				if (proyecto.cortina.cor_box7_radio === 'option3') {
 						doc.circle(408, 173, 4)
+						.fillAndStroke( '#777', 'black');
 				}
-			doc.circle(260, 173, 7)
+			doc.circle(260, 173, 7).stroke();
 				if (proyecto.cortina.cor_box7_radio === 'option4') {
 						doc.circle(260, 173, 4)
+						.fillAndStroke( '#777', 'black');
 				}
 
-			doc.circle(440, 220, 7)
+			doc.circle(440, 220, 7).stroke();
 				if (proyecto.cortina.cor_box14_radio === 'option1') {
 						doc.circle(440, 220, 4)
+						.fillAndStroke( '#777', 'black');
 				}
-			doc.circle(564, 220, 7)
+			doc.circle(564, 220, 7).stroke();
 				if (proyecto.cortina.cor_box14_radio === 'option2') {
 						doc.circle(564, 220, 4)
+						.fillAndStroke( '#777', 'black');
 				}
 
-			doc.circle(619, 238, 6)
+			doc.circle(619, 238, 6).stroke();
 				if (proyecto.cortina.cor_box15_radio === 'option1') {
 						doc.circle(619, 238, 3)
+						.fillAndStroke( '#777', 'black');
 				}
-			doc.circle(743, 238, 6)
+			doc.circle(743, 238, 6).stroke();
 				if (proyecto.cortina.cor_box15_radio === 'option2') {
 						doc.circle(743, 238, 3)
+						.fillAndStroke( '#777', 'black');
 				}
 			
 			//checkboxes
-			doc.rect(30, 307, 7, 7)
+			doc.rect(30, 307, 7, 7).stroke();
 				if (proyecto.cortina.cor_box9_radio === 'option1') {
 						doc.rect(31, 308, 4, 4)
 				}
-			doc.rect(30, 321, 7, 7)
+			doc.rect(30, 321, 7, 7).stroke();
 				if (proyecto.cortina.cor_box9_radio === 'option2') {
 					doc.rect(31, 322, 4, 4)
 				}
-			doc.rect(30, 335, 7, 7)
+			doc.rect(30, 335, 7, 7).stroke();
 				if (proyecto.cortina.cor_box9_radio === 'option3') {
 					doc.rect(31, 336, 4, 4)
 				}
 
-			doc.rect(30, 443, 7, 7)
+			doc.rect(30, 443, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'herra')) {
 					doc.rect(31, 444, 4, 4)
 				}
-			doc.rect(30, 457, 7, 7)
+			doc.rect(30, 457, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'andamios')) {
 					doc.rect(31, 458, 4, 4)
 				}
-			doc.rect(30, 471, 7, 7)
+			doc.rect(30, 471, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'monta')) {
 					doc.rect(31, 472, 4, 4)
 				}
-			doc.rect(30, 485, 7, 7)
+			doc.rect(30, 485, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'polainas')) {
 					doc.rect(31, 486, 4, 4)
 				}
-			doc.rect(30, 499, 7, 7)
+			doc.rect(30, 499, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'conos')) {
 					doc.rect(31, 500, 4, 4)
 				}
-			doc.rect(30, 513, 7, 7)
+			doc.rect(30, 513, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'vehiculo')) {
 					doc.rect(31, 514, 4, 4)
 				}
-			doc.rect(30, 528, 7, 7)
+			doc.rect(30, 528, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'extintor')) {
 					doc.rect(31, 529, 4, 4)
 				}
-			doc.rect(122, 528, 7, 7)
+			doc.rect(122, 528, 7, 7).stroke();
 				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'candado')) {
 					doc.rect(123, 529, 4, 4)
 				}
 
-			doc.rect(283, 532, 7, 7)
+			doc.rect(283, 532, 7, 7).stroke();
 				if (proyecto.cortina.cor_box13_radio === 'option1') {
 					doc.rect(284, 533, 4, 4)
 				}
 
-			doc.rect(446, 497, 7, 7)
+			doc.rect(446, 497, 7, 7).stroke();
 				if (proyecto.cortina.cor_box17_radio === 'option1') {
 					doc.rect(447, 498, 4, 4)
 				}
-			doc.rect(446, 511, 7, 7)
+			doc.rect(446, 511, 7, 7).stroke();
 				if (proyecto.cortina.cor_box17_radio === 'option2') {
 					doc.rect(447, 512, 4, 4)
 				}
-			doc.rect(446, 525, 7, 7)
+			doc.rect(446, 525, 7, 7).stroke();
 				if (proyecto.cortina.cor_box17_radio === 'option3') {
 					doc.rect(447, 526, 4, 4)
 				}

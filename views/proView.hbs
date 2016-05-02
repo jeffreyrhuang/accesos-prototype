@@ -91,7 +91,7 @@
 
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" style="float: right; margin-right: 10em; margin: 2em;">
-		  Delete Project
+		  Borrar Proyecto
 		</button>
 
 		<!-- Modal -->
@@ -100,15 +100,15 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h5 class="modal-title" id="myModalLabel">Are you sure?</h5>
+		        <h5 class="modal-title" id="myModalLabel">¿Está seguro?</h5>
 		      </div>
 		      <div class="modal-body">
-		        Deleting this project is permanent!
+		        ¡Borrar este proyecto es permanente!
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 		        <form action="/api/proyectos/{{_id}}" id="cortina-delete" style="float: right; margin-left: 10px;">
-							<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+							<button type="submit" class="btn btn-danger btn-sm">Borrar</button>
 						</form>
 		      </div>
 		    </div>
