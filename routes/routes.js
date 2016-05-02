@@ -195,7 +195,6 @@ module.exports = function(passport) {
 					cor_accesorio1: req.body.cor_accesorio1,
 					cor_accesorio2: req.body.cor_accesorio2,
 					cor_accesorio3: req.body.cor_accesorio3,
-					cor_accesorio4: req.body.cor_accesorio4,
 					//box 6
 					cor_mod_motor: req.body.cor_mod_motor,
 					cor_caudro: req.body.cor_caudro,
@@ -582,17 +581,16 @@ module.exports = function(passport) {
 				.text('no lleva', 58, 468)
 				.text(proyecto.cortina.cor_cob_color, 125, 458)
 				//box 5
-				.text('Catalina', 237, 383, {lineGap: 1.5})
-				.text('Gancho p bajar', {lineGap: 1.5})
-				.text('Ojos de candado', {lineGap: 1.5})
-				.text('Cerradura central', {lineGap: 1.5})
-				.text('Mirilla', {lineGap: 1.5})
-				.text('Hule inferior (std.)', {lineGap: 1.5})
-				.text('Sello lateral (opc.)', {lineGap: 3})
-				.text(proyecto.cortina.cor_accesorio1, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_accesorio2, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_accesorio3, {lineGap: 1.5})
-				.text(proyecto.cortina.cor_accesorio4, {lineGap: 1.5});
+				.text('Catalina', 237, 385)
+				.text('Gancho p bajar', 237, 400)
+				.text('Ojos de candado', 237, 415)
+				.text('Cerradura central', 237, 430)
+				.text('Mirilla', 237, 445)
+				.text('Hule inferior (std.)', 237, 460)
+				.text('Sello lateral (opc.)', 237, 475)
+				.text(proyecto.cortina.cor_accesorio1, 237, 490)
+				.text(proyecto.cortina.cor_accesorio2, 237, 505)
+				.text(proyecto.cortina.cor_accesorio3, 237, 520)
 
 			
 			//test number
@@ -681,7 +679,7 @@ module.exports = function(passport) {
 					.fillAndStroke( '#777', 'black');
 				}
 
-			//molding
+			//radio - molding
 			doc.circle(362, 484, 7).stroke();
 					if (proyecto.cortina.cor_main_radio === 'option1') {
 						doc.circle(362, 484, 4)
@@ -712,42 +710,68 @@ module.exports = function(passport) {
 						.fillAndStroke( '#777', 'black');
 					}
 			
+
+			//checkboxes - box 5
+			doc.rect(223, 385, 7, 7).stroke();
+				if (_.includes(proyecto.cortina.cor_box5_check, 'catalina')) {
+					doc.rect(223, 385, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
+
+			doc.rect(223, 400, 7, 7).stroke();
+				if (_.includes(proyecto.cortina.cor_box5_check, 'gancho')) {
+					doc.rect(223, 400, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
+
+			doc.rect(223, 415, 7, 7).stroke();
+				if (_.includes(proyecto.cortina.cor_box5_check, 'ojos')) {
+					doc.rect(223, 415, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
+
+			doc.rect(223, 430, 7, 7).stroke();
+				if (_.includes(proyecto.cortina.cor_box5_check, 'cerradura')) {
+					doc.rect(223, 430, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
+
+			doc.rect(223, 445, 7, 7).stroke();
+				if (_.includes(proyecto.cortina.cor_box5_check, 'mirilla')) {
+					doc.rect(223, 445, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
+
+			doc.rect(223, 460, 7, 7).stroke();
+				if (_.includes(proyecto.cortina.cor_box5_check, 'hule')) {
+					doc.rect(223, 460, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
+
+			doc.rect(223, 475, 7, 7).stroke();
+				if (_.includes(proyecto.cortina.cor_box5_check,'sello')) {
+					doc.rect(223, 475, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
 			
-			//checkboxes
-			doc.rect(223, 384, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'catalina')) {
-					doc.rect(223, 384, 4, 4)
+			doc.rect(223, 490, 7, 7).stroke();
+				if (proyecto.cortina.cor_accesorio1) {
+					doc.rect(223, 490, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
+			
+			doc.rect(223, 505, 7, 7).stroke();
+				if (proyecto.cortina.cor_accesorio2) {
+					doc.rect(223, 505, 7, 7)
+					.fillAndStroke( '#777', 'black');
+				}
+	
+			doc.rect(223, 520, 7, 7).stroke();
+				if (proyecto.cortina.cor_accesorio3) {
+					doc.rect(223, 520, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 
-			doc.rect(223, 398, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'gancho')) {
-					doc.rect(223, 398, 4, 4)
-				}
-
-			doc.rect(223, 412, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'ojos')) {
-					doc.rect(223, 412, 4, 4)
-				}
-
-			doc.rect(223, 426, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'cerradura')) {
-					doc.rect(223, 426, 4, 4)
-				}
-
-			doc.rect(223, 440, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'mirilla')) {
-					doc.rect(223, 440, 4, 4)
-				}
-
-			doc.rect(223, 454, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box5_checkbox, 'hule')) {
-					doc.rect(223, 454, 4, 4)
-				}
-
-			doc.rect(223, 468, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box5_checkbox,'sello')) {
-					doc.rect(223, 468, 4, 4)
-				}
 
 			//grid lines
 			doc.lineWidth(.5)
@@ -870,7 +894,8 @@ module.exports = function(passport) {
 				.text('Polainas, petos, guantes', {lineGap: 1.5})
 				.text('Conos y cinta de seguridad', {lineGap: 1.5})
 				.text('Vehículo 4x4', {lineGap: 1.5})
-				.text('Extintor                Candado de breaker', {lineGap: 1.5})
+				.text('Extintor')
+				.text('Candado de breaker', 140, 527)
 				//box 12
 				.text('"Offset"', 378, 289)
 				
@@ -890,9 +915,9 @@ module.exports = function(passport) {
 				//box 16
 				.text(proyecto.cortina.cor_comentarios, 435, 300)
 				//box 17
-				.text('Aprobado', 460, 496, {lineGap: 1.5})
-				.text('Aprobado c/ notas', {lineGap: 1.5})
-				.text('Rechazado', {lineGap: 1.5})
+				.text('Aprobado', 462, 498)
+				.text('Aprobado c/ notas', 462, 513)
+				.text('Rechazado', 462, 528)
 
 			//radio circles
 			doc.circle(48, 170, 7).stroke();
@@ -954,69 +979,87 @@ module.exports = function(passport) {
 						.fillAndStroke( '#777', 'black');
 				}
 			
-			//checkboxes
+			//checkboxes - box 9
 			doc.rect(30, 307, 7, 7).stroke();
 				if (proyecto.cortina.cor_box9_radio === 'option1') {
-						doc.rect(31, 308, 4, 4)
+						doc.rect(30, 307, 7, 7)
+						.fillAndStroke( '#777', 'black');
 				}
 			doc.rect(30, 321, 7, 7).stroke();
 				if (proyecto.cortina.cor_box9_radio === 'option2') {
-					doc.rect(31, 322, 4, 4)
+					doc.rect(30, 321, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 			doc.rect(30, 335, 7, 7).stroke();
 				if (proyecto.cortina.cor_box9_radio === 'option3') {
-					doc.rect(31, 336, 4, 4)
+					doc.rect(30, 335, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 
+			//checkboxes - box 11
 			doc.rect(30, 443, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'herra')) {
-					doc.rect(31, 444, 4, 4)
+				if (_.includes(proyecto.cortina.cor_box11_check, 'herra')) {
+					doc.rect(30, 443, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 			doc.rect(30, 457, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'andamios')) {
-					doc.rect(31, 458, 4, 4)
+				if (_.includes(proyecto.cortina.cor_box11_check, 'andamios')) {
+					doc.rect(30, 457, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 			doc.rect(30, 471, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'monta')) {
-					doc.rect(31, 472, 4, 4)
+				if (_.includes(proyecto.cortina.cor_box11_check, 'monta')) {
+					doc.rect(30, 471, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 			doc.rect(30, 485, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'polainas')) {
-					doc.rect(31, 486, 4, 4)
+				if (_.includes(proyecto.cortina.cor_box11_check, 'polainas')) {
+					doc.rect(30, 485, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 			doc.rect(30, 499, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'conos')) {
-					doc.rect(31, 500, 4, 4)
+				if (_.includes(proyecto.cortina.cor_box11_check, 'conos')) {
+					doc.rect(30, 499, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 			doc.rect(30, 513, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'vehiculo')) {
-					doc.rect(31, 514, 4, 4)
+				if (_.includes(proyecto.cortina.cor_box11_check, 'vehiculo')) {
+					doc.rect(30, 513, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 			doc.rect(30, 528, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'extintor')) {
-					doc.rect(31, 529, 4, 4)
+				if (_.includes(proyecto.cortina.cor_box11_check, 'extintor')) {
+					doc.rect(30, 528, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
-			doc.rect(122, 528, 7, 7).stroke();
-				if (_.includes(proyecto.cortina.cor_box11_checkbox, 'candado')) {
-					doc.rect(123, 529, 4, 4)
+			doc.rect(127, 528, 7, 7).stroke();
+				if (_.includes(proyecto.cortina.cor_box11_check, 'candado')) {
+					doc.rect(127, 528, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 
+			//checkbox - box 13
 			doc.rect(283, 532, 7, 7).stroke();
-				if (proyecto.cortina.cor_box13_radio === 'option1') {
-					doc.rect(284, 533, 4, 4)
+				if (_.includes(proyecto.cortina.cor_box13_check, 'fotos')) {
+					doc.rect(283, 532, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 
-			doc.rect(446, 497, 7, 7).stroke();
+			//checkbox - box 17
+			doc.rect(446, 499, 7, 7).stroke();
 				if (proyecto.cortina.cor_box17_radio === 'option1') {
-					doc.rect(447, 498, 4, 4)
+					doc.rect(446, 499, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
-			doc.rect(446, 511, 7, 7).stroke();
+			doc.rect(446, 514, 7, 7).stroke();
 				if (proyecto.cortina.cor_box17_radio === 'option2') {
-					doc.rect(447, 512, 4, 4)
+					doc.rect(446, 514, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
-			doc.rect(446, 525, 7, 7).stroke();
+			doc.rect(446, 529, 7, 7).stroke();
 				if (proyecto.cortina.cor_box17_radio === 'option3') {
-					doc.rect(447, 526, 4, 4)
+					doc.rect(446, 529, 7, 7)
+					.fillAndStroke( '#777', 'black');
 				}
 
 
