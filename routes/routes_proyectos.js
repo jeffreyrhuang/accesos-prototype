@@ -5,10 +5,17 @@ var passport = require('passport');
 //import proyecto model
 var Proyecto = require('../models/proyecto');
 
+//route middleware to make sure user is Authenticated
+var verified = function(req, res, next) {
+	if(req.isAuthenticated())
+		return next();
+	res.redirect('/');
+};
+
 module.exports = function(passport){
 
 
-	router.get('/proyectos', function(req, res){
+	router.get('/proyectos', verified, function(req, res){
 		Proyecto.find({}).
 			sort('-createdAt').
 			exec(function(err, proyectos){
@@ -41,7 +48,7 @@ module.exports = function(passport){
 	});
 
 
-	router.get('/proyectos/:id', function (req, res){
+	router.get('/proyectos/:id', verified, function (req, res){
 		Proyecto.findById(req.params.id, function(err, proyecto){
 			if (err)
 				res.send(err);
@@ -76,7 +83,7 @@ module.exports = function(passport){
 		});
 	});
 	
-	router.get('/proyectos/:id/peso', function(req, res){
+	router.get('/proyectos/:id/peso', verified, function(req, res){
 		Proyecto.findById(req.params.id, function(err, proyecto){
 			if (err)
 				res.send(err)
@@ -85,7 +92,7 @@ module.exports = function(passport){
 		});
 	});
 
-	router.get('/proyectos/:id/cortina', function(req, res){
+	router.get('/proyectos/:id/cortina', verified, function(req, res){
 		Proyecto.findById(req.params.id, function(err, proyecto){
 			if (err)
 				res.send(err)

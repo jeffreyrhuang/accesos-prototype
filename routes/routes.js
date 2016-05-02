@@ -36,10 +36,6 @@ module.exports = function(passport) {
 		res.render('create');
 	});
 
-	router.get('/home', function(req, res) {
-	  res.render('home');
-	});
-
 	router.get('/', function(req, res) {
 	  res.render('index', {alertMessage: req.flash('loginMessage')});
 	});
@@ -65,13 +61,6 @@ module.exports = function(passport) {
 		res.redirect('/');
 	});
 
-	router.get('/motor', verified, function(req, res) {
-	  res.render('motor');
-	});
-
-	router.get('/acceso', verified, function(req, res) {
-	  res.render('acceso');
-	});
 
 //AJAX for peso calc
 	router.post('/peso', verified, function(req, res) {
@@ -276,13 +265,6 @@ module.exports = function(passport) {
 	});
 
 
-	router.get('/encuestas', verified, function(req, res) {
-	  res.render('encuestas');
-	});
-
-	router.get('/cliente', verified, function(req, res) {
-	  res.render('cliente');
-	});
 
 		//peso report - pdf generator
 		//EMAIL PESO REPORT
