@@ -574,15 +574,6 @@ module.exports = function(passport) {
 				.text(proyecto.cortina.cor_accesorio2, 237, 505)
 				.text(proyecto.cortina.cor_accesorio3, 237, 520)
 
-			
-			//test number
-
-			doc.text('88', 348, 367)  // H1
-				.text('88', 474, 367)		// H2
-				.text('88', 605, 378)		// H3
-				.text('88', 356, 283)		// CE
-				.text('88', 473, 287)		// CI
-
 			//radio circles
 				//radio - main diagram, instalacion
 			doc.circle(345, 247, 7).stroke();
@@ -802,6 +793,48 @@ module.exports = function(passport) {
 				.moveTo(272, 82)
 				.lineTo(272, 213)
 				.stroke();
+
+			//input backgrounds
+			doc.rect(649, 224, 21, 11).fillAndStroke('#d9d9d9');		// A1
+			doc.rect(649, 529, 21, 11).fillAndStroke('#d9d9d9');		// A2
+			doc.rect(346, 365, 21, 11).fillAndStroke('#d9d9d9');		// H1
+			doc.rect(472, 365, 21, 11).fillAndStroke('#d9d9d9');		// H2
+			doc.rect(603, 376, 21, 11).fillAndStroke('#d9d9d9');		// H3
+			doc.rect(354, 281, 21, 11).fillAndStroke('#d9d9d9');		// CE
+			doc.rect(471, 285, 21, 11).fillAndStroke('#d9d9d9');		// CI
+			doc.rect(550, 413, 21, 11).fillAndStroke('#d9d9d9');		// LI
+			doc.rect(752, 413, 21, 11).fillAndStroke('#d9d9d9');		// LD
+			doc.rect(518, 244, 21, 11).fillAndStroke('#d9d9d9');		// P
+			doc.rect(667, 321, 21, 11).fillAndStroke('#d9d9d9');		// SS
+			doc.rect(667, 371, 21, 11).fillAndStroke('#d9d9d9');		// SC
+			doc.rect(665, 421, 21, 11).fillAndStroke('#d9d9d9');		// SI
+			doc.rect(652, 138, 21, 11).fillAndStroke('#d9d9d9');		// B
+			doc.rect(591, 121, 21, 11).fillAndStroke('#d9d9d9');		// TI
+			doc.rect(699, 121, 21, 11).fillAndStroke('#d9d9d9');		// TD
+			doc.rect(558, 503, 21, 11).fillAndStroke('#d9d9d9');		// DI
+			doc.rect(740, 469, 21, 11).fillAndStroke('#d9d9d9');		// DD
+
+			doc.fillColor('black');
+
+			// main diagram number inputs
+			if (proyecto.cortina.cor_a) 	{ doc.text(proyecto.cortina.cor_a, 651, 226) };			// A1
+			if (proyecto.cortina.cor_a) 	{ doc.text(proyecto.cortina.cor_a, 651, 531) };			// A2
+			if (proyecto.cortina.cor_h) 	{ doc.text(proyecto.cortina.cor_h, 348, 367) }; 		// H1
+			if (proyecto.cortina.cor_h) 	{ doc.text(proyecto.cortina.cor_h, 474, 367) };			// H2
+			if (proyecto.cortina.cor_h) 	{ doc.text(proyecto.cortina.cor_h, 605, 378) };			// H3
+			if (proyecto.cortina.cor_ce) 	{ doc.text(proyecto.cortina.cor_ce, 356, 283) };		// CE
+			if (proyecto.cortina.cor_ci) 	{ doc.text(proyecto.cortina.cor_ci, 473, 287) };		// CI
+			if (proyecto.cortina.cor_li) 	{ doc.text(proyecto.cortina.cor_li, 552, 415) };		// LI   
+			if (proyecto.cortina.cor_ld) 	{ doc.text(proyecto.cortina.cor_ld, 754, 415) };  	// LD
+			if (proyecto.cortina.cor_p) 	{ doc.text(proyecto.cortina.cor_p, 520, 246) };			// P   
+			if (proyecto.cortina.cor_ss) 	{ doc.text(proyecto.cortina.cor_ss, 668, 323) };		// SS
+			if (proyecto.cortina.cor_sc) 	{ doc.text(proyecto.cortina.cor_sc, 668, 373) };		// SC
+			if (proyecto.cortina.cor_si) 	{ doc.text(proyecto.cortina.cor_si, 666, 423) };		// SI
+			if (proyecto.cortina.cor_b) 	{ doc.text(proyecto.cortina.cor_b, 654, 140) };			// B
+			if (proyecto.cortina.cor_ti) 	{ doc.text(proyecto.cortina.cor_ti, 593, 123) };		// TI
+			if (proyecto.cortina.cor_td) 	{ doc.text(proyecto.cortina.cor_td, 701, 123) };		// TD
+			if (proyecto.cortina.cor_di) 	{ doc.text(proyecto.cortina.cor_di, 560, 505) };		// DI
+			if (proyecto.cortina.cor_dd) 	{ doc.text(proyecto.cortina.cor_dd, 742, 471) };		// DD
 			
 			// PAGE 2
 			doc.addPage();
@@ -811,7 +844,7 @@ module.exports = function(passport) {
 			doc.image('./public/img/cortina-box7.png', 266, 63, {width: 140});
 			doc.image('./public/img/cortina-box12.png', 281, 376, {width: 143});
 			doc.image('./public/img/cortina-box14-L.png',427, 79, {width: 148}); 
-			doc.image('./public/img/cortina-box15-L.png', 581, 82, {width: 191});
+			doc.image('./public/img/cortina-box15-L.png', 583, 82, {width: 191});
 			
 			//Report title
 			//make this font oblique?
@@ -872,7 +905,7 @@ module.exports = function(passport) {
 				//box 11
 				.text('Herramienta certificada', 47, 442, {lineGap: 1.5})
 				.text('Andamios - Escalera extensión', {lineGap: 1.5})
-				.text('Montacargas - ' + proyecto.cortina.cor_monta_carg, {lineGap: 1.5})
+				.text('Montacargas -      ' + proyecto.cortina.cor_monta_carg, {lineGap: 1.5})
 				.text('Polainas, petos, guantes', {lineGap: 1.5})
 				.text('Conos y cinta de seguridad', {lineGap: 1.5})
 				.text('Vehículo 4x4', {lineGap: 1.5})
@@ -883,7 +916,7 @@ module.exports = function(passport) {
 				
 				if (proyecto.cortina.cor_offset) 	{ doc.text(proyecto.cortina.cor_offset + ' cm', 280, 303) }
 
-				doc.text('más alto de viga', 315, 303)
+				doc.text('más alto de viga', 318, 303)
 				.text('Registro en cielo razo por', 280, 318, {lineGap: 1.5})
 				.text('parte de    ' + proyecto.cortina.cor_rollo_carg, {lineGap: 1.5})
 				.text('Nota: registro debe ser de', {lineGap: 1.5})
@@ -1112,6 +1145,43 @@ module.exports = function(passport) {
 				.lineTo(774, 475)
 
 				.stroke();
+
+			doc.rect(291, 423, 21, 12).fillAndStroke('#d9d9d9');		// CI
+			doc.rect(301, 479, 21, 12).fillAndStroke('#d9d9d9');		// OF
+			doc.rect(352, 363, 21, 12).fillAndStroke('#d9d9d9');		// P
+
+			doc.rect(425, 159, 21, 12).fillAndStroke('#d9d9d9');		// 1
+			doc.rect(462, 95, 21, 12).fillAndStroke('#d9d9d9');			// 2
+			doc.rect(523, 95, 21, 12).fillAndStroke('#d9d9d9');			// 3
+			doc.rect(556, 159, 21, 12).fillAndStroke('#d9d9d9');		// 4
+
+			doc.rect(588, 184, 21, 12).fillAndStroke('#d9d9d9');		// 1
+			doc.rect(588, 124, 21, 12).fillAndStroke('#d9d9d9');		// 2
+			doc.rect(624, 90, 21, 12).fillAndStroke('#d9d9d9');			// 3
+			doc.rect(717, 90, 21, 12).fillAndStroke('#d9d9d9');			// 4
+			doc.rect(749, 124, 21, 12).fillAndStroke('#d9d9d9');		// 5
+			doc.rect(749, 184, 21, 12).fillAndStroke('#d9d9d9');		// 6
+
+			doc.fillColor('black');
+
+			// number inputs - box 12
+			if (proyecto.cortina.cor_box12_ci) 	{ doc.text(proyecto.cortina.cor_box12_ci, 293, 425) };
+			if (proyecto.cortina.cor_box12_of) 	{ doc.text(proyecto.cortina.cor_box12_of, 303, 481) };
+			if (proyecto.cortina.cor_box12_p) 	{ doc.text(proyecto.cortina.cor_box12_p, 354, 365) };
+
+			// number inputs - box 14
+			if (proyecto.cortina.cor_box14_input1) 	{ doc.text(proyecto.cortina.cor_box14_input1, 427, 161) };
+			if (proyecto.cortina.cor_box14_input2) 	{ doc.text(proyecto.cortina.cor_box14_input2, 464, 97) };
+			if (proyecto.cortina.cor_box14_input3) 	{ doc.text(proyecto.cortina.cor_box14_input3, 525, 97) };
+			if (proyecto.cortina.cor_box14_input4) 	{ doc.text(proyecto.cortina.cor_box14_input4, 558, 161) };
+
+			// number inputs - box 15
+			if (proyecto.cortina.cor_box15_input1) 	{ doc.text(proyecto.cortina.cor_box15_input1, 590, 186) };
+			if (proyecto.cortina.cor_box15_input2) 	{ doc.text(proyecto.cortina.cor_box15_input2, 590, 126) };
+			if (proyecto.cortina.cor_box15_input3) 	{ doc.text(proyecto.cortina.cor_box15_input3, 626, 92) };
+			if (proyecto.cortina.cor_box15_input4) 	{ doc.text(proyecto.cortina.cor_box15_input4, 719, 92) };
+			if (proyecto.cortina.cor_box15_input5) 	{ doc.text(proyecto.cortina.cor_box15_input5, 751, 126) };
+			if (proyecto.cortina.cor_box15_input6) 	{ doc.text(proyecto.cortina.cor_box15_input6, 751, 186) };
 
 			doc.end();
 			console.log(proyecto.cortina)
