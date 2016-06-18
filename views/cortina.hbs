@@ -9,6 +9,7 @@
 
 {{#proyecto}}
 <form action="/saveCortina" method="POST" class="form-horizontal" id="cortinaForm">
+  <input type="hidden" name="_csrf" value="{{_csrfToken}}">
 	<input type="hidden" name="_id" value="{{_id}}">
 	<input type="hidden" name="cor_submitted" value=true />
 
@@ -685,12 +686,12 @@
 					<input type="checkbox" name="cor_box5_check" value="dummy" checked="checked">
 				</div>
 			
-				<div>
+				<div style="margin-top: 1em;">
 					<label for="" class="control-label">Otros</label>
 					<input type="text" name="cor_accesorio1" value="{{cortina.cor_accesorio1}}" class="form-control accesorio-otro">
 					<input type="text" name="cor_accesorio2" value="{{cortina.cor_accesorio2}}" class="form-control accesorio-otro">
 					<input type="text" name="cor_accesorio3" value="{{cortina.cor_accesorio3}}" class="form-control accesorio-otro">
-				
+				</div>
 
 			</div>
 		</div>
